@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<bean id="checker" class="com.doublechaintech.uxs.UxsChecker" scope="prototype"></bean>
+
+	<bean id="platformManagerBase" class="com.doublechaintech.uxs.platform.PlatformManagerImpl"/>
+	<bean id="platformManager" class="com.doublechaintech.uxs.platform.PlatformCustomManagerImpl" parent="platformManagerBase" ></bean>
+	
+	<bean id="productManagerBase" class="com.doublechaintech.uxs.product.ProductManagerImpl"/>
+	<bean id="productManager" class="com.doublechaintech.uxs.product.ProductCustomManagerImpl" parent="productManagerBase" ></bean>
+	
+	<bean id="bannerManagerBase" class="com.doublechaintech.uxs.banner.BannerManagerImpl"/>
+	<bean id="bannerManager" class="com.doublechaintech.uxs.banner.BannerManagerImpl" parent="bannerManagerBase" ></bean>
+	
+	<bean id="profileManagerBase" class="com.doublechaintech.uxs.profile.ProfileManagerImpl"/>
+	<bean id="profileManager" class="com.doublechaintech.uxs.profile.ProfileCustomManagerImpl" parent="profileManagerBase" ></bean>
+	
+	<bean id="targetManagerBase" class="com.doublechaintech.uxs.target.TargetManagerImpl"/>
+	<bean id="targetManager" class="com.doublechaintech.uxs.target.TargetManagerImpl" parent="targetManagerBase" ></bean>
+	
+	<bean id="ratingManagerBase" class="com.doublechaintech.uxs.rating.RatingManagerImpl"/>
+	<bean id="ratingManager" class="com.doublechaintech.uxs.rating.RatingManagerImpl" parent="ratingManagerBase" ></bean>
+	
+	<bean id="reviewManagerBase" class="com.doublechaintech.uxs.review.ReviewManagerImpl"/>
+	<bean id="reviewManager" class="com.doublechaintech.uxs.review.ReviewManagerImpl" parent="reviewManagerBase" ></bean>
+	
+	<bean id="blogManagerBase" class="com.doublechaintech.uxs.blog.BlogManagerImpl"/>
+	<bean id="blogManager" class="com.doublechaintech.uxs.blog.BlogManagerImpl" parent="blogManagerBase" ></bean>
+	
+	<bean id="userDomainManagerBase" class="com.doublechaintech.uxs.userdomain.UserDomainManagerImpl"/>
+	<bean id="userDomainManager" class="com.doublechaintech.uxs.userdomain.UserDomainCustomManagerImpl" parent="userDomainManagerBase" ></bean>
+	
+	<bean id="userWhiteListManagerBase" class="com.doublechaintech.uxs.userwhitelist.UserWhiteListManagerImpl"/>
+	<bean id="userWhiteListManager" class="com.doublechaintech.uxs.userwhitelist.UserWhiteListManagerImpl" parent="userWhiteListManagerBase" ></bean>
+	
+	<bean id="secUserManagerBase" class="com.doublechaintech.uxs.secuser.SecUserManagerImpl"/>
+	<bean id="secUserManager" class="com.doublechaintech.uxs.secuser.SecUserCustomManagerImpl" parent="secUserManagerBase" ></bean>
+	
+	<bean id="secUserBlockingManagerBase" class="com.doublechaintech.uxs.secuserblocking.SecUserBlockingManagerImpl"/>
+	<bean id="secUserBlockingManager" class="com.doublechaintech.uxs.secuserblocking.SecUserBlockingCustomManagerImpl" parent="secUserBlockingManagerBase" ></bean>
+	
+	<bean id="userAppManagerBase" class="com.doublechaintech.uxs.userapp.UserAppManagerImpl"/>
+	<bean id="userAppManager" class="com.doublechaintech.uxs.userapp.UserAppCustomManagerImpl" parent="userAppManagerBase" ></bean>
+	
+	<bean id="listAccessManagerBase" class="com.doublechaintech.uxs.listaccess.ListAccessManagerImpl"/>
+	<bean id="listAccessManager" class="com.doublechaintech.uxs.listaccess.ListAccessManagerImpl" parent="listAccessManagerBase" ></bean>
+	
+	<bean id="objectAccessManagerBase" class="com.doublechaintech.uxs.objectaccess.ObjectAccessManagerImpl"/>
+	<bean id="objectAccessManager" class="com.doublechaintech.uxs.objectaccess.ObjectAccessManagerImpl" parent="objectAccessManagerBase" ></bean>
+	
+	<bean id="loginHistoryManagerBase" class="com.doublechaintech.uxs.loginhistory.LoginHistoryManagerImpl"/>
+	<bean id="loginHistoryManager" class="com.doublechaintech.uxs.loginhistory.LoginHistoryManagerImpl" parent="loginHistoryManagerBase" ></bean>
+	
+	<bean id="genericFormManagerBase" class="com.doublechaintech.uxs.genericform.GenericFormManagerImpl"/>
+	<bean id="genericFormManager" class="com.doublechaintech.uxs.genericform.GenericFormCustomManagerImpl" parent="genericFormManagerBase" ></bean>
+	
+	<bean id="formMessageManagerBase" class="com.doublechaintech.uxs.formmessage.FormMessageManagerImpl"/>
+	<bean id="formMessageManager" class="com.doublechaintech.uxs.formmessage.FormMessageManagerImpl" parent="formMessageManagerBase" ></bean>
+	
+	<bean id="formFieldMessageManagerBase" class="com.doublechaintech.uxs.formfieldmessage.FormFieldMessageManagerImpl"/>
+	<bean id="formFieldMessageManager" class="com.doublechaintech.uxs.formfieldmessage.FormFieldMessageManagerImpl" parent="formFieldMessageManagerBase" ></bean>
+	
+	<bean id="formFieldManagerBase" class="com.doublechaintech.uxs.formfield.FormFieldManagerImpl"/>
+	<bean id="formFieldManager" class="com.doublechaintech.uxs.formfield.FormFieldManagerImpl" parent="formFieldManagerBase" ></bean>
+	
+	<bean id="formActionManagerBase" class="com.doublechaintech.uxs.formaction.FormActionManagerImpl"/>
+	<bean id="formActionManager" class="com.doublechaintech.uxs.formaction.FormActionManagerImpl" parent="formActionManagerBase" ></bean>
+	
+
+	<bean id="managerGroupBase" class="com.doublechaintech.uxs.ManagerGroup">
+		<property name="platformManager" ref="platformManager"/>
+		<property name="productManager" ref="productManager"/>
+		<property name="bannerManager" ref="bannerManager"/>
+		<property name="profileManager" ref="profileManager"/>
+		<property name="targetManager" ref="targetManager"/>
+		<property name="ratingManager" ref="ratingManager"/>
+		<property name="reviewManager" ref="reviewManager"/>
+		<property name="blogManager" ref="blogManager"/>
+		<property name="userDomainManager" ref="userDomainManager"/>
+		<property name="userWhiteListManager" ref="userWhiteListManager"/>
+		<property name="secUserManager" ref="secUserManager"/>
+		<property name="secUserBlockingManager" ref="secUserBlockingManager"/>
+		<property name="userAppManager" ref="userAppManager"/>
+		<property name="listAccessManager" ref="listAccessManager"/>
+		<property name="objectAccessManager" ref="objectAccessManager"/>
+		<property name="loginHistoryManager" ref="loginHistoryManager"/>
+		<property name="genericFormManager" ref="genericFormManager"/>
+		<property name="formMessageManager" ref="formMessageManager"/>
+		<property name="formFieldMessageManager" ref="formFieldMessageManager"/>
+		<property name="formFieldManager" ref="formFieldManager"/>
+		<property name="formActionManager" ref="formActionManager"/>
+	</bean>
+	<bean id="managerGroup" parent="managerGroupBase"></bean>
+	
+
+
+</beans>
+
+
+
+
+
+
+
+
