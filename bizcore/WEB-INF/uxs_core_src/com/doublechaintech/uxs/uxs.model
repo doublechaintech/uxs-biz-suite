@@ -1,0 +1,76 @@
+<?xml version='1.0' ?>
+<root org="doublechaintech" chinese_name="User Experience Service" english_name="User Experience Service">
+
+	<platform
+		name="Chain eComerce Platform"
+
+	/>
+	<product
+		name="A beautiful jean"
+		platform="$(platform)"
+		avarage_score="4.5"
+	/>
+	
+	<banner
+		name="2.14 Valentines Day Promotion"
+		image_path="ValDay-800-600-RED.jpg"
+		last_update="updateTime()"
+		platform="$(platform)"
+	/>
+	
+	
+	<profile
+		name="Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI"
+		
+		platform="$(platform)"
+	/>
+	
+	<target
+		name="valentines day"
+		profile="$(profile)"
+		banner="$(banner)"
+		
+		location="HOME"
+		last_update="updateTime()"
+	/>
+	
+	
+	<rating
+		user="$(profile)"
+		product="$(product)"
+		score="1|2|3|4|5"
+		update_time="updateTime()"
+		
+	/>
+	
+	
+	<review
+		title="Credit Card|GiftCard"
+		content="text()"
+		user="$(profile)"
+		product="$(product)"
+		update_time="updateTime()"
+		
+	/>
+	<blog
+		title="a consumer order"
+		content="text()"
+		user="$(profile)"
+		product="$(product)"
+		update_time="updateTime()"
+	/>
+	
+	
+	
+	
+</root>
+ 
+
+
+
+
+
+
+
+
+

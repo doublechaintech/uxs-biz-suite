@@ -1,0 +1,17 @@
+SMAP
+_include__tag.java
+JSP
+*S JSP
+*F
++ 1 include.tag
+tags/include.tag
+*L
+9#1:15
+9#1:16,49
+4#1:64
+10#1,4:65
+13#1,8:69
+20#1,2:77
+21#1,2:79
+24#1:81
+*E
