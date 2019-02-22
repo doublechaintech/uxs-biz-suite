@@ -21,18 +21,27 @@ import java.util.stream.Stream;
 import org.apache.http.client.ClientProtocolException;
 
 import com.doublechaintech.uxs.UxsUserContext;
+import com.terapico.uccaf.BaseUserContext;
 import com.terapico.utils.RestUtil;
 
 
 public class ProfileCustomManagerImpl extends ProfileManagerImpl{
-
+	@Override
+	public Object checkAccess(BaseUserContext baseUserContext, String methodName, Object[] parameters)
+			throws IllegalAccessException {
+	
+		
+		return accessOK();
+		
+		//return super.checkAccess(baseUserContext, methodName, parameters);
+	}
 	
 	public Profile home(UxsUserContext userContext, String profileId) throws Exception {
 		
 		
-		String tokens[]=this.tokens().withBlogList().withRatingList().withReviewList().withTargetList().toArray();
+		String tokens[]=this.tokens().allTokens().toArray();
 		
-		List<Profile> profileList = this.loadProfileListFromDifferentServices(userContext, new String[] {"cms","ugc"}, profileId, tokens);
+		List<Profile> profileList = this.loadProfileListFromDifferentServices(userContext, new String[] {"cms","ugc","pim"}, profileId, tokens);
 		
 		
 		return mergeProfileFromMicroservices( userContext, profileList);
@@ -88,30 +97,7 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 	
 	protected Profile mergeProfilesFromMicroservice(UxsUserContext userContext,Profile profileDest, Profile profileSrc) {
 	
-		if(profileSrc.getId()!=null) {
-			profileDest.setId(profileSrc.getId());
-		}
-		if(profileSrc.getName()!=null) {
-			profileDest.setName(profileSrc.getName());
-		}
-		if(profileSrc.getPlatform()!=null) {
-			profileDest.setPlatform(profileSrc.getPlatform());
-		}
-		
-		if(profileSrc.getTargetList()!=null) {
-			profileDest.addTargetList(profileSrc.getTargetList());
-			//profileDest.setTargetList(profileSrc.getTargetList());
-		}
-		if(profileSrc.getRatingList()!=null) {
-			profileDest.addRatingList(profileSrc.getRatingList());
-		}
-		if(profileSrc.getReviewList() !=null) {
-			profileDest.addReviewList(profileSrc.getReviewList());
-		}
-		if(profileSrc.getBlogList() !=null) {
-			profileDest.addBlogList(profileSrc.getBlogList());
-		}
-		
+		profileSrc.mergeDataTo(profileDest);
 		return profileDest;
 		
 		

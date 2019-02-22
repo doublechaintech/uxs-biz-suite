@@ -158,6 +158,9 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -171,6 +174,9 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setPlatform(Platform platform){
@@ -183,6 +189,9 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		this.mPlatform = platform;;
 		this.changed = true;
 		return this;
+	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
 	}
 	
 	
@@ -201,6 +210,9 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -234,7 +246,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getUserAlertList().addAll(userAlertList);
 	}
-	
+	public  void mergeUserAlertList(SmartList<UserAlert> userAlertList){
+		if(userAlertList==null){
+			return;
+		}
+		if(userAlertList.isEmpty()){
+			return;
+		}
+		addUserAlertList( userAlertList );
+		
+	}
 	public  UserAlert removeUserAlert(UserAlert userAlertIndex){
 		
 		int index = getUserAlertList().indexOf(userAlertIndex);
@@ -332,7 +353,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getTargetList().addAll(targetList);
 	}
-	
+	public  void mergeTargetList(SmartList<Target> targetList){
+		if(targetList==null){
+			return;
+		}
+		if(targetList.isEmpty()){
+			return;
+		}
+		addTargetList( targetList );
+		
+	}
 	public  Target removeTarget(Target targetIndex){
 		
 		int index = getTargetList().indexOf(targetIndex);
@@ -430,7 +460,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getRatingList().addAll(ratingList);
 	}
-	
+	public  void mergeRatingList(SmartList<Rating> ratingList){
+		if(ratingList==null){
+			return;
+		}
+		if(ratingList.isEmpty()){
+			return;
+		}
+		addRatingList( ratingList );
+		
+	}
 	public  Rating removeRating(Rating ratingIndex){
 		
 		int index = getRatingList().indexOf(ratingIndex);
@@ -528,7 +567,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getReviewList().addAll(reviewList);
 	}
-	
+	public  void mergeReviewList(SmartList<Review> reviewList){
+		if(reviewList==null){
+			return;
+		}
+		if(reviewList.isEmpty()){
+			return;
+		}
+		addReviewList( reviewList );
+		
+	}
 	public  Review removeReview(Review reviewIndex){
 		
 		int index = getReviewList().indexOf(reviewIndex);
@@ -626,7 +674,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getBlogList().addAll(blogList);
 	}
-	
+	public  void mergeBlogList(SmartList<Blog> blogList){
+		if(blogList==null){
+			return;
+		}
+		if(blogList.isEmpty()){
+			return;
+		}
+		addBlogList( blogList );
+		
+	}
 	public  Blog removeBlog(Blog blogIndex){
 		
 		int index = getBlogList().indexOf(blogIndex);
@@ -724,7 +781,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getBrandFilterList().addAll(brandFilterList);
 	}
-	
+	public  void mergeBrandFilterList(SmartList<BrandFilter> brandFilterList){
+		if(brandFilterList==null){
+			return;
+		}
+		if(brandFilterList.isEmpty()){
+			return;
+		}
+		addBrandFilterList( brandFilterList );
+		
+	}
 	public  BrandFilter removeBrandFilter(BrandFilter brandFilterIndex){
 		
 		int index = getBrandFilterList().indexOf(brandFilterIndex);
@@ -822,7 +888,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getPriceFilterList().addAll(priceFilterList);
 	}
-	
+	public  void mergePriceFilterList(SmartList<PriceFilter> priceFilterList){
+		if(priceFilterList==null){
+			return;
+		}
+		if(priceFilterList.isEmpty()){
+			return;
+		}
+		addPriceFilterList( priceFilterList );
+		
+	}
 	public  PriceFilter removePriceFilter(PriceFilter priceFilterIndex){
 		
 		int index = getPriceFilterList().indexOf(priceFilterIndex);
@@ -920,7 +995,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getCategoryFilterList().addAll(categoryFilterList);
 	}
-	
+	public  void mergeCategoryFilterList(SmartList<CategoryFilter> categoryFilterList){
+		if(categoryFilterList==null){
+			return;
+		}
+		if(categoryFilterList.isEmpty()){
+			return;
+		}
+		addCategoryFilterList( categoryFilterList );
+		
+	}
 	public  CategoryFilter removeCategoryFilter(CategoryFilter categoryFilterIndex){
 		
 		int index = getCategoryFilterList().indexOf(categoryFilterIndex);
@@ -1018,7 +1102,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getNewProductList().addAll(newProductList);
 	}
-	
+	public  void mergeNewProductList(SmartList<NewProduct> newProductList){
+		if(newProductList==null){
+			return;
+		}
+		if(newProductList.isEmpty()){
+			return;
+		}
+		addNewProductList( newProductList );
+		
+	}
 	public  NewProduct removeNewProduct(NewProduct newProductIndex){
 		
 		int index = getNewProductList().indexOf(newProductIndex);
@@ -1116,7 +1209,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getEditorPickProductList().addAll(editorPickProductList);
 	}
-	
+	public  void mergeEditorPickProductList(SmartList<EditorPickProduct> editorPickProductList){
+		if(editorPickProductList==null){
+			return;
+		}
+		if(editorPickProductList.isEmpty()){
+			return;
+		}
+		addEditorPickProductList( editorPickProductList );
+		
+	}
 	public  EditorPickProduct removeEditorPickProduct(EditorPickProduct editorPickProductIndex){
 		
 		int index = getEditorPickProductList().indexOf(editorPickProductIndex);
@@ -1214,7 +1316,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getTopRatedProductList().addAll(topRatedProductList);
 	}
-	
+	public  void mergeTopRatedProductList(SmartList<TopRatedProduct> topRatedProductList){
+		if(topRatedProductList==null){
+			return;
+		}
+		if(topRatedProductList.isEmpty()){
+			return;
+		}
+		addTopRatedProductList( topRatedProductList );
+		
+	}
 	public  TopRatedProduct removeTopRatedProduct(TopRatedProduct topRatedProductIndex){
 		
 		int index = getTopRatedProductList().indexOf(topRatedProductIndex);
@@ -1312,7 +1423,16 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 		}
 		getRecommandProductList().addAll(recommandProductList);
 	}
-	
+	public  void mergeRecommandProductList(SmartList<RecommandProduct> recommandProductList){
+		if(recommandProductList==null){
+			return;
+		}
+		if(recommandProductList.isEmpty()){
+			return;
+		}
+		addRecommandProductList( recommandProductList );
+		
+	}
 	public  RecommandProduct removeRecommandProduct(RecommandProduct recommandProductIndex){
 		
 		int index = getRecommandProductList().indexOf(recommandProductIndex);
@@ -1525,6 +1645,35 @@ public class Profile extends BaseEntity implements  java.io.Serializable{
 			dest.setEditorPickProductList(getEditorPickProductList());
 			dest.setTopRatedProductList(getTopRatedProductList());
 			dest.setRecommandProductList(getRecommandProductList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Profile){
+		
+			
+			Profile dest =(Profile)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergePlatform(getPlatform());
+			dest.mergeVersion(getVersion());
+			dest.mergeUserAlertList(getUserAlertList());
+			dest.mergeTargetList(getTargetList());
+			dest.mergeRatingList(getRatingList());
+			dest.mergeReviewList(getReviewList());
+			dest.mergeBlogList(getBlogList());
+			dest.mergeBrandFilterList(getBrandFilterList());
+			dest.mergePriceFilterList(getPriceFilterList());
+			dest.mergeCategoryFilterList(getCategoryFilterList());
+			dest.mergeNewProductList(getNewProductList());
+			dest.mergeEditorPickProductList(getEditorPickProductList());
+			dest.mergeTopRatedProductList(getTopRatedProductList());
+			dest.mergeRecommandProductList(getRecommandProductList());
 
 		}
 		super.copyTo(baseDest);

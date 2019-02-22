@@ -156,6 +156,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -168,6 +171,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.mName = trimString(name);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
 	}
 	
 	
@@ -182,6 +188,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeImagePath(String imagePath){
+		if(imagePath != null) { setImagePath(imagePath);}
+	}
 	
 	
 	public void setLastUpdate(DateTime lastUpdate){
@@ -195,6 +204,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeLastUpdate(DateTime lastUpdate){
+		setLastUpdate(lastUpdate);
+	}
 	
 	
 	public void setPlatform(Platform platform){
@@ -207,6 +219,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.mPlatform = platform;;
 		this.changed = true;
 		return this;
+	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
 	}
 	
 	
@@ -225,6 +240,9 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -258,7 +276,16 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 		}
 		getTargetList().addAll(targetList);
 	}
-	
+	public  void mergeTargetList(SmartList<Target> targetList){
+		if(targetList==null){
+			return;
+		}
+		if(targetList.isEmpty()){
+			return;
+		}
+		addTargetList( targetList );
+		
+	}
 	public  Target removeTarget(Target targetIndex){
 		
 		int index = getTargetList().indexOf(targetIndex);
@@ -387,6 +414,26 @@ public class Banner extends BaseEntity implements  java.io.Serializable{
 			dest.setPlatform(getPlatform());
 			dest.setVersion(getVersion());
 			dest.setTargetList(getTargetList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Banner){
+		
+			
+			Banner dest =(Banner)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeImagePath(getImagePath());
+			dest.mergeLastUpdate(getLastUpdate());
+			dest.mergePlatform(getPlatform());
+			dest.mergeVersion(getVersion());
+			dest.mergeTargetList(getTargetList());
 
 		}
 		super.copyTo(baseDest);

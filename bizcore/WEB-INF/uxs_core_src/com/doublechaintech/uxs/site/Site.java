@@ -156,6 +156,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -168,6 +171,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.mName = trimString(name);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
 	}
 	
 	
@@ -182,6 +188,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeIntroduction(String introduction){
+		if(introduction != null) { setIntroduction(introduction);}
+	}
 	
 	
 	public void setPlatform(Platform platform){
@@ -194,6 +203,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.mPlatform = platform;;
 		this.changed = true;
 		return this;
+	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
 	}
 	
 	
@@ -213,6 +225,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeLastUpdateTime(DateTime lastUpdateTime){
+		setLastUpdateTime(lastUpdateTime);
+	}
 	
 	
 	public void setVersion(int version){
@@ -225,6 +240,9 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -258,7 +276,16 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 		}
 		getCatalogList().addAll(catalogList);
 	}
-	
+	public  void mergeCatalogList(SmartList<Catalog> catalogList){
+		if(catalogList==null){
+			return;
+		}
+		if(catalogList.isEmpty()){
+			return;
+		}
+		addCatalogList( catalogList );
+		
+	}
 	public  Catalog removeCatalog(Catalog catalogIndex){
 		
 		int index = getCatalogList().indexOf(catalogIndex);
@@ -387,6 +414,26 @@ public class Site extends BaseEntity implements  java.io.Serializable{
 			dest.setLastUpdateTime(getLastUpdateTime());
 			dest.setVersion(getVersion());
 			dest.setCatalogList(getCatalogList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Site){
+		
+			
+			Site dest =(Site)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeIntroduction(getIntroduction());
+			dest.mergePlatform(getPlatform());
+			dest.mergeLastUpdateTime(getLastUpdateTime());
+			dest.mergeVersion(getVersion());
+			dest.mergeCatalogList(getCatalogList());
 
 		}
 		super.copyTo(baseDest);

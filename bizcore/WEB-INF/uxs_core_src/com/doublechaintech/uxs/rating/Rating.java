@@ -136,6 +136,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setUser(Profile user){
@@ -148,6 +151,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.mUser = user;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeUser(Profile user){
+		if(user != null) { setUser(user);}
 	}
 	
 	
@@ -167,6 +173,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeProduct(Product product){
+		if(product != null) { setProduct(product);}
+	}
 	
 	
 	public void clearProduct(){
@@ -185,6 +194,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeScore(int score){
+		setScore(score);
+	}
 	
 	
 	public void setUpdateTime(DateTime updateTime){
@@ -198,6 +210,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeUpdateTime(DateTime updateTime){
+		setUpdateTime(updateTime);
+	}
 	
 	
 	public void setVersion(int version){
@@ -210,6 +225,9 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -267,6 +285,25 @@ public class Rating extends BaseEntity implements  java.io.Serializable{
 			dest.setScore(getScore());
 			dest.setUpdateTime(getUpdateTime());
 			dest.setVersion(getVersion());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Rating){
+		
+			
+			Rating dest =(Rating)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeUser(getUser());
+			dest.mergeProduct(getProduct());
+			dest.mergeScore(getScore());
+			dest.mergeUpdateTime(getUpdateTime());
+			dest.mergeVersion(getVersion());
 
 		}
 		super.copyTo(baseDest);
