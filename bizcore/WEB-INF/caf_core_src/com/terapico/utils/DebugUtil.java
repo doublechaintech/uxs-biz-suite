@@ -169,7 +169,7 @@ public class DebugUtil {
 			return;
 		}
 		String template="<div class='common_value_content'>%s</div>" ;
-		if (key.equals("imageUrl")) {
+		if (key.equals("imageUrl") || key.toLowerCase().endsWith("image")) {
 			template = "<image class='image_value' src='%s?x-oss-process=style/small'/>";
 			out.write(String.format(template, value));
 			return;

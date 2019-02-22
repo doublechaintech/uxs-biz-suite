@@ -41,7 +41,6 @@ public class RestUtil {
 		HttpGet getRequest = new HttpGet(url);
 		getRequest.addHeader("Accept", "application/json");
 		getRequest.addHeader("Cookie", sessionId);
-		getRequest.addHeader("X-Auth", sessionId);
 
 		HttpResponse response = httpClient.execute(getRequest);
 		
