@@ -9,12 +9,78 @@
 		</fields>
 	</table>
 
+	<table name="site_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="6" max="92" description="Name" />
+			<field name="introduction" type="string" checkType="StringLengthRange" min="10" max="148" description="Introduction" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="catalog_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="seller_id" type="string" checkType="StringLengthRange" min="3" max="32" description="Seller Id" />
+			<field name="site" type="reference" checkType="exist(site)" description="Site" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="level_one_category_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="name" type="string" checkType="StringLengthRange" min="4" max="52" description="Name" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="level_two_category_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="parent_category" type="reference" checkType="exist(level_one_category)" description="Parent Category" />
+			<field name="name" type="string" checkType="StringLengthRange" min="4" max="52" description="Name" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="level_n_category_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="parent_category" type="reference" checkType="exist(level_two_category)" description="Parent Category" />
+			<field name="name" type="string" checkType="StringLengthRange" min="3" max="44" description="Name" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="brand_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="brand_name" type="string" checkType="StringLengthRange" min="3" max="40" description="Brand Name" />
+			<field name="logo" type="string_image" checkType="Image" min="0" max="512" description="Logo" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
 	<table name="product_data">
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
-			<field name="name" type="string" checkType="StringLengthRange" min="5" max="64" description="Name" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="parent_category" type="reference" checkType="exist(level_n_category)" description="Parent Category" />
+			<field name="brand" type="reference" checkType="exist(brand)" description="Brand" />
+			<field name="product_cover_image" type="string_image" checkType="Image" min="0" max="512" description="Product Cover Image" />
+			<field name="origin" type="string" checkType="StringLengthRange" min="1" max="24" description="Origin" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
 			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
-			<field name="avarage_score" type="double" checkType="BigDecimalRange" min="0" max="4.5" description="Avarage Score" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
 		</fields>
 	</table>
@@ -34,6 +100,18 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
 			<field name="name" type="string" checkType="StringLengthRange" min="6" max="72" description="Name" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="user_alert_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="message" type="string" checkType="StringLengthRange" min="26" max="404" description="Message" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="location" type="string" checkType="StringLengthRange" min="2" max="16" description="Location" />
+			<field name="last_update" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update" />
 			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
 		</fields>
@@ -82,6 +160,105 @@
 			<field name="user" type="reference" checkType="exist(profile)" description="User" />
 			<field name="product" type="reference" checkType="exist(product)" description="Product" />
 			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="brand_filter_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="6" max="72" description="Name" />
+			<field name="internal_id" type="string" checkType="StringLengthRange" min="2" max="28" description="Internal Id" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="price_filter_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="6" max="72" description="Name" />
+			<field name="price_start" type="double" checkType="BigDecimalRange" min="0" max="1.99" description="Price Start" />
+			<field name="price_end" type="double" checkType="BigDecimalRange" min="0" max="1000000.99" description="Price End" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="category_filter_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="6" max="72" description="Name" />
+			<field name="internal_id" type="string" checkType="StringLengthRange" min="3" max="32" description="Internal Id" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="new_product_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="parent_category" type="reference" checkType="exist(level_n_category)" description="Parent Category" />
+			<field name="brand" type="reference" checkType="exist(brand)" description="Brand" />
+			<field name="product_cover_image" type="string_image" checkType="Image" min="0" max="512" description="Product Cover Image" />
+			<field name="origin" type="string" checkType="StringLengthRange" min="1" max="24" description="Origin" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="editor_pick_product_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="parent_category" type="reference" checkType="exist(level_n_category)" description="Parent Category" />
+			<field name="brand" type="reference" checkType="exist(brand)" description="Brand" />
+			<field name="product_cover_image" type="string_image" checkType="Image" min="0" max="512" description="Product Cover Image" />
+			<field name="origin" type="string" checkType="StringLengthRange" min="1" max="24" description="Origin" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="top_rated_product_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="parent_category" type="reference" checkType="exist(level_n_category)" description="Parent Category" />
+			<field name="brand" type="reference" checkType="exist(brand)" description="Brand" />
+			<field name="product_cover_image" type="string_image" checkType="Image" min="0" max="512" description="Product Cover Image" />
+			<field name="origin" type="string" checkType="StringLengthRange" min="1" max="24" description="Origin" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
+		</fields>
+	</table>
+
+	<table name="recommand_product_data">
+		<fields>
+			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="Id" />
+			<field name="name" type="string" checkType="StringLengthRange" min="2" max="20" description="Name" />
+			<field name="parent_category" type="reference" checkType="exist(level_n_category)" description="Parent Category" />
+			<field name="brand" type="reference" checkType="exist(brand)" description="Brand" />
+			<field name="product_cover_image" type="string_image" checkType="Image" min="0" max="512" description="Product Cover Image" />
+			<field name="origin" type="string" checkType="StringLengthRange" min="1" max="24" description="Origin" />
+			<field name="catalog" type="reference" checkType="exist(catalog)" description="Catalog" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="22" max="336" description="Remark" />
+			<field name="last_update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Last Update Time" />
+			<field name="profile" type="reference" checkType="exist(profile)" description="Profile" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="Version" />
 		</fields>
 	</table>
