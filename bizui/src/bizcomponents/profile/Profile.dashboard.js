@@ -111,7 +111,7 @@ class ProfileDashboard extends Component {
 
   render() {
     // eslint-disable-next-line max-len
-    const { id,displayName, targetListMetaInfo, ratingListMetaInfo, reviewListMetaInfo, blogListMetaInfo, targetCount, ratingCount, reviewCount, blogCount } = this.props.profile
+    const { id,displayName, userAlertListMetaInfo, targetListMetaInfo, ratingListMetaInfo, reviewListMetaInfo, blogListMetaInfo, brandFilterListMetaInfo, priceFilterListMetaInfo, categoryFilterListMetaInfo, newProductListMetaInfo, editorPickProductListMetaInfo, topRatedProductListMetaInfo, recommandProductListMetaInfo, userAlertCount, targetCount, ratingCount, reviewCount, blogCount, brandFilterCount, priceFilterCount, categoryFilterCount, newProductCount, editorPickProductCount, topRatedProductCount, recommandProductCount } = this.props.profile
     if(!this.props.profile.class){
       return null
     }
@@ -120,10 +120,18 @@ class ProfileDashboard extends Component {
     const cardsData = {cardsName:"Profile",cardsFor: "profile",
     	cardsSource: this.props.profile,returnURL,displayName,
   		subItems: [
+{name: 'userAlertList', displayName:'User Alert',type:'userAlert',count:userAlertCount,addFunction: true, role: 'userAlert', metaInfo: userAlertListMetaInfo},
 {name: 'targetList', displayName:'Target',type:'target',count:targetCount,addFunction: true, role: 'target', metaInfo: targetListMetaInfo},
 {name: 'ratingList', displayName:'Rating',type:'rating',count:ratingCount,addFunction: true, role: 'rating', metaInfo: ratingListMetaInfo},
 {name: 'reviewList', displayName:'Review',type:'review',count:reviewCount,addFunction: true, role: 'review', metaInfo: reviewListMetaInfo},
 {name: 'blogList', displayName:'Blog',type:'blog',count:blogCount,addFunction: true, role: 'blog', metaInfo: blogListMetaInfo},
+{name: 'brandFilterList', displayName:'Brand Filter',type:'brandFilter',count:brandFilterCount,addFunction: true, role: 'brandFilter', metaInfo: brandFilterListMetaInfo},
+{name: 'priceFilterList', displayName:'Price Filter',type:'priceFilter',count:priceFilterCount,addFunction: true, role: 'priceFilter', metaInfo: priceFilterListMetaInfo},
+{name: 'categoryFilterList', displayName:'Category Filter',type:'categoryFilter',count:categoryFilterCount,addFunction: true, role: 'categoryFilter', metaInfo: categoryFilterListMetaInfo},
+{name: 'newProductList', displayName:'New Product',type:'newProduct',count:newProductCount,addFunction: true, role: 'newProduct', metaInfo: newProductListMetaInfo},
+{name: 'editorPickProductList', displayName:'Editor Pick Product',type:'editorPickProduct',count:editorPickProductCount,addFunction: true, role: 'editorPickProduct', metaInfo: editorPickProductListMetaInfo},
+{name: 'topRatedProductList', displayName:'Top Rated Product',type:'topRatedProduct',count:topRatedProductCount,addFunction: true, role: 'topRatedProduct', metaInfo: topRatedProductListMetaInfo},
+{name: 'recommandProductList', displayName:'Recommand Product',type:'recommandProduct',count:recommandProductCount,addFunction: true, role: 'recommandProduct', metaInfo: recommandProductListMetaInfo},
     
       	],
   	};

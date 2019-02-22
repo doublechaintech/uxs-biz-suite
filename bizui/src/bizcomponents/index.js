@@ -15,6 +15,84 @@ import PlatformAssociateForm from './platform/Platform.associateform';
 import PlatformTable from './platform/Platform.table';
 import PlatformService from './platform/Platform.service';
 import PlatformUpdateForm from './platform/Platform.updateform';
+import SiteBase from './site/Site.base';
+import SiteBizApp from './site/Site.app';
+import SiteModel from './site/Site.model';
+import SiteDashboard from './site/Site.dashboard';
+import SitePreference from './site/Site.preference';
+import SiteModalTable from './site/Site.modaltable';
+import SiteSearch from './site/Site.search';
+import SiteSearchForm from './site/Site.searchform';
+import SiteCreateForm from './site/Site.createform';
+import SiteAssociateForm from './site/Site.associateform';
+import SiteTable from './site/Site.table';
+import SiteService from './site/Site.service';
+import SiteUpdateForm from './site/Site.updateform';
+import CatalogBase from './catalog/Catalog.base';
+import CatalogBizApp from './catalog/Catalog.app';
+import CatalogModel from './catalog/Catalog.model';
+import CatalogDashboard from './catalog/Catalog.dashboard';
+import CatalogPreference from './catalog/Catalog.preference';
+import CatalogModalTable from './catalog/Catalog.modaltable';
+import CatalogSearch from './catalog/Catalog.search';
+import CatalogSearchForm from './catalog/Catalog.searchform';
+import CatalogCreateForm from './catalog/Catalog.createform';
+import CatalogAssociateForm from './catalog/Catalog.associateform';
+import CatalogTable from './catalog/Catalog.table';
+import CatalogService from './catalog/Catalog.service';
+import CatalogUpdateForm from './catalog/Catalog.updateform';
+import LevelOneCategoryBase from './levelonecategory/LevelOneCategory.base';
+import LevelOneCategoryBizApp from './levelonecategory/LevelOneCategory.app';
+import LevelOneCategoryModel from './levelonecategory/LevelOneCategory.model';
+import LevelOneCategoryDashboard from './levelonecategory/LevelOneCategory.dashboard';
+import LevelOneCategoryPreference from './levelonecategory/LevelOneCategory.preference';
+import LevelOneCategoryModalTable from './levelonecategory/LevelOneCategory.modaltable';
+import LevelOneCategorySearch from './levelonecategory/LevelOneCategory.search';
+import LevelOneCategorySearchForm from './levelonecategory/LevelOneCategory.searchform';
+import LevelOneCategoryCreateForm from './levelonecategory/LevelOneCategory.createform';
+import LevelOneCategoryAssociateForm from './levelonecategory/LevelOneCategory.associateform';
+import LevelOneCategoryTable from './levelonecategory/LevelOneCategory.table';
+import LevelOneCategoryService from './levelonecategory/LevelOneCategory.service';
+import LevelOneCategoryUpdateForm from './levelonecategory/LevelOneCategory.updateform';
+import LevelTwoCategoryBase from './leveltwocategory/LevelTwoCategory.base';
+import LevelTwoCategoryBizApp from './leveltwocategory/LevelTwoCategory.app';
+import LevelTwoCategoryModel from './leveltwocategory/LevelTwoCategory.model';
+import LevelTwoCategoryDashboard from './leveltwocategory/LevelTwoCategory.dashboard';
+import LevelTwoCategoryPreference from './leveltwocategory/LevelTwoCategory.preference';
+import LevelTwoCategoryModalTable from './leveltwocategory/LevelTwoCategory.modaltable';
+import LevelTwoCategorySearch from './leveltwocategory/LevelTwoCategory.search';
+import LevelTwoCategorySearchForm from './leveltwocategory/LevelTwoCategory.searchform';
+import LevelTwoCategoryCreateForm from './leveltwocategory/LevelTwoCategory.createform';
+import LevelTwoCategoryAssociateForm from './leveltwocategory/LevelTwoCategory.associateform';
+import LevelTwoCategoryTable from './leveltwocategory/LevelTwoCategory.table';
+import LevelTwoCategoryService from './leveltwocategory/LevelTwoCategory.service';
+import LevelTwoCategoryUpdateForm from './leveltwocategory/LevelTwoCategory.updateform';
+import LevelNCategoryBase from './levelncategory/LevelNCategory.base';
+import LevelNCategoryBizApp from './levelncategory/LevelNCategory.app';
+import LevelNCategoryModel from './levelncategory/LevelNCategory.model';
+import LevelNCategoryDashboard from './levelncategory/LevelNCategory.dashboard';
+import LevelNCategoryPreference from './levelncategory/LevelNCategory.preference';
+import LevelNCategoryModalTable from './levelncategory/LevelNCategory.modaltable';
+import LevelNCategorySearch from './levelncategory/LevelNCategory.search';
+import LevelNCategorySearchForm from './levelncategory/LevelNCategory.searchform';
+import LevelNCategoryCreateForm from './levelncategory/LevelNCategory.createform';
+import LevelNCategoryAssociateForm from './levelncategory/LevelNCategory.associateform';
+import LevelNCategoryTable from './levelncategory/LevelNCategory.table';
+import LevelNCategoryService from './levelncategory/LevelNCategory.service';
+import LevelNCategoryUpdateForm from './levelncategory/LevelNCategory.updateform';
+import BrandBase from './brand/Brand.base';
+import BrandBizApp from './brand/Brand.app';
+import BrandModel from './brand/Brand.model';
+import BrandDashboard from './brand/Brand.dashboard';
+import BrandPreference from './brand/Brand.preference';
+import BrandModalTable from './brand/Brand.modaltable';
+import BrandSearch from './brand/Brand.search';
+import BrandSearchForm from './brand/Brand.searchform';
+import BrandCreateForm from './brand/Brand.createform';
+import BrandAssociateForm from './brand/Brand.associateform';
+import BrandTable from './brand/Brand.table';
+import BrandService from './brand/Brand.service';
+import BrandUpdateForm from './brand/Brand.updateform';
 import ProductBase from './product/Product.base';
 import ProductBizApp from './product/Product.app';
 import ProductModel from './product/Product.model';
@@ -54,6 +132,19 @@ import ProfileAssociateForm from './profile/Profile.associateform';
 import ProfileTable from './profile/Profile.table';
 import ProfileService from './profile/Profile.service';
 import ProfileUpdateForm from './profile/Profile.updateform';
+import UserAlertBase from './useralert/UserAlert.base';
+import UserAlertBizApp from './useralert/UserAlert.app';
+import UserAlertModel from './useralert/UserAlert.model';
+import UserAlertDashboard from './useralert/UserAlert.dashboard';
+import UserAlertPreference from './useralert/UserAlert.preference';
+import UserAlertModalTable from './useralert/UserAlert.modaltable';
+import UserAlertSearch from './useralert/UserAlert.search';
+import UserAlertSearchForm from './useralert/UserAlert.searchform';
+import UserAlertCreateForm from './useralert/UserAlert.createform';
+import UserAlertAssociateForm from './useralert/UserAlert.associateform';
+import UserAlertTable from './useralert/UserAlert.table';
+import UserAlertService from './useralert/UserAlert.service';
+import UserAlertUpdateForm from './useralert/UserAlert.updateform';
 import TargetBase from './target/Target.base';
 import TargetBizApp from './target/Target.app';
 import TargetModel from './target/Target.model';
@@ -106,6 +197,97 @@ import BlogAssociateForm from './blog/Blog.associateform';
 import BlogTable from './blog/Blog.table';
 import BlogService from './blog/Blog.service';
 import BlogUpdateForm from './blog/Blog.updateform';
+import BrandFilterBase from './brandfilter/BrandFilter.base';
+import BrandFilterBizApp from './brandfilter/BrandFilter.app';
+import BrandFilterModel from './brandfilter/BrandFilter.model';
+import BrandFilterDashboard from './brandfilter/BrandFilter.dashboard';
+import BrandFilterPreference from './brandfilter/BrandFilter.preference';
+import BrandFilterModalTable from './brandfilter/BrandFilter.modaltable';
+import BrandFilterSearch from './brandfilter/BrandFilter.search';
+import BrandFilterSearchForm from './brandfilter/BrandFilter.searchform';
+import BrandFilterCreateForm from './brandfilter/BrandFilter.createform';
+import BrandFilterAssociateForm from './brandfilter/BrandFilter.associateform';
+import BrandFilterTable from './brandfilter/BrandFilter.table';
+import BrandFilterService from './brandfilter/BrandFilter.service';
+import BrandFilterUpdateForm from './brandfilter/BrandFilter.updateform';
+import PriceFilterBase from './pricefilter/PriceFilter.base';
+import PriceFilterBizApp from './pricefilter/PriceFilter.app';
+import PriceFilterModel from './pricefilter/PriceFilter.model';
+import PriceFilterDashboard from './pricefilter/PriceFilter.dashboard';
+import PriceFilterPreference from './pricefilter/PriceFilter.preference';
+import PriceFilterModalTable from './pricefilter/PriceFilter.modaltable';
+import PriceFilterSearch from './pricefilter/PriceFilter.search';
+import PriceFilterSearchForm from './pricefilter/PriceFilter.searchform';
+import PriceFilterCreateForm from './pricefilter/PriceFilter.createform';
+import PriceFilterAssociateForm from './pricefilter/PriceFilter.associateform';
+import PriceFilterTable from './pricefilter/PriceFilter.table';
+import PriceFilterService from './pricefilter/PriceFilter.service';
+import PriceFilterUpdateForm from './pricefilter/PriceFilter.updateform';
+import CategoryFilterBase from './categoryfilter/CategoryFilter.base';
+import CategoryFilterBizApp from './categoryfilter/CategoryFilter.app';
+import CategoryFilterModel from './categoryfilter/CategoryFilter.model';
+import CategoryFilterDashboard from './categoryfilter/CategoryFilter.dashboard';
+import CategoryFilterPreference from './categoryfilter/CategoryFilter.preference';
+import CategoryFilterModalTable from './categoryfilter/CategoryFilter.modaltable';
+import CategoryFilterSearch from './categoryfilter/CategoryFilter.search';
+import CategoryFilterSearchForm from './categoryfilter/CategoryFilter.searchform';
+import CategoryFilterCreateForm from './categoryfilter/CategoryFilter.createform';
+import CategoryFilterAssociateForm from './categoryfilter/CategoryFilter.associateform';
+import CategoryFilterTable from './categoryfilter/CategoryFilter.table';
+import CategoryFilterService from './categoryfilter/CategoryFilter.service';
+import CategoryFilterUpdateForm from './categoryfilter/CategoryFilter.updateform';
+import NewProductBase from './newproduct/NewProduct.base';
+import NewProductBizApp from './newproduct/NewProduct.app';
+import NewProductModel from './newproduct/NewProduct.model';
+import NewProductDashboard from './newproduct/NewProduct.dashboard';
+import NewProductPreference from './newproduct/NewProduct.preference';
+import NewProductModalTable from './newproduct/NewProduct.modaltable';
+import NewProductSearch from './newproduct/NewProduct.search';
+import NewProductSearchForm from './newproduct/NewProduct.searchform';
+import NewProductCreateForm from './newproduct/NewProduct.createform';
+import NewProductAssociateForm from './newproduct/NewProduct.associateform';
+import NewProductTable from './newproduct/NewProduct.table';
+import NewProductService from './newproduct/NewProduct.service';
+import NewProductUpdateForm from './newproduct/NewProduct.updateform';
+import EditorPickProductBase from './editorpickproduct/EditorPickProduct.base';
+import EditorPickProductBizApp from './editorpickproduct/EditorPickProduct.app';
+import EditorPickProductModel from './editorpickproduct/EditorPickProduct.model';
+import EditorPickProductDashboard from './editorpickproduct/EditorPickProduct.dashboard';
+import EditorPickProductPreference from './editorpickproduct/EditorPickProduct.preference';
+import EditorPickProductModalTable from './editorpickproduct/EditorPickProduct.modaltable';
+import EditorPickProductSearch from './editorpickproduct/EditorPickProduct.search';
+import EditorPickProductSearchForm from './editorpickproduct/EditorPickProduct.searchform';
+import EditorPickProductCreateForm from './editorpickproduct/EditorPickProduct.createform';
+import EditorPickProductAssociateForm from './editorpickproduct/EditorPickProduct.associateform';
+import EditorPickProductTable from './editorpickproduct/EditorPickProduct.table';
+import EditorPickProductService from './editorpickproduct/EditorPickProduct.service';
+import EditorPickProductUpdateForm from './editorpickproduct/EditorPickProduct.updateform';
+import TopRatedProductBase from './topratedproduct/TopRatedProduct.base';
+import TopRatedProductBizApp from './topratedproduct/TopRatedProduct.app';
+import TopRatedProductModel from './topratedproduct/TopRatedProduct.model';
+import TopRatedProductDashboard from './topratedproduct/TopRatedProduct.dashboard';
+import TopRatedProductPreference from './topratedproduct/TopRatedProduct.preference';
+import TopRatedProductModalTable from './topratedproduct/TopRatedProduct.modaltable';
+import TopRatedProductSearch from './topratedproduct/TopRatedProduct.search';
+import TopRatedProductSearchForm from './topratedproduct/TopRatedProduct.searchform';
+import TopRatedProductCreateForm from './topratedproduct/TopRatedProduct.createform';
+import TopRatedProductAssociateForm from './topratedproduct/TopRatedProduct.associateform';
+import TopRatedProductTable from './topratedproduct/TopRatedProduct.table';
+import TopRatedProductService from './topratedproduct/TopRatedProduct.service';
+import TopRatedProductUpdateForm from './topratedproduct/TopRatedProduct.updateform';
+import RecommandProductBase from './recommandproduct/RecommandProduct.base';
+import RecommandProductBizApp from './recommandproduct/RecommandProduct.app';
+import RecommandProductModel from './recommandproduct/RecommandProduct.model';
+import RecommandProductDashboard from './recommandproduct/RecommandProduct.dashboard';
+import RecommandProductPreference from './recommandproduct/RecommandProduct.preference';
+import RecommandProductModalTable from './recommandproduct/RecommandProduct.modaltable';
+import RecommandProductSearch from './recommandproduct/RecommandProduct.search';
+import RecommandProductSearchForm from './recommandproduct/RecommandProduct.searchform';
+import RecommandProductCreateForm from './recommandproduct/RecommandProduct.createform';
+import RecommandProductAssociateForm from './recommandproduct/RecommandProduct.associateform';
+import RecommandProductTable from './recommandproduct/RecommandProduct.table';
+import RecommandProductService from './recommandproduct/RecommandProduct.service';
+import RecommandProductUpdateForm from './recommandproduct/RecommandProduct.updateform';
 import UserDomainBase from './userdomain/UserDomain.base';
 import UserDomainBizApp from './userdomain/UserDomain.app';
 import UserDomainModel from './userdomain/UserDomain.model';
@@ -214,13 +396,27 @@ import LoginHistoryUpdateForm from './loginhistory/LoginHistory.updateform';
 
 const BizModels = [
 	PlatformModel,
+	SiteModel,
+	CatalogModel,
+	LevelOneCategoryModel,
+	LevelTwoCategoryModel,
+	LevelNCategoryModel,
+	BrandModel,
 	ProductModel,
 	BannerModel,
 	ProfileModel,
+	UserAlertModel,
 	TargetModel,
 	RatingModel,
 	ReviewModel,
 	BlogModel,
+	BrandFilterModel,
+	PriceFilterModel,
+	CategoryFilterModel,
+	NewProductModel,
+	EditorPickProductModel,
+	TopRatedProductModel,
+	RecommandProductModel,
 	UserDomainModel,
 	UserWhiteListModel,
 	SecUserModel,
@@ -247,13 +443,27 @@ const unbindBizModels = (app) =>{
 const menuLibrary = []
 
 menuLibrary['platform'] = PlatformBase.menuData
+menuLibrary['site'] = SiteBase.menuData
+menuLibrary['catalog'] = CatalogBase.menuData
+menuLibrary['levelOneCategory'] = LevelOneCategoryBase.menuData
+menuLibrary['levelTwoCategory'] = LevelTwoCategoryBase.menuData
+menuLibrary['levelNCategory'] = LevelNCategoryBase.menuData
+menuLibrary['brand'] = BrandBase.menuData
 menuLibrary['product'] = ProductBase.menuData
 menuLibrary['banner'] = BannerBase.menuData
 menuLibrary['profile'] = ProfileBase.menuData
+menuLibrary['userAlert'] = UserAlertBase.menuData
 menuLibrary['target'] = TargetBase.menuData
 menuLibrary['rating'] = RatingBase.menuData
 menuLibrary['review'] = ReviewBase.menuData
 menuLibrary['blog'] = BlogBase.menuData
+menuLibrary['brandFilter'] = BrandFilterBase.menuData
+menuLibrary['priceFilter'] = PriceFilterBase.menuData
+menuLibrary['categoryFilter'] = CategoryFilterBase.menuData
+menuLibrary['newProduct'] = NewProductBase.menuData
+menuLibrary['editorPickProduct'] = EditorPickProductBase.menuData
+menuLibrary['topRatedProduct'] = TopRatedProductBase.menuData
+menuLibrary['recommandProduct'] = RecommandProductBase.menuData
 menuLibrary['userDomain'] = UserDomainBase.menuData
 menuLibrary['userWhiteList'] = UserWhiteListBase.menuData
 menuLibrary['secUser'] = SecUserBase.menuData
@@ -283,13 +493,27 @@ const ViewMapping = {
 
 
   'com.doublechaintech.uxs.platform.Platform': {name:'platform'},
+  'com.doublechaintech.uxs.site.Site': {name:'site'},
+  'com.doublechaintech.uxs.catalog.Catalog': {name:'catalog'},
+  'com.doublechaintech.uxs.levelonecategory.LevelOneCategory': {name:'levelOneCategory'},
+  'com.doublechaintech.uxs.leveltwocategory.LevelTwoCategory': {name:'levelTwoCategory'},
+  'com.doublechaintech.uxs.levelncategory.LevelNCategory': {name:'levelNCategory'},
+  'com.doublechaintech.uxs.brand.Brand': {name:'brand'},
   'com.doublechaintech.uxs.product.Product': {name:'product'},
   'com.doublechaintech.uxs.banner.Banner': {name:'banner'},
   'com.doublechaintech.uxs.profile.Profile': {name:'profile'},
+  'com.doublechaintech.uxs.useralert.UserAlert': {name:'userAlert'},
   'com.doublechaintech.uxs.target.Target': {name:'target'},
   'com.doublechaintech.uxs.rating.Rating': {name:'rating'},
   'com.doublechaintech.uxs.review.Review': {name:'review'},
   'com.doublechaintech.uxs.blog.Blog': {name:'blog'},
+  'com.doublechaintech.uxs.brandfilter.BrandFilter': {name:'brandFilter'},
+  'com.doublechaintech.uxs.pricefilter.PriceFilter': {name:'priceFilter'},
+  'com.doublechaintech.uxs.categoryfilter.CategoryFilter': {name:'categoryFilter'},
+  'com.doublechaintech.uxs.newproduct.NewProduct': {name:'newProduct'},
+  'com.doublechaintech.uxs.editorpickproduct.EditorPickProduct': {name:'editorPickProduct'},
+  'com.doublechaintech.uxs.topratedproduct.TopRatedProduct': {name:'topRatedProduct'},
+  'com.doublechaintech.uxs.recommandproduct.RecommandProduct': {name:'recommandProduct'},
   'com.doublechaintech.uxs.userdomain.UserDomain': {name:'userDomain'},
   'com.doublechaintech.uxs.userwhitelist.UserWhiteList': {name:'userWhiteList'},
   'com.doublechaintech.uxs.secuser.SecUser': {name:'secUser'},
@@ -356,6 +580,84 @@ const OOTBComponents={
     PlatformTable,
     PlatformService,
     PlatformUpdateForm,
+    SiteBase,
+    SiteBizApp,
+    SiteModel,
+    SiteDashboard,
+    SitePreference,
+    SiteModalTable,
+    SiteSearch,
+    SiteSearchForm,
+    SiteCreateForm,
+    SiteAssociateForm,
+    SiteTable,
+    SiteService,
+    SiteUpdateForm,
+    CatalogBase,
+    CatalogBizApp,
+    CatalogModel,
+    CatalogDashboard,
+    CatalogPreference,
+    CatalogModalTable,
+    CatalogSearch,
+    CatalogSearchForm,
+    CatalogCreateForm,
+    CatalogAssociateForm,
+    CatalogTable,
+    CatalogService,
+    CatalogUpdateForm,
+    LevelOneCategoryBase,
+    LevelOneCategoryBizApp,
+    LevelOneCategoryModel,
+    LevelOneCategoryDashboard,
+    LevelOneCategoryPreference,
+    LevelOneCategoryModalTable,
+    LevelOneCategorySearch,
+    LevelOneCategorySearchForm,
+    LevelOneCategoryCreateForm,
+    LevelOneCategoryAssociateForm,
+    LevelOneCategoryTable,
+    LevelOneCategoryService,
+    LevelOneCategoryUpdateForm,
+    LevelTwoCategoryBase,
+    LevelTwoCategoryBizApp,
+    LevelTwoCategoryModel,
+    LevelTwoCategoryDashboard,
+    LevelTwoCategoryPreference,
+    LevelTwoCategoryModalTable,
+    LevelTwoCategorySearch,
+    LevelTwoCategorySearchForm,
+    LevelTwoCategoryCreateForm,
+    LevelTwoCategoryAssociateForm,
+    LevelTwoCategoryTable,
+    LevelTwoCategoryService,
+    LevelTwoCategoryUpdateForm,
+    LevelNCategoryBase,
+    LevelNCategoryBizApp,
+    LevelNCategoryModel,
+    LevelNCategoryDashboard,
+    LevelNCategoryPreference,
+    LevelNCategoryModalTable,
+    LevelNCategorySearch,
+    LevelNCategorySearchForm,
+    LevelNCategoryCreateForm,
+    LevelNCategoryAssociateForm,
+    LevelNCategoryTable,
+    LevelNCategoryService,
+    LevelNCategoryUpdateForm,
+    BrandBase,
+    BrandBizApp,
+    BrandModel,
+    BrandDashboard,
+    BrandPreference,
+    BrandModalTable,
+    BrandSearch,
+    BrandSearchForm,
+    BrandCreateForm,
+    BrandAssociateForm,
+    BrandTable,
+    BrandService,
+    BrandUpdateForm,
     ProductBase,
     ProductBizApp,
     ProductModel,
@@ -395,6 +697,19 @@ const OOTBComponents={
     ProfileTable,
     ProfileService,
     ProfileUpdateForm,
+    UserAlertBase,
+    UserAlertBizApp,
+    UserAlertModel,
+    UserAlertDashboard,
+    UserAlertPreference,
+    UserAlertModalTable,
+    UserAlertSearch,
+    UserAlertSearchForm,
+    UserAlertCreateForm,
+    UserAlertAssociateForm,
+    UserAlertTable,
+    UserAlertService,
+    UserAlertUpdateForm,
     TargetBase,
     TargetBizApp,
     TargetModel,
@@ -447,6 +762,97 @@ const OOTBComponents={
     BlogTable,
     BlogService,
     BlogUpdateForm,
+    BrandFilterBase,
+    BrandFilterBizApp,
+    BrandFilterModel,
+    BrandFilterDashboard,
+    BrandFilterPreference,
+    BrandFilterModalTable,
+    BrandFilterSearch,
+    BrandFilterSearchForm,
+    BrandFilterCreateForm,
+    BrandFilterAssociateForm,
+    BrandFilterTable,
+    BrandFilterService,
+    BrandFilterUpdateForm,
+    PriceFilterBase,
+    PriceFilterBizApp,
+    PriceFilterModel,
+    PriceFilterDashboard,
+    PriceFilterPreference,
+    PriceFilterModalTable,
+    PriceFilterSearch,
+    PriceFilterSearchForm,
+    PriceFilterCreateForm,
+    PriceFilterAssociateForm,
+    PriceFilterTable,
+    PriceFilterService,
+    PriceFilterUpdateForm,
+    CategoryFilterBase,
+    CategoryFilterBizApp,
+    CategoryFilterModel,
+    CategoryFilterDashboard,
+    CategoryFilterPreference,
+    CategoryFilterModalTable,
+    CategoryFilterSearch,
+    CategoryFilterSearchForm,
+    CategoryFilterCreateForm,
+    CategoryFilterAssociateForm,
+    CategoryFilterTable,
+    CategoryFilterService,
+    CategoryFilterUpdateForm,
+    NewProductBase,
+    NewProductBizApp,
+    NewProductModel,
+    NewProductDashboard,
+    NewProductPreference,
+    NewProductModalTable,
+    NewProductSearch,
+    NewProductSearchForm,
+    NewProductCreateForm,
+    NewProductAssociateForm,
+    NewProductTable,
+    NewProductService,
+    NewProductUpdateForm,
+    EditorPickProductBase,
+    EditorPickProductBizApp,
+    EditorPickProductModel,
+    EditorPickProductDashboard,
+    EditorPickProductPreference,
+    EditorPickProductModalTable,
+    EditorPickProductSearch,
+    EditorPickProductSearchForm,
+    EditorPickProductCreateForm,
+    EditorPickProductAssociateForm,
+    EditorPickProductTable,
+    EditorPickProductService,
+    EditorPickProductUpdateForm,
+    TopRatedProductBase,
+    TopRatedProductBizApp,
+    TopRatedProductModel,
+    TopRatedProductDashboard,
+    TopRatedProductPreference,
+    TopRatedProductModalTable,
+    TopRatedProductSearch,
+    TopRatedProductSearchForm,
+    TopRatedProductCreateForm,
+    TopRatedProductAssociateForm,
+    TopRatedProductTable,
+    TopRatedProductService,
+    TopRatedProductUpdateForm,
+    RecommandProductBase,
+    RecommandProductBizApp,
+    RecommandProductModel,
+    RecommandProductDashboard,
+    RecommandProductPreference,
+    RecommandProductModalTable,
+    RecommandProductSearch,
+    RecommandProductSearchForm,
+    RecommandProductCreateForm,
+    RecommandProductAssociateForm,
+    RecommandProductTable,
+    RecommandProductService,
+    RecommandProductUpdateForm,
     UserDomainBase,
     UserDomainBizApp,
     UserDomainModel,

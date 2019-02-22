@@ -12,13 +12,16 @@ public interface ProductManager{
 
 		
 
-	public Product createProduct(UxsUserContext userContext, String name, String platformId, BigDecimal avarageScore) throws Exception;	
+	public Product createProduct(UxsUserContext userContext, String name, String parentCategoryId, String brandId, String productCoverImage, String origin, String catalogId, String remark, String platformId) throws Exception;	
 	public Product updateProduct(UxsUserContext userContext,String productId, int productVersion, String property, String newValueExpr,String [] tokensExpr) throws Exception;
 	public Product loadProduct(UxsUserContext userContext, String productId, String [] tokensExpr) throws Exception;
 	public Product internalSaveProduct(UxsUserContext userContext, Product product) throws Exception;
 	public Product internalSaveProduct(UxsUserContext userContext, Product product,Map<String,Object>option) throws Exception;
 	
-	public Product transferToAnotherPlatform(UxsUserContext userContext, String productId, String anotherPlatformId)  throws Exception;
+	public Product transferToAnotherParentCategory(UxsUserContext userContext, String productId, String anotherParentCategoryId)  throws Exception;
+ 	public Product transferToAnotherBrand(UxsUserContext userContext, String productId, String anotherBrandId)  throws Exception;
+ 	public Product transferToAnotherCatalog(UxsUserContext userContext, String productId, String anotherCatalogId)  throws Exception;
+ 	public Product transferToAnotherPlatform(UxsUserContext userContext, String productId, String anotherPlatformId)  throws Exception;
  
 
 	public void delete(UxsUserContext userContext, String productId, int version) throws Exception;

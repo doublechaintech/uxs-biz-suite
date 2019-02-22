@@ -73,10 +73,18 @@ class ProfileAssociateForm extends Component {
     const {ProfileService} = GlobalComponents
     const userContext = null
     
+ const {UserAlertModalTable} = GlobalComponents;
  const {TargetModalTable} = GlobalComponents;
  const {RatingModalTable} = GlobalComponents;
  const {ReviewModalTable} = GlobalComponents;
  const {BlogModalTable} = GlobalComponents;
+ const {BrandFilterModalTable} = GlobalComponents;
+ const {PriceFilterModalTable} = GlobalComponents;
+ const {CategoryFilterModalTable} = GlobalComponents;
+ const {NewProductModalTable} = GlobalComponents;
+ const {EditorPickProductModalTable} = GlobalComponents;
+ const {TopRatedProductModalTable} = GlobalComponents;
+ const {RecommandProductModalTable} = GlobalComponents;
 
 
     const { getFieldDecorator, validateFieldsAndScroll, getFieldsError } = form
@@ -190,10 +198,18 @@ class ProfileAssociateForm extends Component {
 			
         </Card>
         
+	<UserAlertModalTable data={data.userAlertList} owner={owner} />
 	<TargetModalTable data={data.targetList} owner={owner} />
 	<RatingModalTable data={data.ratingList} owner={owner} />
 	<ReviewModalTable data={data.reviewList} owner={owner} />
 	<BlogModalTable data={data.blogList} owner={owner} />
+	<BrandFilterModalTable data={data.brandFilterList} owner={owner} />
+	<PriceFilterModalTable data={data.priceFilterList} owner={owner} />
+	<CategoryFilterModalTable data={data.categoryFilterList} owner={owner} />
+	<NewProductModalTable data={data.newProductList} owner={owner} />
+	<EditorPickProductModalTable data={data.editorPickProductList} owner={owner} />
+	<TopRatedProductModalTable data={data.topRatedProductList} owner={owner} />
+	<RecommandProductModalTable data={data.recommandProductList} owner={owner} />
         
         
         

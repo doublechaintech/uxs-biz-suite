@@ -101,10 +101,18 @@
 	  <li class="active"><a data-toggle="tab" href="#summary" class="disabled"><i class="fa  fa-home"></i> ${userContext.localeMap['@summary']}</a></li>
 	 
 	<% Profile result = (Profile)request.getAttribute("result");  %>
+			<li><a data-toggle="tab" href="#userAlertList" class="disabled"> ${userContext.localeMap['user_alert']}</a></li>
 			<li><a data-toggle="tab" href="#targetList" class="disabled"> ${userContext.localeMap['target']}</a></li>
 			<li><a data-toggle="tab" href="#ratingList" class="disabled"> ${userContext.localeMap['rating']}</a></li>
 			<li><a data-toggle="tab" href="#reviewList" class="disabled"> ${userContext.localeMap['review']}</a></li>
 			<li><a data-toggle="tab" href="#blogList" class="disabled"> ${userContext.localeMap['blog']}</a></li>
+			<li><a data-toggle="tab" href="#brandFilterList" class="disabled"> ${userContext.localeMap['brand_filter']}</a></li>
+			<li><a data-toggle="tab" href="#priceFilterList" class="disabled"> ${userContext.localeMap['price_filter']}</a></li>
+			<li><a data-toggle="tab" href="#categoryFilterList" class="disabled"> ${userContext.localeMap['category_filter']}</a></li>
+			<li><a data-toggle="tab" href="#newProductList" class="disabled"> ${userContext.localeMap['new_product']}</a></li>
+			<li><a data-toggle="tab" href="#editorPickProductList" class="disabled"> ${userContext.localeMap['editor_pick_product']}</a></li>
+			<li><a data-toggle="tab" href="#topRatedProductList" class="disabled"> ${userContext.localeMap['top_rated_product']}</a></li>
+			<li><a data-toggle="tab" href="#recommandProductList" class="disabled"> ${userContext.localeMap['recommand_product']}</a></li>
  
 	</ul>
 	</div>
@@ -153,7 +161,15 @@
 
 	
 
-		<c:if test='${not empty userContext.accessTokens["targetList"] or ignoreListAccessControl}'>
+		<c:if test='${not empty userContext.accessTokens["userAlertList"] or ignoreListAccessControl}'>
+		<c:set var="userAlertList" value="${result.userAlertList}" scope="request"/>
+		<c:set var="userAlertListName" value="userAlertList" scope="request"/>
+		<div id="userAlertList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/useralert/UserAlert$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["targetList"] or ignoreListAccessControl}'>
 		<c:set var="targetList" value="${result.targetList}" scope="request"/>
 		<c:set var="targetListName" value="targetList" scope="request"/>
 		<div id="targetList" class="tab-pane fade sublist" refer-name="profile">
@@ -183,6 +199,62 @@
 		<div id="blogList" class="tab-pane fade sublist" refer-name="user">
 			<sky:include page="com/doublechaintech/uxs/blog/Blog$List.jsp"
 					referName="user"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["brandFilterList"] or ignoreListAccessControl}'>
+		<c:set var="brandFilterList" value="${result.brandFilterList}" scope="request"/>
+		<c:set var="brandFilterListName" value="brandFilterList" scope="request"/>
+		<div id="brandFilterList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/brandfilter/BrandFilter$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["priceFilterList"] or ignoreListAccessControl}'>
+		<c:set var="priceFilterList" value="${result.priceFilterList}" scope="request"/>
+		<c:set var="priceFilterListName" value="priceFilterList" scope="request"/>
+		<div id="priceFilterList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/pricefilter/PriceFilter$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["categoryFilterList"] or ignoreListAccessControl}'>
+		<c:set var="categoryFilterList" value="${result.categoryFilterList}" scope="request"/>
+		<c:set var="categoryFilterListName" value="categoryFilterList" scope="request"/>
+		<div id="categoryFilterList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/categoryfilter/CategoryFilter$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["newProductList"] or ignoreListAccessControl}'>
+		<c:set var="newProductList" value="${result.newProductList}" scope="request"/>
+		<c:set var="newProductListName" value="newProductList" scope="request"/>
+		<div id="newProductList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/newproduct/NewProduct$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["editorPickProductList"] or ignoreListAccessControl}'>
+		<c:set var="editorPickProductList" value="${result.editorPickProductList}" scope="request"/>
+		<c:set var="editorPickProductListName" value="editorPickProductList" scope="request"/>
+		<div id="editorPickProductList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/editorpickproduct/EditorPickProduct$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["topRatedProductList"] or ignoreListAccessControl}'>
+		<c:set var="topRatedProductList" value="${result.topRatedProductList}" scope="request"/>
+		<c:set var="topRatedProductListName" value="topRatedProductList" scope="request"/>
+		<div id="topRatedProductList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/topratedproduct/TopRatedProduct$List.jsp"
+					referName="profile"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["recommandProductList"] or ignoreListAccessControl}'>
+		<c:set var="recommandProductList" value="${result.recommandProductList}" scope="request"/>
+		<c:set var="recommandProductListName" value="recommandProductList" scope="request"/>
+		<div id="recommandProductList" class="tab-pane fade sublist" refer-name="profile">
+			<sky:include page="com/doublechaintech/uxs/recommandproduct/RecommandProduct$List.jsp"
+					referName="profile"/>
 		</div>
 	</c:if>
 

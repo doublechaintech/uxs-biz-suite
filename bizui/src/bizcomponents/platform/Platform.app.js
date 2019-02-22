@@ -157,6 +157,153 @@ class PlatformBizApp extends React.PureComponent {
 
 
 
+  getSiteSearch = () => {
+    const {SiteSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Site",
+      role: "site",
+      data: state._platform.siteList,
+      metaInfo: state._platform.siteListMetaInfo,
+      count: state._platform.siteCount,
+      currentPage: state._platform.siteCurrentPageNumber,
+      searchFormParameters: state._platform.siteSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'siteList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(SiteSearch)
+  }
+  getSiteCreateForm = () => {
+   	const {SiteCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "site",
+      data: state._platform.siteList,
+      metaInfo: state._platform.siteListMetaInfo,
+      count: state._platform.siteCount,
+      currentPage: state._platform.siteCurrentPageNumber,
+      searchFormParameters: state._platform.siteSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'siteList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(SiteCreateForm)
+  }
+  
+  getSiteUpdateForm = () => {
+    const userContext = null
+  	const {SiteUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "site",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'siteList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(SiteUpdateForm)
+  }
+
+  getCatalogSearch = () => {
+    const {CatalogSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Catalog",
+      role: "catalog",
+      data: state._platform.catalogList,
+      metaInfo: state._platform.catalogListMetaInfo,
+      count: state._platform.catalogCount,
+      currentPage: state._platform.catalogCurrentPageNumber,
+      searchFormParameters: state._platform.catalogSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'catalogList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(CatalogSearch)
+  }
+  getCatalogCreateForm = () => {
+   	const {CatalogCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "catalog",
+      data: state._platform.catalogList,
+      metaInfo: state._platform.catalogListMetaInfo,
+      count: state._platform.catalogCount,
+      currentPage: state._platform.catalogCurrentPageNumber,
+      searchFormParameters: state._platform.catalogSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'catalogList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(CatalogCreateForm)
+  }
+  
+  getCatalogUpdateForm = () => {
+    const userContext = null
+  	const {CatalogUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "catalog",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'catalogList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(CatalogUpdateForm)
+  }
+
+  getBrandSearch = () => {
+    const {BrandSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Brand",
+      role: "brand",
+      data: state._platform.brandList,
+      metaInfo: state._platform.brandListMetaInfo,
+      count: state._platform.brandCount,
+      currentPage: state._platform.brandCurrentPageNumber,
+      searchFormParameters: state._platform.brandSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'brandList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(BrandSearch)
+  }
+  getBrandCreateForm = () => {
+   	const {BrandCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "brand",
+      data: state._platform.brandList,
+      metaInfo: state._platform.brandListMetaInfo,
+      count: state._platform.brandCount,
+      currentPage: state._platform.brandCurrentPageNumber,
+      searchFormParameters: state._platform.brandSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'brandList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(BrandCreateForm)
+  }
+  
+  getBrandUpdateForm = () => {
+    const userContext = null
+  	const {BrandUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "brand",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'brandList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(BrandUpdateForm)
+  }
+
   getProductSearch = () => {
     const {ProductSearch} = GlobalComponents;
     const userContext = null
@@ -304,6 +451,251 @@ class PlatformBizApp extends React.PureComponent {
     }))(ProfileUpdateForm)
   }
 
+  getUserAlertSearch = () => {
+    const {UserAlertSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "User Alert",
+      role: "userAlert",
+      data: state._platform.userAlertList,
+      metaInfo: state._platform.userAlertListMetaInfo,
+      count: state._platform.userAlertCount,
+      currentPage: state._platform.userAlertCurrentPageNumber,
+      searchFormParameters: state._platform.userAlertSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'userAlertList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(UserAlertSearch)
+  }
+  getUserAlertCreateForm = () => {
+   	const {UserAlertCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "userAlert",
+      data: state._platform.userAlertList,
+      metaInfo: state._platform.userAlertListMetaInfo,
+      count: state._platform.userAlertCount,
+      currentPage: state._platform.userAlertCurrentPageNumber,
+      searchFormParameters: state._platform.userAlertSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'userAlertList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(UserAlertCreateForm)
+  }
+  
+  getUserAlertUpdateForm = () => {
+    const userContext = null
+  	const {UserAlertUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "userAlert",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'userAlertList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(UserAlertUpdateForm)
+  }
+
+  getNewProductSearch = () => {
+    const {NewProductSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "New Product",
+      role: "newProduct",
+      data: state._platform.newProductList,
+      metaInfo: state._platform.newProductListMetaInfo,
+      count: state._platform.newProductCount,
+      currentPage: state._platform.newProductCurrentPageNumber,
+      searchFormParameters: state._platform.newProductSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'newProductList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(NewProductSearch)
+  }
+  getNewProductCreateForm = () => {
+   	const {NewProductCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "newProduct",
+      data: state._platform.newProductList,
+      metaInfo: state._platform.newProductListMetaInfo,
+      count: state._platform.newProductCount,
+      currentPage: state._platform.newProductCurrentPageNumber,
+      searchFormParameters: state._platform.newProductSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'newProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(NewProductCreateForm)
+  }
+  
+  getNewProductUpdateForm = () => {
+    const userContext = null
+  	const {NewProductUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "newProduct",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'newProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(NewProductUpdateForm)
+  }
+
+  getEditorPickProductSearch = () => {
+    const {EditorPickProductSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Editor Pick Product",
+      role: "editorPickProduct",
+      data: state._platform.editorPickProductList,
+      metaInfo: state._platform.editorPickProductListMetaInfo,
+      count: state._platform.editorPickProductCount,
+      currentPage: state._platform.editorPickProductCurrentPageNumber,
+      searchFormParameters: state._platform.editorPickProductSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'editorPickProductList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(EditorPickProductSearch)
+  }
+  getEditorPickProductCreateForm = () => {
+   	const {EditorPickProductCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "editorPickProduct",
+      data: state._platform.editorPickProductList,
+      metaInfo: state._platform.editorPickProductListMetaInfo,
+      count: state._platform.editorPickProductCount,
+      currentPage: state._platform.editorPickProductCurrentPageNumber,
+      searchFormParameters: state._platform.editorPickProductSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'editorPickProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(EditorPickProductCreateForm)
+  }
+  
+  getEditorPickProductUpdateForm = () => {
+    const userContext = null
+  	const {EditorPickProductUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "editorPickProduct",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'editorPickProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(EditorPickProductUpdateForm)
+  }
+
+  getTopRatedProductSearch = () => {
+    const {TopRatedProductSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Top Rated Product",
+      role: "topRatedProduct",
+      data: state._platform.topRatedProductList,
+      metaInfo: state._platform.topRatedProductListMetaInfo,
+      count: state._platform.topRatedProductCount,
+      currentPage: state._platform.topRatedProductCurrentPageNumber,
+      searchFormParameters: state._platform.topRatedProductSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'topRatedProductList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(TopRatedProductSearch)
+  }
+  getTopRatedProductCreateForm = () => {
+   	const {TopRatedProductCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "topRatedProduct",
+      data: state._platform.topRatedProductList,
+      metaInfo: state._platform.topRatedProductListMetaInfo,
+      count: state._platform.topRatedProductCount,
+      currentPage: state._platform.topRatedProductCurrentPageNumber,
+      searchFormParameters: state._platform.topRatedProductSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'topRatedProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(TopRatedProductCreateForm)
+  }
+  
+  getTopRatedProductUpdateForm = () => {
+    const userContext = null
+  	const {TopRatedProductUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "topRatedProduct",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'topRatedProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(TopRatedProductUpdateForm)
+  }
+
+  getRecommandProductSearch = () => {
+    const {RecommandProductSearch} = GlobalComponents;
+    const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      name: "Recommand Product",
+      role: "recommandProduct",
+      data: state._platform.recommandProductList,
+      metaInfo: state._platform.recommandProductListMetaInfo,
+      count: state._platform.recommandProductCount,
+      currentPage: state._platform.recommandProductCurrentPageNumber,
+      searchFormParameters: state._platform.recommandProductSearchFormParameters,
+      searchParameters: {...state._platform.searchParameters},
+      expandForm: state._platform.expandForm,
+      loading: state._platform.loading,
+      partialList: state._platform.partialList,
+      owner: { type: '_platform', id: state._platform.id, 
+      referenceName: 'platform', 
+      listName: 'recommandProductList', ref:state._platform, 
+      listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(RecommandProductSearch)
+  }
+  getRecommandProductCreateForm = () => {
+   	const {RecommandProductCreateForm} = GlobalComponents;
+   	const userContext = null
+    return connect(state => ({
+      rule: state.rule,
+      role: "recommandProduct",
+      data: state._platform.recommandProductList,
+      metaInfo: state._platform.recommandProductListMetaInfo,
+      count: state._platform.recommandProductCount,
+      currentPage: state._platform.recommandProductCurrentPageNumber,
+      searchFormParameters: state._platform.recommandProductSearchFormParameters,
+      loading: state._platform.loading,
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'recommandProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List")}, // this is for model namespace and
+    }))(RecommandProductCreateForm)
+  }
+  
+  getRecommandProductUpdateForm = () => {
+    const userContext = null
+  	const {RecommandProductUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._platform.selectedRows,
+      role: "recommandProduct",
+      currentUpdateIndex: state._platform.currentUpdateIndex,
+      owner: { type: '_platform', id: state._platform.id, listName: 'recommandProductList', ref:state._platform, listDisplayName: appLocaleName(userContext,"List") }, // this is for model namespace and
+    }))(RecommandProductUpdateForm)
+  }
+
 
   
   buildRouters = () =>{
@@ -317,6 +709,18 @@ class PlatformBizApp extends React.PureComponent {
   	
   	
   	
+  	{path:"/platform/:id/list/siteList", component: this.getSiteSearch()},
+  	{path:"/platform/:id/list/siteCreateForm", component: this.getSiteCreateForm()},
+  	{path:"/platform/:id/list/siteUpdateForm", component: this.getSiteUpdateForm()},
+   	
+  	{path:"/platform/:id/list/catalogList", component: this.getCatalogSearch()},
+  	{path:"/platform/:id/list/catalogCreateForm", component: this.getCatalogCreateForm()},
+  	{path:"/platform/:id/list/catalogUpdateForm", component: this.getCatalogUpdateForm()},
+   	
+  	{path:"/platform/:id/list/brandList", component: this.getBrandSearch()},
+  	{path:"/platform/:id/list/brandCreateForm", component: this.getBrandCreateForm()},
+  	{path:"/platform/:id/list/brandUpdateForm", component: this.getBrandUpdateForm()},
+   	
   	{path:"/platform/:id/list/productList", component: this.getProductSearch()},
   	{path:"/platform/:id/list/productCreateForm", component: this.getProductCreateForm()},
   	{path:"/platform/:id/list/productUpdateForm", component: this.getProductUpdateForm()},
@@ -328,6 +732,26 @@ class PlatformBizApp extends React.PureComponent {
   	{path:"/platform/:id/list/profileList", component: this.getProfileSearch()},
   	{path:"/platform/:id/list/profileCreateForm", component: this.getProfileCreateForm()},
   	{path:"/platform/:id/list/profileUpdateForm", component: this.getProfileUpdateForm()},
+   	
+  	{path:"/platform/:id/list/userAlertList", component: this.getUserAlertSearch()},
+  	{path:"/platform/:id/list/userAlertCreateForm", component: this.getUserAlertCreateForm()},
+  	{path:"/platform/:id/list/userAlertUpdateForm", component: this.getUserAlertUpdateForm()},
+   	
+  	{path:"/platform/:id/list/newProductList", component: this.getNewProductSearch()},
+  	{path:"/platform/:id/list/newProductCreateForm", component: this.getNewProductCreateForm()},
+  	{path:"/platform/:id/list/newProductUpdateForm", component: this.getNewProductUpdateForm()},
+   	
+  	{path:"/platform/:id/list/editorPickProductList", component: this.getEditorPickProductSearch()},
+  	{path:"/platform/:id/list/editorPickProductCreateForm", component: this.getEditorPickProductCreateForm()},
+  	{path:"/platform/:id/list/editorPickProductUpdateForm", component: this.getEditorPickProductUpdateForm()},
+   	
+  	{path:"/platform/:id/list/topRatedProductList", component: this.getTopRatedProductSearch()},
+  	{path:"/platform/:id/list/topRatedProductCreateForm", component: this.getTopRatedProductCreateForm()},
+  	{path:"/platform/:id/list/topRatedProductUpdateForm", component: this.getTopRatedProductUpdateForm()},
+   	
+  	{path:"/platform/:id/list/recommandProductList", component: this.getRecommandProductSearch()},
+  	{path:"/platform/:id/list/recommandProductCreateForm", component: this.getRecommandProductCreateForm()},
+  	{path:"/platform/:id/list/recommandProductUpdateForm", component: this.getRecommandProductUpdateForm()},
      	
   	
   	]

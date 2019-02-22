@@ -109,7 +109,25 @@ public class BaseRelation{
 	{
 		
 		
-		String [] productRelatedObjectNames = {"platform:Platform"};
+		String [] siteRelatedObjectNames = {"platform:Platform"};
+		addRelationIndex("Site",siteRelatedObjectNames);
+
+		String [] catalogRelatedObjectNames = {"site:Site","platform:Platform"};
+		addRelationIndex("Catalog",catalogRelatedObjectNames);
+
+		String [] levelOneCategoryRelatedObjectNames = {"catalog:Catalog"};
+		addRelationIndex("LevelOneCategory",levelOneCategoryRelatedObjectNames);
+
+		String [] levelTwoCategoryRelatedObjectNames = {"parent_category:LevelOneCategory"};
+		addRelationIndex("LevelTwoCategory",levelTwoCategoryRelatedObjectNames);
+
+		String [] levelNCategoryRelatedObjectNames = {"parent_category:LevelTwoCategory"};
+		addRelationIndex("LevelNCategory",levelNCategoryRelatedObjectNames);
+
+		String [] brandRelatedObjectNames = {"platform:Platform"};
+		addRelationIndex("Brand",brandRelatedObjectNames);
+
+		String [] productRelatedObjectNames = {"parent_category:LevelNCategory","brand:Brand","catalog:Catalog","platform:Platform"};
 		addRelationIndex("Product",productRelatedObjectNames);
 
 		String [] bannerRelatedObjectNames = {"platform:Platform"};
@@ -117,6 +135,9 @@ public class BaseRelation{
 
 		String [] profileRelatedObjectNames = {"platform:Platform"};
 		addRelationIndex("Profile",profileRelatedObjectNames);
+
+		String [] userAlertRelatedObjectNames = {"profile:Profile","platform:Platform"};
+		addRelationIndex("UserAlert",userAlertRelatedObjectNames);
 
 		String [] targetRelatedObjectNames = {"profile:Profile","banner:Banner"};
 		addRelationIndex("Target",targetRelatedObjectNames);
@@ -129,6 +150,27 @@ public class BaseRelation{
 
 		String [] blogRelatedObjectNames = {"user:Profile","product:Product"};
 		addRelationIndex("Blog",blogRelatedObjectNames);
+
+		String [] brandFilterRelatedObjectNames = {"profile:Profile"};
+		addRelationIndex("BrandFilter",brandFilterRelatedObjectNames);
+
+		String [] priceFilterRelatedObjectNames = {"profile:Profile"};
+		addRelationIndex("PriceFilter",priceFilterRelatedObjectNames);
+
+		String [] categoryFilterRelatedObjectNames = {"profile:Profile"};
+		addRelationIndex("CategoryFilter",categoryFilterRelatedObjectNames);
+
+		String [] newProductRelatedObjectNames = {"parent_category:LevelNCategory","brand:Brand","catalog:Catalog","profile:Profile","platform:Platform"};
+		addRelationIndex("NewProduct",newProductRelatedObjectNames);
+
+		String [] editorPickProductRelatedObjectNames = {"parent_category:LevelNCategory","brand:Brand","catalog:Catalog","profile:Profile","platform:Platform"};
+		addRelationIndex("EditorPickProduct",editorPickProductRelatedObjectNames);
+
+		String [] topRatedProductRelatedObjectNames = {"parent_category:LevelNCategory","brand:Brand","catalog:Catalog","profile:Profile","platform:Platform"};
+		addRelationIndex("TopRatedProduct",topRatedProductRelatedObjectNames);
+
+		String [] recommandProductRelatedObjectNames = {"parent_category:LevelNCategory","brand:Brand","catalog:Catalog","profile:Profile","platform:Platform"};
+		addRelationIndex("RecommandProduct",recommandProductRelatedObjectNames);
 
 		String [] userWhiteListRelatedObjectNames = {"domain:UserDomain"};
 		addRelationIndex("UserWhiteList",userWhiteListRelatedObjectNames);
@@ -180,9 +222,21 @@ public class BaseRelation{
 	//default for reading trust chain, the default sequence are MXWR, the order is not affect the result
 	protected void prepareRelation()
 	{
+		addGenericRelation("Site"                                  ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("Catalog"                               ,TRUST_CHAIN_READ,"site");
+		addGenericRelation("Catalog"                               ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("LevelOneCategory"                      ,TRUST_CHAIN_READ,"catalog");
+		addGenericRelation("LevelTwoCategory"                      ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("LevelNCategory"                        ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("Brand"                                 ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("Product"                               ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("Product"                               ,TRUST_CHAIN_READ,"brand");
+		addGenericRelation("Product"                               ,TRUST_CHAIN_READ,"catalog");
 		addGenericRelation("Product"                               ,TRUST_CHAIN_READ,"platform");
 		addGenericRelation("Banner"                                ,TRUST_CHAIN_READ,"platform");
 		addGenericRelation("Profile"                               ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("UserAlert"                             ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("UserAlert"                             ,TRUST_CHAIN_READ,"platform");
 		addGenericRelation("Target"                                ,TRUST_CHAIN_READ,"profile");
 		addGenericRelation("Target"                                ,TRUST_CHAIN_READ,"banner");
 		addGenericRelation("Rating"                                ,TRUST_CHAIN_READ,"user");
@@ -191,6 +245,29 @@ public class BaseRelation{
 		addGenericRelation("Review"                                ,TRUST_CHAIN_READ,"product");
 		addGenericRelation("Blog"                                  ,TRUST_CHAIN_READ,"user");
 		addGenericRelation("Blog"                                  ,TRUST_CHAIN_READ,"product");
+		addGenericRelation("BrandFilter"                           ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("PriceFilter"                           ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("CategoryFilter"                        ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("NewProduct"                            ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("NewProduct"                            ,TRUST_CHAIN_READ,"brand");
+		addGenericRelation("NewProduct"                            ,TRUST_CHAIN_READ,"catalog");
+		addGenericRelation("NewProduct"                            ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("NewProduct"                            ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("EditorPickProduct"                     ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("EditorPickProduct"                     ,TRUST_CHAIN_READ,"brand");
+		addGenericRelation("EditorPickProduct"                     ,TRUST_CHAIN_READ,"catalog");
+		addGenericRelation("EditorPickProduct"                     ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("EditorPickProduct"                     ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("TopRatedProduct"                       ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("TopRatedProduct"                       ,TRUST_CHAIN_READ,"brand");
+		addGenericRelation("TopRatedProduct"                       ,TRUST_CHAIN_READ,"catalog");
+		addGenericRelation("TopRatedProduct"                       ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("TopRatedProduct"                       ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("RecommandProduct"                      ,TRUST_CHAIN_READ,"parentCategory");
+		addGenericRelation("RecommandProduct"                      ,TRUST_CHAIN_READ,"brand");
+		addGenericRelation("RecommandProduct"                      ,TRUST_CHAIN_READ,"catalog");
+		addGenericRelation("RecommandProduct"                      ,TRUST_CHAIN_READ,"profile");
+		addGenericRelation("RecommandProduct"                      ,TRUST_CHAIN_READ,"platform");
 		addGenericRelation("UserWhiteList"                         ,TRUST_CHAIN_READ,"domain");
 		addGenericRelation("SecUser"                               ,TRUST_CHAIN_READ,"domain");
 		addGenericRelation("UserApp"                               ,TRUST_CHAIN_READ,"secUser");

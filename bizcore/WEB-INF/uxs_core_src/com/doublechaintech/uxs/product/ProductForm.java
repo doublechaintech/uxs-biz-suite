@@ -48,6 +48,104 @@ public class ProductForm extends BaseForm {
 	}
 
 
+	public ProductForm parentCategoryIdField(String parameterName, String initValue){
+		FormField field = parentCategoryIdFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm parentCategoryIdField(String initValue){
+		return parentCategoryIdField("parentCategoryId",initValue);
+	}
+	public ProductForm parentCategoryIdField(){
+		return parentCategoryIdField("parentCategoryId","");
+	}
+
+
+	public ProductForm brandIdField(String parameterName, String initValue){
+		FormField field = brandIdFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm brandIdField(String initValue){
+		return brandIdField("brandId",initValue);
+	}
+	public ProductForm brandIdField(){
+		return brandIdField("brandId","");
+	}
+
+
+	public ProductForm productCoverImageField(String parameterName, String initValue){
+		FormField field = productCoverImageFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm productCoverImageField(String initValue){
+		return productCoverImageField("productCoverImage",initValue);
+	}
+	public ProductForm productCoverImageField(){
+		return productCoverImageField("productCoverImage","");
+	}
+
+
+	public ProductForm originField(String parameterName, String initValue){
+		FormField field = originFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm originField(String initValue){
+		return originField("origin",initValue);
+	}
+	public ProductForm originField(){
+		return originField("origin","");
+	}
+
+
+	public ProductForm catalogIdField(String parameterName, String initValue){
+		FormField field = catalogIdFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm catalogIdField(String initValue){
+		return catalogIdField("catalogId",initValue);
+	}
+	public ProductForm catalogIdField(){
+		return catalogIdField("catalogId","");
+	}
+
+
+	public ProductForm remarkField(String parameterName, String initValue){
+		FormField field = remarkFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm remarkField(String initValue){
+		return remarkField("remark",initValue);
+	}
+	public ProductForm remarkField(){
+		return remarkField("remark","");
+	}
+
+
+	public ProductForm lastUpdateTimeField(String parameterName, String initValue){
+		FormField field = lastUpdateTimeFromProduct(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public ProductForm lastUpdateTimeField(String initValue){
+		return lastUpdateTimeField("lastUpdateTime",initValue);
+	}
+	public ProductForm lastUpdateTimeField(){
+		return lastUpdateTimeField("lastUpdateTime","");
+	}
+
+
 	public ProductForm platformIdField(String parameterName, String initValue){
 		FormField field = platformIdFromProduct(parameterName, initValue);		
 		this.addFormField(field);
@@ -61,22 +159,190 @@ public class ProductForm extends BaseForm {
 		return platformIdField("platformId","");
 	}
 
+	
+	
 
-	public ProductForm avarageScoreField(String parameterName, String initValue){
-		FormField field = avarageScoreFromProduct(parameterName, initValue);		
-		this.addFormField(field);
+
+	public ProductForm levelNCategoryIdFieldOfLevelNCategory(String parameterName, String initValue){
+		FormField field =  idFromLevelNCategory(parameterName, initValue);
+		this.addFormField(field);	
 		return this;
 	}
 	
-	public ProductForm avarageScoreField(String initValue){
-		return avarageScoreField("avarageScore",initValue);
+	public ProductForm levelNCategoryIdFieldOfLevelNCategory(String initValue){
+		return levelNCategoryIdFieldOfLevelNCategory("levelNCategoryId",initValue);
 	}
-	public ProductForm avarageScoreField(){
-		return avarageScoreField("avarageScore","");
+	public ProductForm levelNCategoryIdFieldOfLevelNCategory(){
+		return levelNCategoryIdFieldOfLevelNCategory("levelNCategoryId","");
 	}
 
+
+	public ProductForm parentCategoryIdFieldOfLevelNCategory(String parameterName, String initValue){
+		FormField field =  parentCategoryIdFromLevelNCategory(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
 	
+	public ProductForm parentCategoryIdFieldOfLevelNCategory(String initValue){
+		return parentCategoryIdFieldOfLevelNCategory("parentCategoryId",initValue);
+	}
+	public ProductForm parentCategoryIdFieldOfLevelNCategory(){
+		return parentCategoryIdFieldOfLevelNCategory("parentCategoryId","");
+	}
+
+
+	public ProductForm nameFieldOfLevelNCategory(String parameterName, String initValue){
+		FormField field =  nameFromLevelNCategory(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
 	
+	public ProductForm nameFieldOfLevelNCategory(String initValue){
+		return nameFieldOfLevelNCategory("name",initValue);
+	}
+	public ProductForm nameFieldOfLevelNCategory(){
+		return nameFieldOfLevelNCategory("name","");
+	}
+
+
+	public ProductForm brandIdFieldOfBrand(String parameterName, String initValue){
+		FormField field =  idFromBrand(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm brandIdFieldOfBrand(String initValue){
+		return brandIdFieldOfBrand("brandId",initValue);
+	}
+	public ProductForm brandIdFieldOfBrand(){
+		return brandIdFieldOfBrand("brandId","");
+	}
+
+
+	public ProductForm brandNameFieldOfBrand(String parameterName, String initValue){
+		FormField field =  brandNameFromBrand(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm brandNameFieldOfBrand(String initValue){
+		return brandNameFieldOfBrand("brandName",initValue);
+	}
+	public ProductForm brandNameFieldOfBrand(){
+		return brandNameFieldOfBrand("brandName","");
+	}
+
+
+	public ProductForm logoFieldOfBrand(String parameterName, String initValue){
+		FormField field =  logoFromBrand(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm logoFieldOfBrand(String initValue){
+		return logoFieldOfBrand("logo",initValue);
+	}
+	public ProductForm logoFieldOfBrand(){
+		return logoFieldOfBrand("logo","");
+	}
+
+
+	public ProductForm remarkFieldOfBrand(String parameterName, String initValue){
+		FormField field =  remarkFromBrand(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm remarkFieldOfBrand(String initValue){
+		return remarkFieldOfBrand("remark",initValue);
+	}
+	public ProductForm remarkFieldOfBrand(){
+		return remarkFieldOfBrand("remark","");
+	}
+
+
+	public ProductForm platformIdFieldOfBrand(String parameterName, String initValue){
+		FormField field =  platformIdFromBrand(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm platformIdFieldOfBrand(String initValue){
+		return platformIdFieldOfBrand("platformId",initValue);
+	}
+	public ProductForm platformIdFieldOfBrand(){
+		return platformIdFieldOfBrand("platformId","");
+	}
+
+
+	public ProductForm catalogIdFieldOfCatalog(String parameterName, String initValue){
+		FormField field =  idFromCatalog(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm catalogIdFieldOfCatalog(String initValue){
+		return catalogIdFieldOfCatalog("catalogId",initValue);
+	}
+	public ProductForm catalogIdFieldOfCatalog(){
+		return catalogIdFieldOfCatalog("catalogId","");
+	}
+
+
+	public ProductForm nameFieldOfCatalog(String parameterName, String initValue){
+		FormField field =  nameFromCatalog(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm nameFieldOfCatalog(String initValue){
+		return nameFieldOfCatalog("name",initValue);
+	}
+	public ProductForm nameFieldOfCatalog(){
+		return nameFieldOfCatalog("name","");
+	}
+
+
+	public ProductForm sellerIdFieldOfCatalog(String parameterName, String initValue){
+		FormField field =  sellerIdFromCatalog(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm sellerIdFieldOfCatalog(String initValue){
+		return sellerIdFieldOfCatalog("sellerId",initValue);
+	}
+	public ProductForm sellerIdFieldOfCatalog(){
+		return sellerIdFieldOfCatalog("sellerId","");
+	}
+
+
+	public ProductForm siteIdFieldOfCatalog(String parameterName, String initValue){
+		FormField field =  siteIdFromCatalog(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm siteIdFieldOfCatalog(String initValue){
+		return siteIdFieldOfCatalog("siteId",initValue);
+	}
+	public ProductForm siteIdFieldOfCatalog(){
+		return siteIdFieldOfCatalog("siteId","");
+	}
+
+
+	public ProductForm platformIdFieldOfCatalog(String parameterName, String initValue){
+		FormField field =  platformIdFromCatalog(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public ProductForm platformIdFieldOfCatalog(String initValue){
+		return platformIdFieldOfCatalog("platformId",initValue);
+	}
+	public ProductForm platformIdFieldOfCatalog(){
+		return platformIdFieldOfCatalog("platformId","");
+	}
 
 
 	public ProductForm platformIdFieldOfPlatform(String parameterName, String initValue){
@@ -350,6 +616,36 @@ public class ProductForm extends BaseForm {
 	
 
 	
+ 	public ProductForm transferToAnotherParentCategoryAction(){
+		FormAction action = new FormAction();
+		action.setLabel("显示");
+		action.setLocaleKey("show");
+		action.setUrl("transferToAnotherParentCategory/productId/");
+		this.addFormAction(action);
+		return this;
+	}
+
+ 	
+ 	public ProductForm transferToAnotherBrandAction(){
+		FormAction action = new FormAction();
+		action.setLabel("显示");
+		action.setLocaleKey("show");
+		action.setUrl("transferToAnotherBrand/productId/");
+		this.addFormAction(action);
+		return this;
+	}
+
+ 	
+ 	public ProductForm transferToAnotherCatalogAction(){
+		FormAction action = new FormAction();
+		action.setLabel("显示");
+		action.setLocaleKey("show");
+		action.setUrl("transferToAnotherCatalog/productId/");
+		this.addFormAction(action);
+		return this;
+	}
+
+ 	
  	public ProductForm transferToAnotherPlatformAction(){
 		FormAction action = new FormAction();
 		action.setLabel("显示");

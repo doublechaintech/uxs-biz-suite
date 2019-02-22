@@ -20,13 +20,27 @@ public class UxsNamingServiceDAO extends CommonJDBCTemplateDAO {
 	static {
 		namingTableMap = new HashMap<String, String[]>();
 		namingTableMap.put("Platform", new String[]{"platform_data","name"});
+		namingTableMap.put("Site", new String[]{"site_data","name"});
+		namingTableMap.put("Catalog", new String[]{"catalog_data","name"});
+		namingTableMap.put("LevelOneCategory", new String[]{"level_one_category_data","name"});
+		namingTableMap.put("LevelTwoCategory", new String[]{"level_two_category_data","name"});
+		namingTableMap.put("LevelNCategory", new String[]{"level_n_category_data","name"});
+		namingTableMap.put("Brand", new String[]{"brand_data","brand_name"});
 		namingTableMap.put("Product", new String[]{"product_data","name"});
 		namingTableMap.put("Banner", new String[]{"banner_data","name"});
 		namingTableMap.put("Profile", new String[]{"profile_data","name"});
+		namingTableMap.put("UserAlert", new String[]{"user_alert_data","message"});
 		namingTableMap.put("Target", new String[]{"target_data","name"});
 		namingTableMap.put("Rating", new String[]{"rating_data","id"});
 		namingTableMap.put("Review", new String[]{"review_data","title"});
 		namingTableMap.put("Blog", new String[]{"blog_data","title"});
+		namingTableMap.put("BrandFilter", new String[]{"brand_filter_data","name"});
+		namingTableMap.put("PriceFilter", new String[]{"price_filter_data","name"});
+		namingTableMap.put("CategoryFilter", new String[]{"category_filter_data","name"});
+		namingTableMap.put("NewProduct", new String[]{"new_product_data","name"});
+		namingTableMap.put("EditorPickProduct", new String[]{"editor_pick_product_data","name"});
+		namingTableMap.put("TopRatedProduct", new String[]{"top_rated_product_data","name"});
+		namingTableMap.put("RecommandProduct", new String[]{"recommand_product_data","name"});
 		namingTableMap.put("UserDomain", new String[]{"user_domain_data","name"});
 		namingTableMap.put("UserWhiteList", new String[]{"user_white_list_data","user_identity"});
 		namingTableMap.put("SecUser", new String[]{"sec_user_data","login"});

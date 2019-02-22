@@ -5,11 +5,36 @@
 		name="Chain eComerce Platform"
 
 	/>
-	<product
-		name="A beautiful jean"
+	<site
+		name="The first customer site"
+		introduction="The primary site for show the concept"
 		platform="$(platform)"
-		avarage_score="4.5"
+		last_update_time="updateTime()"
+		
 	/>
+	
+	<catalog name="Cloth"  seller_id="SC000001" site="$(site)" platform="$(platform)"/>	
+	
+	<level_one_category catalog="$(catalog)" name="Level One Cat"/>	
+	<level_two_category parent_category="$(level_one_category)" name="Level Two Cat"/>	
+	
+	<level_n_category parent_category="$(level_two_category)" name="Level N Cat"/>	
+	<brand brand_name="Telsa Auto" 
+		logo="logo.jpg" 
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		platform="$(platform)"
+	/>
+	<product name="Jeans" parent_category="$(level_n_category)" brand="$(brand)" 
+		product_cover_image="prod-800-600-blue.jpg"
+		origin="China|US|Japan|French"
+		catalog="$(catalog)"
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		last_update_time="updateTime()"
+		platform="$(platform)"
+	/>
+	
+	
+	
 	
 	<banner
 		name="2.14 Valentines Day Promotion"
@@ -23,7 +48,21 @@
 		name="Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI"
 		
 		platform="$(platform)"
+		
+		_import_service_from="cms,ugc,oms,pim"
+		
 	/>
+	
+	
+	
+	<user_alert
+		message="IT’S THE LAST DAY TO SHOP THE WEEKLY WOW—CURRENT DEALS EXPIRE TOMORROW! WHILE SUPPLIES LAST. SHOP NOW"
+		profile="$(profile)"
+		location="HOME"
+		last_update="updateTime()"
+		platform="$(platform)"
+	/>
+	
 	
 	<target
 		name="valentines day"
@@ -60,6 +99,65 @@
 		update_time="updateTime()"
 	/>
 	
+	<!-- PIM 集成 -->
+	
+	<catalog name="Cloth"  seller_id="SC000001" platform="$(platform)"/>	
+	<brand_filter
+		name="Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI"
+		internal_id="brandid"
+		profile="$(profile)"
+	/>
+	
+	<price_filter
+		name="Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI"
+		price_start="1.99"
+		price_end="1000000.99"
+		profile="$(profile)"
+	/>
+	<category_filter
+		name="Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI"
+		internal_id="category"
+		profile="$(profile)"
+	/>
+	
+	<new_product name="Jeans" parent_category="$(level_n_category)" brand="$(brand)" 
+		product_cover_image="prod-800-600-blue.jpg"
+		origin="China|US|Japan|French"
+		catalog="$(catalog)"
+		profile="$(profile)"
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		last_update_time="updateTime()"
+		platform="$(platform)"
+	/>
+	<editor_pick_product name="Jeans" parent_category="$(level_n_category)" brand="$(brand)" 
+		product_cover_image="prod-800-600-blue.jpg"
+		origin="China|US|Japan|French"
+		catalog="$(catalog)"
+		profile="$(profile)"
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		last_update_time="updateTime()"
+		platform="$(platform)"
+	/>
+	<top_rated_product name="Jeans" parent_category="$(level_n_category)" brand="$(brand)" 
+		product_cover_image="prod-800-600-blue.jpg"
+		origin="China|US|Japan|French"
+		catalog="$(catalog)"
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		last_update_time="updateTime()"
+		profile="$(profile)"
+		platform="$(platform)"
+	/>
+	<recommand_product name="Jeans" parent_category="$(level_n_category)" brand="$(brand)" 
+		product_cover_image="prod-800-600-blue.jpg"
+		origin="China|US|Japan|French"
+		catalog="$(catalog)"
+		remark="The brand a great that has Roadester, Model S and Model X, Model 3 is in development"
+		last_update_time="updateTime()"
+		profile="$(profile)"
+		platform="$(platform)"
+	/>
+	
+	<!-- PIM 集成 -->
 	
 	
 	

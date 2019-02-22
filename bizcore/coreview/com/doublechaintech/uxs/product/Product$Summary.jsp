@@ -41,8 +41,20 @@
 <span >${result.name}</span>
 </div>
 <div class="col-xs-12 col-md-3 summary-section">
-<span class="summary-label">${userContext.localeMap['product.avarage_score']}</span>
-<span >${result.avarageScore}</span>
+<span class="summary-label">${userContext.localeMap['product.product_cover_image']}</span>
+<span >${result.productCoverImage}</span>
+</div>
+<div class="col-xs-12 col-md-3 summary-section">
+<span class="summary-label">${userContext.localeMap['product.origin']}</span>
+<span >${result.origin}</span>
+</div>
+<div class="col-xs-12 col-md-3 summary-section">
+<span class="summary-label">${userContext.localeMap['product.last_update_time']}</span>
+<span ><fmt:formatDate pattern="yyyy-MM-dd" value="${result.lastUpdateTime}" /></span>
+</div>
+<div class="col-xs-12 col-md-12 summary-large-content">
+<span class="summary-label">${userContext.localeMap['product.remark']}</span>
+<span >${result.remark}</span>
 </div>
 
 	</div>

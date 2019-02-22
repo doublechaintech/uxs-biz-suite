@@ -19,15 +19,21 @@ public class ProductTable{
 	static final String TABLE_NAME="product_data";
 	static final String COLUMN_ID = "id";
 	static final String COLUMN_NAME = "name";
+	static final String COLUMN_PARENT_CATEGORY = "parent_category";
+	static final String COLUMN_BRAND = "brand";
+	static final String COLUMN_PRODUCT_COVER_IMAGE = "product_cover_image";
+	static final String COLUMN_ORIGIN = "origin";
+	static final String COLUMN_CATALOG = "catalog";
+	static final String COLUMN_REMARK = "remark";
+	static final String COLUMN_LAST_UPDATE_TIME = "last_update_time";
 	static final String COLUMN_PLATFORM = "platform";
-	static final String COLUMN_AVARAGE_SCORE = "avarage_score";
 	static final String COLUMN_VERSION = "version";
  
 	static final String []ALL_CLOUMNS = {COLUMN_ID, 
-		COLUMN_NAME, COLUMN_PLATFORM, COLUMN_AVARAGE_SCORE, 
+		COLUMN_NAME, COLUMN_PARENT_CATEGORY, COLUMN_BRAND, COLUMN_PRODUCT_COVER_IMAGE, COLUMN_ORIGIN, COLUMN_CATALOG, COLUMN_REMARK, COLUMN_LAST_UPDATE_TIME, COLUMN_PLATFORM, 
 		COLUMN_VERSION};
 	static final String []NORMAL_CLOUMNS = {
-		COLUMN_NAME, COLUMN_PLATFORM, COLUMN_AVARAGE_SCORE
+		COLUMN_NAME, COLUMN_PARENT_CATEGORY, COLUMN_BRAND, COLUMN_PRODUCT_COVER_IMAGE, COLUMN_ORIGIN, COLUMN_CATALOG, COLUMN_REMARK, COLUMN_LAST_UPDATE_TIME, COLUMN_PLATFORM
 		};
 	
 	

@@ -111,7 +111,7 @@ class PlatformDashboard extends Component {
 
   render() {
     // eslint-disable-next-line max-len
-    const { id,displayName, productListMetaInfo, bannerListMetaInfo, profileListMetaInfo, productCount, bannerCount, profileCount } = this.props.platform
+    const { id,displayName, siteListMetaInfo, catalogListMetaInfo, brandListMetaInfo, productListMetaInfo, bannerListMetaInfo, profileListMetaInfo, userAlertListMetaInfo, newProductListMetaInfo, editorPickProductListMetaInfo, topRatedProductListMetaInfo, recommandProductListMetaInfo, siteCount, catalogCount, brandCount, productCount, bannerCount, profileCount, userAlertCount, newProductCount, editorPickProductCount, topRatedProductCount, recommandProductCount } = this.props.platform
     if(!this.props.platform.class){
       return null
     }
@@ -120,9 +120,17 @@ class PlatformDashboard extends Component {
     const cardsData = {cardsName:"Platform",cardsFor: "platform",
     	cardsSource: this.props.platform,returnURL,displayName,
   		subItems: [
+{name: 'siteList', displayName:'Site',type:'site',count:siteCount,addFunction: true, role: 'site', metaInfo: siteListMetaInfo},
+{name: 'catalogList', displayName:'Catalog',type:'catalog',count:catalogCount,addFunction: true, role: 'catalog', metaInfo: catalogListMetaInfo},
+{name: 'brandList', displayName:'Brand',type:'brand',count:brandCount,addFunction: true, role: 'brand', metaInfo: brandListMetaInfo},
 {name: 'productList', displayName:'Product',type:'product',count:productCount,addFunction: true, role: 'product', metaInfo: productListMetaInfo},
 {name: 'bannerList', displayName:'Banner',type:'banner',count:bannerCount,addFunction: true, role: 'banner', metaInfo: bannerListMetaInfo},
 {name: 'profileList', displayName:'Profile',type:'profile',count:profileCount,addFunction: true, role: 'profile', metaInfo: profileListMetaInfo},
+{name: 'userAlertList', displayName:'User Alert',type:'userAlert',count:userAlertCount,addFunction: true, role: 'userAlert', metaInfo: userAlertListMetaInfo},
+{name: 'newProductList', displayName:'New Product',type:'newProduct',count:newProductCount,addFunction: true, role: 'newProduct', metaInfo: newProductListMetaInfo},
+{name: 'editorPickProductList', displayName:'Editor Pick Product',type:'editorPickProduct',count:editorPickProductCount,addFunction: true, role: 'editorPickProduct', metaInfo: editorPickProductListMetaInfo},
+{name: 'topRatedProductList', displayName:'Top Rated Product',type:'topRatedProduct',count:topRatedProductCount,addFunction: true, role: 'topRatedProduct', metaInfo: topRatedProductListMetaInfo},
+{name: 'recommandProductList', displayName:'Recommand Product',type:'recommandProduct',count:recommandProductCount,addFunction: true, role: 'recommandProduct', metaInfo: recommandProductListMetaInfo},
     
       	],
   	};

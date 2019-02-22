@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-public class KafkaMessageEventService implements EventService, InitializingBean {
+public class KafkaMessageEventService implements EventService{
 
     private ObjectMapper objectMapper = new ObjectMapper();
     private Properties producerProperties;
@@ -30,9 +30,12 @@ public class KafkaMessageEventService implements EventService, InitializingBean 
 		return producerProperties;
 	}
 
-
+    
 	@Override
     public void sendEvent(Event event) {
+		
+		
+		
         if (event == null) {
             return;
         }
@@ -56,9 +59,23 @@ public class KafkaMessageEventService implements EventService, InitializingBean 
         if (target != null && !target.isEmpty()) {
             topic = target;
         }
+        
+        
+        
         ProducerRecord<String, String> msg = new ProducerRecord<String, String>(topic, jsonResult);
-        producer.send(msg);
-        producer.flush();
+        
+        if(producer==null) {
+        	try {
+				this.init();
+				producer.send(msg);
+		        producer.flush();
+			} catch (Exception e) {
+				//log some message is fine here
+				e.printStackTrace();
+			}
+        }
+        
+        
     }
 /*
  * '海门':[121.15,31.89],
@@ -259,8 +276,8 @@ public class KafkaMessageEventService implements EventService, InitializingBean 
 	}
 
 
-	@Override
-    public void afterPropertiesSet() throws Exception {
+	
+    public void init() throws Exception {
         String brokers = producerProperties.getProperty("bootstrap.servers");
         if (brokers == null || brokers.isEmpty()) {
             return;

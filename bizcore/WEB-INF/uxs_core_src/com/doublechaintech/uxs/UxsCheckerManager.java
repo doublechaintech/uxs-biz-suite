@@ -33,6 +33,238 @@ public class UxsCheckerManager extends BaseManagerImpl {
 		
 	}	 			
 	
+	public static final String  ID_OF_SITE ="site.id";
+	protected void checkIdOfSite(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_SITE, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_SITE ="site.name";
+	protected void checkNameOfSite(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,6, 92,NAME_OF_SITE, messageList); 		
+		
+	}	 			
+	
+	public static final String  INTRODUCTION_OF_SITE ="site.introduction";
+	protected void checkIntroductionOfSite(UxsUserContext userContext, String introduction, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(introduction,10, 148,INTRODUCTION_OF_SITE, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_SITE ="site.platform";
+	protected void checkPlatformIdOfSite(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfSite(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_SITE ="site.version";
+	protected void checkVersionOfSite(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_SITE, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_CATALOG ="catalog.id";
+	protected void checkIdOfCatalog(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_CATALOG, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_CATALOG ="catalog.name";
+	protected void checkNameOfCatalog(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_CATALOG, messageList); 		
+		
+	}	 			
+	
+	public static final String  SELLER_ID_OF_CATALOG ="catalog.seller_id";
+	protected void checkSellerIdOfCatalog(UxsUserContext userContext, String sellerId, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(sellerId,3, 32,SELLER_ID_OF_CATALOG, messageList); 		
+		
+	}	 			
+	
+	public static final String  SITE_OF_CATALOG ="catalog.site";
+	protected void checkSiteIdOfCatalog(UxsUserContext userContext, String siteId, List<Message> messageList)
+	{
+		
+	 	checkIdOfCatalog(userContext,siteId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_CATALOG ="catalog.platform";
+	protected void checkPlatformIdOfCatalog(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfCatalog(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_CATALOG ="catalog.version";
+	protected void checkVersionOfCatalog(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_CATALOG, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_LEVEL_ONE_CATEGORY ="level_one_category.id";
+	protected void checkIdOfLevelOneCategory(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_ONE_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_LEVEL_ONE_CATEGORY ="level_one_category.catalog";
+	protected void checkCatalogIdOfLevelOneCategory(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfLevelOneCategory(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_LEVEL_ONE_CATEGORY ="level_one_category.name";
+	protected void checkNameOfLevelOneCategory(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,4, 52,NAME_OF_LEVEL_ONE_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_LEVEL_ONE_CATEGORY ="level_one_category.version";
+	protected void checkVersionOfLevelOneCategory(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_ONE_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_LEVEL_TWO_CATEGORY ="level_two_category.id";
+	protected void checkIdOfLevelTwoCategory(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_TWO_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_LEVEL_TWO_CATEGORY ="level_two_category.parent_category";
+	protected void checkParentCategoryIdOfLevelTwoCategory(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfLevelTwoCategory(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_LEVEL_TWO_CATEGORY ="level_two_category.name";
+	protected void checkNameOfLevelTwoCategory(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,4, 52,NAME_OF_LEVEL_TWO_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_LEVEL_TWO_CATEGORY ="level_two_category.version";
+	protected void checkVersionOfLevelTwoCategory(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_TWO_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_LEVEL_N_CATEGORY ="level_n_category.id";
+	protected void checkIdOfLevelNCategory(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_N_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_LEVEL_N_CATEGORY ="level_n_category.parent_category";
+	protected void checkParentCategoryIdOfLevelNCategory(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfLevelNCategory(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_LEVEL_N_CATEGORY ="level_n_category.name";
+	protected void checkNameOfLevelNCategory(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,3, 44,NAME_OF_LEVEL_N_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_LEVEL_N_CATEGORY ="level_n_category.version";
+	protected void checkVersionOfLevelNCategory(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_N_CATEGORY, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_BRAND ="brand.id";
+	protected void checkIdOfBrand(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_BRAND, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_NAME_OF_BRAND ="brand.brand_name";
+	protected void checkBrandNameOfBrand(UxsUserContext userContext, String brandName, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(brandName,3, 40,BRAND_NAME_OF_BRAND, messageList); 		
+		
+	}	 			
+	
+	public static final String  LOGO_OF_BRAND ="brand.logo";
+	protected void checkLogoOfBrand(UxsUserContext userContext, String logo, List<Message> messageList)
+	{
+		
+	 	checkImage(logo,0, 512,LOGO_OF_BRAND, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_BRAND ="brand.remark";
+	protected void checkRemarkOfBrand(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_BRAND, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_BRAND ="brand.platform";
+	protected void checkPlatformIdOfBrand(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfBrand(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_BRAND ="brand.version";
+	protected void checkVersionOfBrand(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BRAND, messageList); 		
+		
+	}	 			
+	
 	public static final String  ID_OF_PRODUCT ="product.id";
 	protected void checkIdOfProduct(UxsUserContext userContext, String id, List<Message> messageList)
 	{
@@ -45,7 +277,55 @@ public class UxsCheckerManager extends BaseManagerImpl {
 	protected void checkNameOfProduct(UxsUserContext userContext, String name, List<Message> messageList)
 	{
 		
-	 	checkStringLengthRange(name,5, 64,NAME_OF_PRODUCT, messageList); 		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_PRODUCT ="product.parent_category";
+	protected void checkParentCategoryIdOfProduct(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfProduct(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_OF_PRODUCT ="product.brand";
+	protected void checkBrandIdOfProduct(UxsUserContext userContext, String brandId, List<Message> messageList)
+	{
+		
+	 	checkIdOfProduct(userContext,brandId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRODUCT_COVER_IMAGE_OF_PRODUCT ="product.product_cover_image";
+	protected void checkProductCoverImageOfProduct(UxsUserContext userContext, String productCoverImage, List<Message> messageList)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ORIGIN_OF_PRODUCT ="product.origin";
+	protected void checkOriginOfProduct(UxsUserContext userContext, String origin, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_PRODUCT ="product.catalog";
+	protected void checkCatalogIdOfProduct(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfProduct(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_PRODUCT ="product.remark";
+	protected void checkRemarkOfProduct(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_PRODUCT, messageList); 		
 		
 	}	 			
 	
@@ -54,14 +334,6 @@ public class UxsCheckerManager extends BaseManagerImpl {
 	{
 		
 	 	checkIdOfProduct(userContext,platformId, messageList); 		
-		
-	}	 			
-	
-	public static final String  AVARAGE_SCORE_OF_PRODUCT ="product.avarage_score";
-	protected void checkAvarageScoreOfProduct(UxsUserContext userContext, BigDecimal avarageScore, List<Message> messageList)
-	{
-		
-	 	checkBigDecimalRange(avarageScore,0, 4.5,AVARAGE_SCORE_OF_PRODUCT, messageList); 		
 		
 	}	 			
 	
@@ -142,6 +414,54 @@ public class UxsCheckerManager extends BaseManagerImpl {
 	{
 		
 	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_PROFILE, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_USER_ALERT ="user_alert.id";
+	protected void checkIdOfUserAlert(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_USER_ALERT, messageList); 		
+		
+	}	 			
+	
+	public static final String  MESSAGE_OF_USER_ALERT ="user_alert.message";
+	protected void checkMessageOfUserAlert(UxsUserContext userContext, String message, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(message,26, 404,MESSAGE_OF_USER_ALERT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_USER_ALERT ="user_alert.profile";
+	protected void checkProfileIdOfUserAlert(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfUserAlert(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  LOCATION_OF_USER_ALERT ="user_alert.location";
+	protected void checkLocationOfUserAlert(UxsUserContext userContext, String location, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(location,2, 16,LOCATION_OF_USER_ALERT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_USER_ALERT ="user_alert.platform";
+	protected void checkPlatformIdOfUserAlert(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfUserAlert(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_USER_ALERT ="user_alert.version";
+	protected void checkVersionOfUserAlert(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_USER_ALERT, messageList); 		
 		
 	}	 			
 	
@@ -326,6 +646,486 @@ public class UxsCheckerManager extends BaseManagerImpl {
 	{
 		
 	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BLOG, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_BRAND_FILTER ="brand_filter.id";
+	protected void checkIdOfBrandFilter(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_BRAND_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_BRAND_FILTER ="brand_filter.name";
+	protected void checkNameOfBrandFilter(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_BRAND_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  INTERNAL_ID_OF_BRAND_FILTER ="brand_filter.internal_id";
+	protected void checkInternalIdOfBrandFilter(UxsUserContext userContext, String internalId, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(internalId,2, 28,INTERNAL_ID_OF_BRAND_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_BRAND_FILTER ="brand_filter.profile";
+	protected void checkProfileIdOfBrandFilter(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfBrandFilter(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_BRAND_FILTER ="brand_filter.version";
+	protected void checkVersionOfBrandFilter(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BRAND_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_PRICE_FILTER ="price_filter.id";
+	protected void checkIdOfPriceFilter(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_PRICE_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_PRICE_FILTER ="price_filter.name";
+	protected void checkNameOfPriceFilter(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_PRICE_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRICE_START_OF_PRICE_FILTER ="price_filter.price_start";
+	protected void checkPriceStartOfPriceFilter(UxsUserContext userContext, BigDecimal priceStart, List<Message> messageList)
+	{
+		
+	 	checkBigDecimalRange(priceStart,0, 1.99,PRICE_START_OF_PRICE_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRICE_END_OF_PRICE_FILTER ="price_filter.price_end";
+	protected void checkPriceEndOfPriceFilter(UxsUserContext userContext, BigDecimal priceEnd, List<Message> messageList)
+	{
+		
+	 	checkBigDecimalRange(priceEnd,0, 1000000.99,PRICE_END_OF_PRICE_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_PRICE_FILTER ="price_filter.profile";
+	protected void checkProfileIdOfPriceFilter(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfPriceFilter(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_PRICE_FILTER ="price_filter.version";
+	protected void checkVersionOfPriceFilter(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_PRICE_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_CATEGORY_FILTER ="category_filter.id";
+	protected void checkIdOfCategoryFilter(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_CATEGORY_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_CATEGORY_FILTER ="category_filter.name";
+	protected void checkNameOfCategoryFilter(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_CATEGORY_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  INTERNAL_ID_OF_CATEGORY_FILTER ="category_filter.internal_id";
+	protected void checkInternalIdOfCategoryFilter(UxsUserContext userContext, String internalId, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(internalId,3, 32,INTERNAL_ID_OF_CATEGORY_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_CATEGORY_FILTER ="category_filter.profile";
+	protected void checkProfileIdOfCategoryFilter(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfCategoryFilter(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_CATEGORY_FILTER ="category_filter.version";
+	protected void checkVersionOfCategoryFilter(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_CATEGORY_FILTER, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_NEW_PRODUCT ="new_product.id";
+	protected void checkIdOfNewProduct(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_NEW_PRODUCT ="new_product.name";
+	protected void checkNameOfNewProduct(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_NEW_PRODUCT ="new_product.parent_category";
+	protected void checkParentCategoryIdOfNewProduct(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfNewProduct(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_OF_NEW_PRODUCT ="new_product.brand";
+	protected void checkBrandIdOfNewProduct(UxsUserContext userContext, String brandId, List<Message> messageList)
+	{
+		
+	 	checkIdOfNewProduct(userContext,brandId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRODUCT_COVER_IMAGE_OF_NEW_PRODUCT ="new_product.product_cover_image";
+	protected void checkProductCoverImageOfNewProduct(UxsUserContext userContext, String productCoverImage, List<Message> messageList)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ORIGIN_OF_NEW_PRODUCT ="new_product.origin";
+	protected void checkOriginOfNewProduct(UxsUserContext userContext, String origin, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_NEW_PRODUCT ="new_product.catalog";
+	protected void checkCatalogIdOfNewProduct(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfNewProduct(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_NEW_PRODUCT ="new_product.profile";
+	protected void checkProfileIdOfNewProduct(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfNewProduct(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_NEW_PRODUCT ="new_product.remark";
+	protected void checkRemarkOfNewProduct(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_NEW_PRODUCT ="new_product.platform";
+	protected void checkPlatformIdOfNewProduct(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfNewProduct(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_NEW_PRODUCT ="new_product.version";
+	protected void checkVersionOfNewProduct(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_NEW_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.id";
+	protected void checkIdOfEditorPickProduct(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.name";
+	protected void checkNameOfEditorPickProduct(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.parent_category";
+	protected void checkParentCategoryIdOfEditorPickProduct(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfEditorPickProduct(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.brand";
+	protected void checkBrandIdOfEditorPickProduct(UxsUserContext userContext, String brandId, List<Message> messageList)
+	{
+		
+	 	checkIdOfEditorPickProduct(userContext,brandId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRODUCT_COVER_IMAGE_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.product_cover_image";
+	protected void checkProductCoverImageOfEditorPickProduct(UxsUserContext userContext, String productCoverImage, List<Message> messageList)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ORIGIN_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.origin";
+	protected void checkOriginOfEditorPickProduct(UxsUserContext userContext, String origin, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.catalog";
+	protected void checkCatalogIdOfEditorPickProduct(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfEditorPickProduct(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.profile";
+	protected void checkProfileIdOfEditorPickProduct(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfEditorPickProduct(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.remark";
+	protected void checkRemarkOfEditorPickProduct(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.platform";
+	protected void checkPlatformIdOfEditorPickProduct(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfEditorPickProduct(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.version";
+	protected void checkVersionOfEditorPickProduct(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_EDITOR_PICK_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_TOP_RATED_PRODUCT ="top_rated_product.id";
+	protected void checkIdOfTopRatedProduct(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_TOP_RATED_PRODUCT ="top_rated_product.name";
+	protected void checkNameOfTopRatedProduct(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_TOP_RATED_PRODUCT ="top_rated_product.parent_category";
+	protected void checkParentCategoryIdOfTopRatedProduct(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTopRatedProduct(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_OF_TOP_RATED_PRODUCT ="top_rated_product.brand";
+	protected void checkBrandIdOfTopRatedProduct(UxsUserContext userContext, String brandId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTopRatedProduct(userContext,brandId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRODUCT_COVER_IMAGE_OF_TOP_RATED_PRODUCT ="top_rated_product.product_cover_image";
+	protected void checkProductCoverImageOfTopRatedProduct(UxsUserContext userContext, String productCoverImage, List<Message> messageList)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ORIGIN_OF_TOP_RATED_PRODUCT ="top_rated_product.origin";
+	protected void checkOriginOfTopRatedProduct(UxsUserContext userContext, String origin, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_TOP_RATED_PRODUCT ="top_rated_product.catalog";
+	protected void checkCatalogIdOfTopRatedProduct(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTopRatedProduct(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_TOP_RATED_PRODUCT ="top_rated_product.remark";
+	protected void checkRemarkOfTopRatedProduct(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_TOP_RATED_PRODUCT ="top_rated_product.profile";
+	protected void checkProfileIdOfTopRatedProduct(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTopRatedProduct(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_TOP_RATED_PRODUCT ="top_rated_product.platform";
+	protected void checkPlatformIdOfTopRatedProduct(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTopRatedProduct(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_TOP_RATED_PRODUCT ="top_rated_product.version";
+	protected void checkVersionOfTopRatedProduct(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_TOP_RATED_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ID_OF_RECOMMAND_PRODUCT ="recommand_product.id";
+	protected void checkIdOfRecommandProduct(UxsUserContext userContext, String id, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_RECOMMAND_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  NAME_OF_RECOMMAND_PRODUCT ="recommand_product.name";
+	protected void checkNameOfRecommandProduct(UxsUserContext userContext, String name, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_RECOMMAND_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PARENT_CATEGORY_OF_RECOMMAND_PRODUCT ="recommand_product.parent_category";
+	protected void checkParentCategoryIdOfRecommandProduct(UxsUserContext userContext, String parentCategoryId, List<Message> messageList)
+	{
+		
+	 	checkIdOfRecommandProduct(userContext,parentCategoryId, messageList); 		
+		
+	}	 			
+	
+	public static final String  BRAND_OF_RECOMMAND_PRODUCT ="recommand_product.brand";
+	protected void checkBrandIdOfRecommandProduct(UxsUserContext userContext, String brandId, List<Message> messageList)
+	{
+		
+	 	checkIdOfRecommandProduct(userContext,brandId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PRODUCT_COVER_IMAGE_OF_RECOMMAND_PRODUCT ="recommand_product.product_cover_image";
+	protected void checkProductCoverImageOfRecommandProduct(UxsUserContext userContext, String productCoverImage, List<Message> messageList)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_RECOMMAND_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  ORIGIN_OF_RECOMMAND_PRODUCT ="recommand_product.origin";
+	protected void checkOriginOfRecommandProduct(UxsUserContext userContext, String origin, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_RECOMMAND_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  CATALOG_OF_RECOMMAND_PRODUCT ="recommand_product.catalog";
+	protected void checkCatalogIdOfRecommandProduct(UxsUserContext userContext, String catalogId, List<Message> messageList)
+	{
+		
+	 	checkIdOfRecommandProduct(userContext,catalogId, messageList); 		
+		
+	}	 			
+	
+	public static final String  REMARK_OF_RECOMMAND_PRODUCT ="recommand_product.remark";
+	protected void checkRemarkOfRecommandProduct(UxsUserContext userContext, String remark, List<Message> messageList)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_RECOMMAND_PRODUCT, messageList); 		
+		
+	}	 			
+	
+	public static final String  PROFILE_OF_RECOMMAND_PRODUCT ="recommand_product.profile";
+	protected void checkProfileIdOfRecommandProduct(UxsUserContext userContext, String profileId, List<Message> messageList)
+	{
+		
+	 	checkIdOfRecommandProduct(userContext,profileId, messageList); 		
+		
+	}	 			
+	
+	public static final String  PLATFORM_OF_RECOMMAND_PRODUCT ="recommand_product.platform";
+	protected void checkPlatformIdOfRecommandProduct(UxsUserContext userContext, String platformId, List<Message> messageList)
+	{
+		
+	 	checkIdOfRecommandProduct(userContext,platformId, messageList); 		
+		
+	}	 			
+	
+	public static final String  VERSION_OF_RECOMMAND_PRODUCT ="recommand_product.version";
+	protected void checkVersionOfRecommandProduct(UxsUserContext userContext, int version, List<Message> messageList)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_RECOMMAND_PRODUCT, messageList); 		
 		
 	}	 			
 	

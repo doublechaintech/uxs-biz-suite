@@ -101,11 +101,29 @@
 <c:if test="${param.referName ne 'name'}">
 	<th>${userContext.localeMap['product.name']}</th>
 </c:if>
+<c:if test="${param.referName ne 'parentCategory'}">
+	<th>${userContext.localeMap['product.parent_category']}</th>
+</c:if>
+<c:if test="${param.referName ne 'brand'}">
+	<th>${userContext.localeMap['product.brand']}</th>
+</c:if>
+<c:if test="${param.referName ne 'productCoverImage'}">
+	<th>${userContext.localeMap['product.product_cover_image']}</th>
+</c:if>
+<c:if test="${param.referName ne 'origin'}">
+	<th>${userContext.localeMap['product.origin']}</th>
+</c:if>
+<c:if test="${param.referName ne 'catalog'}">
+	<th>${userContext.localeMap['product.catalog']}</th>
+</c:if>
+<c:if test="${param.referName ne 'remark'}">
+	<th>${userContext.localeMap['product.remark']}</th>
+</c:if>
+<c:if test="${param.referName ne 'lastUpdateTime'}">
+	<th>${userContext.localeMap['product.last_update_time']}</th>
+</c:if>
 <c:if test="${param.referName ne 'platform'}">
 	<th>${userContext.localeMap['product.platform']}</th>
-</c:if>
-<c:if test="${param.referName ne 'avarageScore'}">
-	<th>${userContext.localeMap['product.avarage_score']}</th>
 </c:if>
 <th>${userContext.localeMap['@action']}</th>
 		</tr></thead>
@@ -114,6 +132,67 @@
 			<c:forEach var="item" items="${productList}">
 				<tr currentVersion='${item.version}' id="product-${item.id}" ><td><a class="link-action-removed" href="./productManager/view/${item.id}/"> ${item.id}</a></td>
 <c:if test="${param.referName ne 'name'}">	<td contenteditable='true' class='edit-value'  propertyToChange='name' storedCellValue='${item.name}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'>${item.name}</td>
+</c:if><c:if test="${param.referName ne 'parentCategory'}">
+	<td class="select_candidate_td"
+			data-candidate-method="./productManager/requestCandidateParentCategory/${ownerBeanName}/${item.id}/"
+			data-switch-method="./productManager/transferToAnotherParentCategory/${item.id}/"
+			data-link-template="./levelNCategoryManager/view/${'$'}{ID}/">
+		<span class="display_span">
+			<c:if test="${not empty  item.parentCategory}">
+			<a href='./levelNCategoryManager/view/${item.parentCategory.id}/'>${item.parentCategory.displayName}</a>
+			</c:if>
+			<c:if test="${empty  item.parentCategory}">
+			<a href='#'></a>
+			</c:if>
+			<button class="btn btn-link candidate-action">...</button>
+		</span>
+		<div class="candidate_span" style="display:none;">
+			<input type="text" data-provide="typeahead" class="input-sm form-control candidate-filter-input" autocomplete="off" />
+		</div>
+	</td>
+</c:if>
+<c:if test="${param.referName ne 'brand'}">
+	<td class="select_candidate_td"
+			data-candidate-method="./productManager/requestCandidateBrand/${ownerBeanName}/${item.id}/"
+			data-switch-method="./productManager/transferToAnotherBrand/${item.id}/"
+			data-link-template="./brandManager/view/${'$'}{ID}/">
+		<span class="display_span">
+			<c:if test="${not empty  item.brand}">
+			<a href='./brandManager/view/${item.brand.id}/'>${item.brand.displayName}</a>
+			</c:if>
+			<c:if test="${empty  item.brand}">
+			<a href='#'></a>
+			</c:if>
+			<button class="btn btn-link candidate-action">...</button>
+		</span>
+		<div class="candidate_span" style="display:none;">
+			<input type="text" data-provide="typeahead" class="input-sm form-control candidate-filter-input" autocomplete="off" />
+		</div>
+	</td>
+</c:if>
+<c:if test="${param.referName ne 'productCoverImage'}">	<td contenteditable='true' class='edit-value'  propertyToChange='productCoverImage' storedCellValue='${item.productCoverImage}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'>${item.productCoverImage}</td>
+</c:if><c:if test="${param.referName ne 'origin'}">	<td contenteditable='true' class='edit-value'  propertyToChange='origin' storedCellValue='${item.origin}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'>${item.origin}</td>
+</c:if><c:if test="${param.referName ne 'catalog'}">
+	<td class="select_candidate_td"
+			data-candidate-method="./productManager/requestCandidateCatalog/${ownerBeanName}/${item.id}/"
+			data-switch-method="./productManager/transferToAnotherCatalog/${item.id}/"
+			data-link-template="./catalogManager/view/${'$'}{ID}/">
+		<span class="display_span">
+			<c:if test="${not empty  item.catalog}">
+			<a href='./catalogManager/view/${item.catalog.id}/'>${item.catalog.displayName}</a>
+			</c:if>
+			<c:if test="${empty  item.catalog}">
+			<a href='#'></a>
+			</c:if>
+			<button class="btn btn-link candidate-action">...</button>
+		</span>
+		<div class="candidate_span" style="display:none;">
+			<input type="text" data-provide="typeahead" class="input-sm form-control candidate-filter-input" autocomplete="off" />
+		</div>
+	</td>
+</c:if>
+<c:if test="${param.referName ne 'remark'}">	<td contenteditable='true' class='edit-value'  propertyToChange='remark' storedCellValue='${item.remark}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'>${item.remark}</td>
+</c:if><c:if test="${param.referName ne 'lastUpdateTime'}">	<td contenteditable='true' class='edit-value'  propertyToChange='lastUpdateTime' storedCellValue='${item.lastUpdateTime}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'><fmt:formatDate pattern="yyyy-MM-dd'T'HH:mm:ss" value="${item.lastUpdateTime}" /></td>
 </c:if><c:if test="${param.referName ne 'platform'}">
 	<td class="select_candidate_td"
 			data-candidate-method="./productManager/requestCandidatePlatform/${ownerBeanName}/${item.id}/"
@@ -133,8 +212,7 @@
 		</div>
 	</td>
 </c:if>
-<c:if test="${param.referName ne 'avarageScore'}">	<td contenteditable='true' class='edit-value'  propertyToChange='avarageScore' storedCellValue='${item.avarageScore}' prefix='${ownerBeanName}Manager/updateProduct/${result.id}/${item.id}/'>${item.avarageScore}</td>
-</c:if>
+
 				<td>
 
 				<a href='#${ownerBeanName}Manager/removeProduct/${result.id}/${item.id}/' class='delete-action btn btn-danger btn-xs'><i class="fa fa-trash-o fa-lg"></i> ${userContext.localeMap['@delete']}</a>

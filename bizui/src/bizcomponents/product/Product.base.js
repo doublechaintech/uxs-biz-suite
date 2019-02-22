@@ -73,17 +73,29 @@ const renderReferenceCell=(value, record)=>{
 
 const displayColumns = [
   { title: 'Id', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'product') },
-  { title: 'Name', debugtype: 'string', dataIndex: 'name', width: '20',render: (text, record)=>renderTextCell(text,record) },
+  { title: 'Name', debugtype: 'string', dataIndex: 'name', width: '9',render: (text, record)=>renderTextCell(text,record) },
+  { title: 'Parent Category', dataIndex: 'parentCategory', render: (text, record) => renderReferenceCell(text, record)},
+  { title: 'Brand', dataIndex: 'brand', render: (text, record) => renderReferenceCell(text, record)},
+  { title: 'Product Cover Image', dataIndex: 'productCoverImage', render: (text, record) => renderImageCell(text,record,'Product Cover Image') },
+  { title: 'Origin', debugtype: 'string', dataIndex: 'origin', width: '10',render: (text, record)=>renderTextCell(text,record) },
+  { title: 'Catalog', dataIndex: 'catalog', render: (text, record) => renderReferenceCell(text, record)},
+  { title: 'Remark', debugtype: 'string', dataIndex: 'remark', width: '88',render: (text, record)=>renderTextCell(text,record) },
+  { title: 'Last Update Time', dataIndex: 'lastUpdateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
   { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Avarage Score', debugtype: 'double', dataIndex: 'avarageScore', width: '7',render: (text, record)=>renderTextCell(text,record) },
 
 ]
 
 const fieldLabels = {
   id: 'Id',
   name: 'Name',
+  parentCategory: 'Parent Category',
+  brand: 'Brand',
+  productCoverImage: 'Product Cover Image',
+  origin: 'Origin',
+  catalog: 'Catalog',
+  remark: 'Remark',
+  lastUpdateTime: 'Last Update Time',
   platform: 'Platform',
-  avarageScore: 'Avarage Score',
 
 }
 

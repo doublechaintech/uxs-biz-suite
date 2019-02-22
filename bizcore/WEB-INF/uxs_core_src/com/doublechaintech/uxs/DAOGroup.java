@@ -6,6 +6,24 @@ import java.util.Map;
 import com.doublechaintech.uxs.platform.Platform;
 import com.doublechaintech.uxs.platform.PlatformDAO;
 import com.doublechaintech.uxs.platform.PlatformTokens;
+import com.doublechaintech.uxs.site.Site;
+import com.doublechaintech.uxs.site.SiteDAO;
+import com.doublechaintech.uxs.site.SiteTokens;
+import com.doublechaintech.uxs.catalog.Catalog;
+import com.doublechaintech.uxs.catalog.CatalogDAO;
+import com.doublechaintech.uxs.catalog.CatalogTokens;
+import com.doublechaintech.uxs.levelonecategory.LevelOneCategory;
+import com.doublechaintech.uxs.levelonecategory.LevelOneCategoryDAO;
+import com.doublechaintech.uxs.levelonecategory.LevelOneCategoryTokens;
+import com.doublechaintech.uxs.leveltwocategory.LevelTwoCategory;
+import com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryDAO;
+import com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryTokens;
+import com.doublechaintech.uxs.levelncategory.LevelNCategory;
+import com.doublechaintech.uxs.levelncategory.LevelNCategoryDAO;
+import com.doublechaintech.uxs.levelncategory.LevelNCategoryTokens;
+import com.doublechaintech.uxs.brand.Brand;
+import com.doublechaintech.uxs.brand.BrandDAO;
+import com.doublechaintech.uxs.brand.BrandTokens;
 import com.doublechaintech.uxs.product.Product;
 import com.doublechaintech.uxs.product.ProductDAO;
 import com.doublechaintech.uxs.product.ProductTokens;
@@ -15,6 +33,9 @@ import com.doublechaintech.uxs.banner.BannerTokens;
 import com.doublechaintech.uxs.profile.Profile;
 import com.doublechaintech.uxs.profile.ProfileDAO;
 import com.doublechaintech.uxs.profile.ProfileTokens;
+import com.doublechaintech.uxs.useralert.UserAlert;
+import com.doublechaintech.uxs.useralert.UserAlertDAO;
+import com.doublechaintech.uxs.useralert.UserAlertTokens;
 import com.doublechaintech.uxs.target.Target;
 import com.doublechaintech.uxs.target.TargetDAO;
 import com.doublechaintech.uxs.target.TargetTokens;
@@ -27,6 +48,27 @@ import com.doublechaintech.uxs.review.ReviewTokens;
 import com.doublechaintech.uxs.blog.Blog;
 import com.doublechaintech.uxs.blog.BlogDAO;
 import com.doublechaintech.uxs.blog.BlogTokens;
+import com.doublechaintech.uxs.brandfilter.BrandFilter;
+import com.doublechaintech.uxs.brandfilter.BrandFilterDAO;
+import com.doublechaintech.uxs.brandfilter.BrandFilterTokens;
+import com.doublechaintech.uxs.pricefilter.PriceFilter;
+import com.doublechaintech.uxs.pricefilter.PriceFilterDAO;
+import com.doublechaintech.uxs.pricefilter.PriceFilterTokens;
+import com.doublechaintech.uxs.categoryfilter.CategoryFilter;
+import com.doublechaintech.uxs.categoryfilter.CategoryFilterDAO;
+import com.doublechaintech.uxs.categoryfilter.CategoryFilterTokens;
+import com.doublechaintech.uxs.newproduct.NewProduct;
+import com.doublechaintech.uxs.newproduct.NewProductDAO;
+import com.doublechaintech.uxs.newproduct.NewProductTokens;
+import com.doublechaintech.uxs.editorpickproduct.EditorPickProduct;
+import com.doublechaintech.uxs.editorpickproduct.EditorPickProductDAO;
+import com.doublechaintech.uxs.editorpickproduct.EditorPickProductTokens;
+import com.doublechaintech.uxs.topratedproduct.TopRatedProduct;
+import com.doublechaintech.uxs.topratedproduct.TopRatedProductDAO;
+import com.doublechaintech.uxs.topratedproduct.TopRatedProductTokens;
+import com.doublechaintech.uxs.recommandproduct.RecommandProduct;
+import com.doublechaintech.uxs.recommandproduct.RecommandProductDAO;
+import com.doublechaintech.uxs.recommandproduct.RecommandProductTokens;
 import com.doublechaintech.uxs.userdomain.UserDomain;
 import com.doublechaintech.uxs.userdomain.UserDomainDAO;
 import com.doublechaintech.uxs.userdomain.UserDomainTokens;
@@ -71,11 +113,25 @@ public class DAOGroup {
 
 	protected PlatformDAO platformDAO;
 
+	protected SiteDAO siteDAO;
+
+	protected CatalogDAO catalogDAO;
+
+	protected LevelOneCategoryDAO levelOneCategoryDAO;
+
+	protected LevelTwoCategoryDAO levelTwoCategoryDAO;
+
+	protected LevelNCategoryDAO levelNCategoryDAO;
+
+	protected BrandDAO brandDAO;
+
 	protected ProductDAO productDAO;
 
 	protected BannerDAO bannerDAO;
 
 	protected ProfileDAO profileDAO;
+
+	protected UserAlertDAO userAlertDAO;
 
 	protected TargetDAO targetDAO;
 
@@ -84,6 +140,20 @@ public class DAOGroup {
 	protected ReviewDAO reviewDAO;
 
 	protected BlogDAO blogDAO;
+
+	protected BrandFilterDAO brandFilterDAO;
+
+	protected PriceFilterDAO priceFilterDAO;
+
+	protected CategoryFilterDAO categoryFilterDAO;
+
+	protected NewProductDAO newProductDAO;
+
+	protected EditorPickProductDAO editorPickProductDAO;
+
+	protected TopRatedProductDAO topRatedProductDAO;
+
+	protected RecommandProductDAO recommandProductDAO;
 
 	protected UserDomainDAO userDomainDAO;
 
@@ -121,6 +191,54 @@ public class DAOGroup {
 	}
 
 
+	public SiteDAO getSiteDAO(){
+		return this.siteDAO;
+	}
+	public void setSiteDAO(SiteDAO dao){
+		this.siteDAO = dao;
+	}
+
+
+	public CatalogDAO getCatalogDAO(){
+		return this.catalogDAO;
+	}
+	public void setCatalogDAO(CatalogDAO dao){
+		this.catalogDAO = dao;
+	}
+
+
+	public LevelOneCategoryDAO getLevelOneCategoryDAO(){
+		return this.levelOneCategoryDAO;
+	}
+	public void setLevelOneCategoryDAO(LevelOneCategoryDAO dao){
+		this.levelOneCategoryDAO = dao;
+	}
+
+
+	public LevelTwoCategoryDAO getLevelTwoCategoryDAO(){
+		return this.levelTwoCategoryDAO;
+	}
+	public void setLevelTwoCategoryDAO(LevelTwoCategoryDAO dao){
+		this.levelTwoCategoryDAO = dao;
+	}
+
+
+	public LevelNCategoryDAO getLevelNCategoryDAO(){
+		return this.levelNCategoryDAO;
+	}
+	public void setLevelNCategoryDAO(LevelNCategoryDAO dao){
+		this.levelNCategoryDAO = dao;
+	}
+
+
+	public BrandDAO getBrandDAO(){
+		return this.brandDAO;
+	}
+	public void setBrandDAO(BrandDAO dao){
+		this.brandDAO = dao;
+	}
+
+
 	public ProductDAO getProductDAO(){
 		return this.productDAO;
 	}
@@ -142,6 +260,14 @@ public class DAOGroup {
 	}
 	public void setProfileDAO(ProfileDAO dao){
 		this.profileDAO = dao;
+	}
+
+
+	public UserAlertDAO getUserAlertDAO(){
+		return this.userAlertDAO;
+	}
+	public void setUserAlertDAO(UserAlertDAO dao){
+		this.userAlertDAO = dao;
 	}
 
 
@@ -174,6 +300,62 @@ public class DAOGroup {
 	}
 	public void setBlogDAO(BlogDAO dao){
 		this.blogDAO = dao;
+	}
+
+
+	public BrandFilterDAO getBrandFilterDAO(){
+		return this.brandFilterDAO;
+	}
+	public void setBrandFilterDAO(BrandFilterDAO dao){
+		this.brandFilterDAO = dao;
+	}
+
+
+	public PriceFilterDAO getPriceFilterDAO(){
+		return this.priceFilterDAO;
+	}
+	public void setPriceFilterDAO(PriceFilterDAO dao){
+		this.priceFilterDAO = dao;
+	}
+
+
+	public CategoryFilterDAO getCategoryFilterDAO(){
+		return this.categoryFilterDAO;
+	}
+	public void setCategoryFilterDAO(CategoryFilterDAO dao){
+		this.categoryFilterDAO = dao;
+	}
+
+
+	public NewProductDAO getNewProductDAO(){
+		return this.newProductDAO;
+	}
+	public void setNewProductDAO(NewProductDAO dao){
+		this.newProductDAO = dao;
+	}
+
+
+	public EditorPickProductDAO getEditorPickProductDAO(){
+		return this.editorPickProductDAO;
+	}
+	public void setEditorPickProductDAO(EditorPickProductDAO dao){
+		this.editorPickProductDAO = dao;
+	}
+
+
+	public TopRatedProductDAO getTopRatedProductDAO(){
+		return this.topRatedProductDAO;
+	}
+	public void setTopRatedProductDAO(TopRatedProductDAO dao){
+		this.topRatedProductDAO = dao;
+	}
+
+
+	public RecommandProductDAO getRecommandProductDAO(){
+		return this.recommandProductDAO;
+	}
+	public void setRecommandProductDAO(RecommandProductDAO dao){
+		this.recommandProductDAO = dao;
 	}
 
 
@@ -305,6 +487,96 @@ public class DAOGroup {
 			}
 		});
 
+		internalLoaderMap.put("Site", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getSiteDAO().load(id, SiteTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getSiteDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getSiteDAO().present((Site)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("Catalog", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getCatalogDAO().load(id, CatalogTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getCatalogDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getCatalogDAO().present((Catalog)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("LevelOneCategory", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getLevelOneCategoryDAO().load(id, LevelOneCategoryTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelOneCategoryDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelOneCategoryDAO().present((LevelOneCategory)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("LevelTwoCategory", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getLevelTwoCategoryDAO().load(id, LevelTwoCategoryTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelTwoCategoryDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelTwoCategoryDAO().present((LevelTwoCategory)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("LevelNCategory", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getLevelNCategoryDAO().load(id, LevelNCategoryTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelNCategoryDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getLevelNCategoryDAO().present((LevelNCategory)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("Brand", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getBrandDAO().load(id, BrandTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getBrandDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getBrandDAO().present((Brand)data, tokens);
+			}
+		});
+
 		internalLoaderMap.put("Product", new BasicLoader() {
 			@Override
 			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
@@ -347,6 +619,21 @@ public class DAOGroup {
 			@Override
 			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
 				return daoGoup.getProfileDAO().present((Profile)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("UserAlert", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getUserAlertDAO().load(id, UserAlertTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getUserAlertDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getUserAlertDAO().present((UserAlert)data, tokens);
 			}
 		});
 
@@ -407,6 +694,111 @@ public class DAOGroup {
 			@Override
 			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
 				return daoGoup.getBlogDAO().present((Blog)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("BrandFilter", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getBrandFilterDAO().load(id, BrandFilterTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getBrandFilterDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getBrandFilterDAO().present((BrandFilter)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("PriceFilter", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getPriceFilterDAO().load(id, PriceFilterTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getPriceFilterDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getPriceFilterDAO().present((PriceFilter)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("CategoryFilter", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getCategoryFilterDAO().load(id, CategoryFilterTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getCategoryFilterDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getCategoryFilterDAO().present((CategoryFilter)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("NewProduct", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getNewProductDAO().load(id, NewProductTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getNewProductDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getNewProductDAO().present((NewProduct)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("EditorPickProduct", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getEditorPickProductDAO().load(id, EditorPickProductTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getEditorPickProductDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getEditorPickProductDAO().present((EditorPickProduct)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("TopRatedProduct", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getTopRatedProductDAO().load(id, TopRatedProductTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getTopRatedProductDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getTopRatedProductDAO().present((TopRatedProduct)data, tokens);
+			}
+		});
+
+		internalLoaderMap.put("RecommandProduct", new BasicLoader() {
+			@Override
+			public BaseEntity loadBasicData(DAOGroup daoGoup, String id) throws Exception {
+				return daoGoup.getRecommandProductDAO().load(id, RecommandProductTokens.withoutLists());
+			}
+			@Override
+			public BaseEntity loadBasicDataWithToken(DAOGroup daoGoup, String id, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getRecommandProductDAO().load(id, tokens);
+			}
+			@Override
+			public BaseEntity present(DAOGroup daoGoup, BaseEntity data, Map<String, Object> tokens) throws Exception {
+				return daoGoup.getRecommandProductDAO().present((RecommandProduct)data, tokens);
 			}
 		});
 

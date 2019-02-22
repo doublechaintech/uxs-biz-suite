@@ -18,6 +18,54 @@ const load = (targetObjectId, parameters) => {
 
 
 
+const requestCandidateParentCategory = (ownerClass, id, filterKey, pageNo) => {
+ 
+  const url = `${PREFIX}productManager/requestCandidateParentCategory/ownerClass/id/filterKey/pageNo/`
+  const requestParameters = {id, ownerClass,filterKey, pageNo}
+  return postForm({url,requestParameters})
+}	
+
+const transferToAnotherParentCategory = (id, parameters) => {
+  //const parametersExpr = joinParameters(parameters)
+  const url = `${PREFIX}productManager/transferToAnotherParentCategory/id/anotherParentCategoryId/`
+  const requestParameters = {id, ...parameters}
+  return postForm({url,requestParameters})
+}
+
+
+
+const requestCandidateBrand = (ownerClass, id, filterKey, pageNo) => {
+ 
+  const url = `${PREFIX}productManager/requestCandidateBrand/ownerClass/id/filterKey/pageNo/`
+  const requestParameters = {id, ownerClass,filterKey, pageNo}
+  return postForm({url,requestParameters})
+}	
+
+const transferToAnotherBrand = (id, parameters) => {
+  //const parametersExpr = joinParameters(parameters)
+  const url = `${PREFIX}productManager/transferToAnotherBrand/id/anotherBrandId/`
+  const requestParameters = {id, ...parameters}
+  return postForm({url,requestParameters})
+}
+
+
+
+const requestCandidateCatalog = (ownerClass, id, filterKey, pageNo) => {
+ 
+  const url = `${PREFIX}productManager/requestCandidateCatalog/ownerClass/id/filterKey/pageNo/`
+  const requestParameters = {id, ownerClass,filterKey, pageNo}
+  return postForm({url,requestParameters})
+}	
+
+const transferToAnotherCatalog = (id, parameters) => {
+  //const parametersExpr = joinParameters(parameters)
+  const url = `${PREFIX}productManager/transferToAnotherCatalog/id/anotherCatalogId/`
+  const requestParameters = {id, ...parameters}
+  return postForm({url,requestParameters})
+}
+
+
+
 const requestCandidatePlatform = (ownerClass, id, filterKey, pageNo) => {
  
   const url = `${PREFIX}productManager/requestCandidatePlatform/ownerClass/id/filterKey/pageNo/`
@@ -114,7 +162,13 @@ const ProductService = { view,
   removeRatingList,
   removeReviewList,
   removeBlogList,
+  requestCandidateParentCategory,
+  requestCandidateBrand,
+  requestCandidateCatalog,
   requestCandidatePlatform,
+  transferToAnotherParentCategory,
+  transferToAnotherBrand,
+  transferToAnotherCatalog,
   transferToAnotherPlatform }
 export default ProductService
 

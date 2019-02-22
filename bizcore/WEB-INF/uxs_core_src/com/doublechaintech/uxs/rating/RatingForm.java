@@ -163,6 +163,104 @@ public class RatingForm extends BaseForm {
 	}
 
 
+	public RatingForm parentCategoryIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  parentCategoryIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm parentCategoryIdFieldOfProduct(String initValue){
+		return parentCategoryIdFieldOfProduct("parentCategoryId",initValue);
+	}
+	public RatingForm parentCategoryIdFieldOfProduct(){
+		return parentCategoryIdFieldOfProduct("parentCategoryId","");
+	}
+
+
+	public RatingForm brandIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  brandIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm brandIdFieldOfProduct(String initValue){
+		return brandIdFieldOfProduct("brandId",initValue);
+	}
+	public RatingForm brandIdFieldOfProduct(){
+		return brandIdFieldOfProduct("brandId","");
+	}
+
+
+	public RatingForm productCoverImageFieldOfProduct(String parameterName, String initValue){
+		FormField field =  productCoverImageFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm productCoverImageFieldOfProduct(String initValue){
+		return productCoverImageFieldOfProduct("productCoverImage",initValue);
+	}
+	public RatingForm productCoverImageFieldOfProduct(){
+		return productCoverImageFieldOfProduct("productCoverImage","");
+	}
+
+
+	public RatingForm originFieldOfProduct(String parameterName, String initValue){
+		FormField field =  originFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm originFieldOfProduct(String initValue){
+		return originFieldOfProduct("origin",initValue);
+	}
+	public RatingForm originFieldOfProduct(){
+		return originFieldOfProduct("origin","");
+	}
+
+
+	public RatingForm catalogIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  catalogIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm catalogIdFieldOfProduct(String initValue){
+		return catalogIdFieldOfProduct("catalogId",initValue);
+	}
+	public RatingForm catalogIdFieldOfProduct(){
+		return catalogIdFieldOfProduct("catalogId","");
+	}
+
+
+	public RatingForm remarkFieldOfProduct(String parameterName, String initValue){
+		FormField field =  remarkFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm remarkFieldOfProduct(String initValue){
+		return remarkFieldOfProduct("remark",initValue);
+	}
+	public RatingForm remarkFieldOfProduct(){
+		return remarkFieldOfProduct("remark","");
+	}
+
+
+	public RatingForm lastUpdateTimeFieldOfProduct(String parameterName, String initValue){
+		FormField field =  lastUpdateTimeFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public RatingForm lastUpdateTimeFieldOfProduct(String initValue){
+		return lastUpdateTimeFieldOfProduct("lastUpdateTime",initValue);
+	}
+	public RatingForm lastUpdateTimeFieldOfProduct(){
+		return lastUpdateTimeFieldOfProduct("lastUpdateTime","");
+	}
+
+
 	public RatingForm platformIdFieldOfProduct(String parameterName, String initValue){
 		FormField field =  platformIdFromProduct(parameterName, initValue);
 		this.addFormField(field);	
@@ -174,20 +272,6 @@ public class RatingForm extends BaseForm {
 	}
 	public RatingForm platformIdFieldOfProduct(){
 		return platformIdFieldOfProduct("platformId","");
-	}
-
-
-	public RatingForm avarageScoreFieldOfProduct(String parameterName, String initValue){
-		FormField field =  avarageScoreFromProduct(parameterName, initValue);
-		this.addFormField(field);	
-		return this;
-	}
-	
-	public RatingForm avarageScoreFieldOfProduct(String initValue){
-		return avarageScoreFieldOfProduct("avarageScore",initValue);
-	}
-	public RatingForm avarageScoreFieldOfProduct(){
-		return avarageScoreFieldOfProduct("avarageScore","");
 	}
 
 	

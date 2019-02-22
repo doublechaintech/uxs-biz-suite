@@ -20,11 +20,17 @@ import com.doublechaintech.uxs.UxsUserContext;
 import com.doublechaintech.uxs.UxsCheckerManager;
 import com.doublechaintech.uxs.CustomUxsCheckerManager;
 
+import com.doublechaintech.uxs.brand.Brand;
+import com.doublechaintech.uxs.catalog.Catalog;
 import com.doublechaintech.uxs.rating.Rating;
 import com.doublechaintech.uxs.review.Review;
+import com.doublechaintech.uxs.levelncategory.LevelNCategory;
 import com.doublechaintech.uxs.platform.Platform;
 import com.doublechaintech.uxs.blog.Blog;
 
+import com.doublechaintech.uxs.brand.CandidateBrand;
+import com.doublechaintech.uxs.catalog.CandidateCatalog;
+import com.doublechaintech.uxs.levelncategory.CandidateLevelNCategory;
 import com.doublechaintech.uxs.platform.CandidatePlatform;
 
 import com.doublechaintech.uxs.product.Product;
@@ -153,6 +159,9 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 		addAction(userContext, product, tokens,"@update","updateProduct","updateProduct/"+product.getId()+"/","main","primary");
 		addAction(userContext, product, tokens,"@copy","cloneProduct","cloneProduct/"+product.getId()+"/","main","primary");
 		
+		addAction(userContext, product, tokens,"product.transfer_to_parent_category","transferToAnotherParentCategory","transferToAnotherParentCategory/"+product.getId()+"/","main","primary");
+		addAction(userContext, product, tokens,"product.transfer_to_brand","transferToAnotherBrand","transferToAnotherBrand/"+product.getId()+"/","main","primary");
+		addAction(userContext, product, tokens,"product.transfer_to_catalog","transferToAnotherCatalog","transferToAnotherCatalog/"+product.getId()+"/","main","primary");
 		addAction(userContext, product, tokens,"product.transfer_to_platform","transferToAnotherPlatform","transferToAnotherPlatform/"+product.getId()+"/","main","primary");
 		addAction(userContext, product, tokens,"product.addRating","addRating","addRating/"+product.getId()+"/","ratingList","primary");
 		addAction(userContext, product, tokens,"product.removeRating","removeRating","removeRating/"+product.getId()+"/","ratingList","primary");
@@ -178,7 +187,7 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
  	
 
 
-	public Product createProduct(UxsUserContext userContext,String name, String platformId, BigDecimal avarageScore) throws Exception
+	public Product createProduct(UxsUserContext userContext,String name, String parentCategoryId, String brandId, String productCoverImage, String origin, String catalogId, String remark, String platformId) throws Exception
 	{
 		
 		
@@ -186,7 +195,9 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 		
 
 		userContext.getChecker().checkNameOfProduct(name);
-		userContext.getChecker().checkAvarageScoreOfProduct(avarageScore);
+		userContext.getChecker().checkProductCoverImageOfProduct(productCoverImage);
+		userContext.getChecker().checkOriginOfProduct(origin);
+		userContext.getChecker().checkRemarkOfProduct(remark);
 	
 		userContext.getChecker().throwExceptionIfHasErrors(ProductManagerException.class);
 
@@ -195,11 +206,29 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 
 		product.setName(name);
 			
+		LevelNCategory parentCategory = loadLevelNCategory(userContext, parentCategoryId,emptyOptions());
+		product.setParentCategory(parentCategory);
+		
+		
+			
+		Brand brand = loadBrand(userContext, brandId,emptyOptions());
+		product.setBrand(brand);
+		
+		
+		product.setProductCoverImage(productCoverImage);
+		product.setOrigin(origin);
+			
+		Catalog catalog = loadCatalog(userContext, catalogId,emptyOptions());
+		product.setCatalog(catalog);
+		
+		
+		product.setRemark(remark);
+		product.setLastUpdateTime(userContext.now());
+			
 		Platform platform = loadPlatform(userContext, platformId,emptyOptions());
 		product.setPlatform(platform);
 		
 		
-		product.setAvarageScore(avarageScore);
 
 		product = saveProduct(userContext, product, emptyOptions());
 		
@@ -228,10 +257,22 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 			userContext.getChecker().checkNameOfProduct(parseString(newValueExpr));
 		}		
 
+				
+
 		
-		if(Product.AVARAGE_SCORE_PROPERTY.equals(property)){
-			userContext.getChecker().checkAvarageScoreOfProduct(parseBigDecimal(newValueExpr));
+		if(Product.PRODUCT_COVER_IMAGE_PROPERTY.equals(property)){
+			userContext.getChecker().checkProductCoverImageOfProduct(parseString(newValueExpr));
 		}
+		if(Product.ORIGIN_PROPERTY.equals(property)){
+			userContext.getChecker().checkOriginOfProduct(parseString(newValueExpr));
+		}		
+
+		
+		if(Product.REMARK_PROPERTY.equals(property)){
+			userContext.getChecker().checkRemarkOfProduct(parseString(newValueExpr));
+		}		
+
+		
 	
 		userContext.getChecker().throwExceptionIfHasErrors(ProductManagerException.class);
 	
@@ -283,7 +324,7 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 			//will be good when the product loaded from this JVM process cache.
 			//also good when there is a ram based DAO implementation
 			//make changes to Product.
-			
+			product.updateLastUpdateTime(userContext.now());
 			product.changeProperty(property, newValueExpr);
 			product = saveProduct(userContext, product, tokens().done());
 			return present(userContext,product, mergedAllTokens(tokensExpr));
@@ -307,7 +348,7 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 			//make changes to Product.
 			
 			product.changeProperty(property, newValueExpr);
-			
+			product.updateLastUpdateTime(userContext.now());
 			product = saveProduct(userContext, product, tokens().done());
 			return present(userContext,product, mergedAllTokens(tokensExpr));
 			//return saveProduct(userContext, product, tokens().done());
@@ -339,7 +380,154 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 		return ProductTokens.mergeAll(tokens).done();
 	}
 	
-	protected void checkParamsForTransferingAnotherPlatform(UxsUserContext userContext, String productId, String anotherPlatformId) throws Exception
+	protected void checkParamsForTransferingAnotherParentCategory(UxsUserContext userContext, String productId, String anotherParentCategoryId) throws Exception
+ 	{
+ 		
+ 		userContext.getChecker().checkIdOfProduct(productId);
+ 		userContext.getChecker().checkIdOfLevelNCategory(anotherParentCategoryId);//check for optional reference
+ 		userContext.getChecker().throwExceptionIfHasErrors(ProductManagerException.class);
+ 		
+ 	}
+ 	public Product transferToAnotherParentCategory(UxsUserContext userContext, String productId, String anotherParentCategoryId) throws Exception
+ 	{
+ 		checkParamsForTransferingAnotherParentCategory(userContext, productId,anotherParentCategoryId);
+ 
+		Product product = loadProduct(userContext, productId, allTokens());	
+		synchronized(product){
+			//will be good when the product loaded from this JVM process cache.
+			//also good when there is a ram based DAO implementation
+			LevelNCategory parentCategory = loadLevelNCategory(userContext, anotherParentCategoryId, emptyOptions());		
+			product.updateParentCategory(parentCategory);		
+			product = saveProduct(userContext, product, emptyOptions());
+			
+			return present(userContext,product, allTokens());
+			
+		}
+
+ 	}
+ 	
+	 	
+ 	
+ 	
+	public CandidateLevelNCategory requestCandidateParentCategory(UxsUserContext userContext, String ownerClass, String id, String filterKey, int pageNo) throws Exception {
+
+		CandidateLevelNCategory result = new CandidateLevelNCategory();
+		result.setOwnerClass(ownerClass);
+		result.setOwnerId(id);
+		result.setFilterKey(filterKey==null?"":filterKey.trim());
+		result.setPageNo(pageNo);
+		result.setValueFieldName("id");
+		result.setDisplayFieldName("parentCategory");
+		
+		pageNo = Math.max(1, pageNo);
+		int pageSize = 20;
+		//requestCandidateProductForSkuAsOwner
+		SmartList<LevelNCategory> candidateList = userContext.getDAOGroup().getLevelNCategoryDAO().requestCandidateLevelNCategoryForProduct(userContext,ownerClass, id, filterKey, pageNo, pageSize);
+		result.setCandidates(candidateList);
+		int totalCount = candidateList.getTotalCount();
+		result.setTotalPage(Math.max(1, (totalCount + pageSize -1)/pageSize ));
+		return result;
+	}
+ 	
+ 	protected void checkParamsForTransferingAnotherBrand(UxsUserContext userContext, String productId, String anotherBrandId) throws Exception
+ 	{
+ 		
+ 		userContext.getChecker().checkIdOfProduct(productId);
+ 		userContext.getChecker().checkIdOfBrand(anotherBrandId);//check for optional reference
+ 		userContext.getChecker().throwExceptionIfHasErrors(ProductManagerException.class);
+ 		
+ 	}
+ 	public Product transferToAnotherBrand(UxsUserContext userContext, String productId, String anotherBrandId) throws Exception
+ 	{
+ 		checkParamsForTransferingAnotherBrand(userContext, productId,anotherBrandId);
+ 
+		Product product = loadProduct(userContext, productId, allTokens());	
+		synchronized(product){
+			//will be good when the product loaded from this JVM process cache.
+			//also good when there is a ram based DAO implementation
+			Brand brand = loadBrand(userContext, anotherBrandId, emptyOptions());		
+			product.updateBrand(brand);		
+			product = saveProduct(userContext, product, emptyOptions());
+			
+			return present(userContext,product, allTokens());
+			
+		}
+
+ 	}
+ 	
+	 	
+ 	
+ 	
+	public CandidateBrand requestCandidateBrand(UxsUserContext userContext, String ownerClass, String id, String filterKey, int pageNo) throws Exception {
+
+		CandidateBrand result = new CandidateBrand();
+		result.setOwnerClass(ownerClass);
+		result.setOwnerId(id);
+		result.setFilterKey(filterKey==null?"":filterKey.trim());
+		result.setPageNo(pageNo);
+		result.setValueFieldName("id");
+		result.setDisplayFieldName("brandName");
+		
+		pageNo = Math.max(1, pageNo);
+		int pageSize = 20;
+		//requestCandidateProductForSkuAsOwner
+		SmartList<Brand> candidateList = userContext.getDAOGroup().getBrandDAO().requestCandidateBrandForProduct(userContext,ownerClass, id, filterKey, pageNo, pageSize);
+		result.setCandidates(candidateList);
+		int totalCount = candidateList.getTotalCount();
+		result.setTotalPage(Math.max(1, (totalCount + pageSize -1)/pageSize ));
+		return result;
+	}
+ 	
+ 	protected void checkParamsForTransferingAnotherCatalog(UxsUserContext userContext, String productId, String anotherCatalogId) throws Exception
+ 	{
+ 		
+ 		userContext.getChecker().checkIdOfProduct(productId);
+ 		userContext.getChecker().checkIdOfCatalog(anotherCatalogId);//check for optional reference
+ 		userContext.getChecker().throwExceptionIfHasErrors(ProductManagerException.class);
+ 		
+ 	}
+ 	public Product transferToAnotherCatalog(UxsUserContext userContext, String productId, String anotherCatalogId) throws Exception
+ 	{
+ 		checkParamsForTransferingAnotherCatalog(userContext, productId,anotherCatalogId);
+ 
+		Product product = loadProduct(userContext, productId, allTokens());	
+		synchronized(product){
+			//will be good when the product loaded from this JVM process cache.
+			//also good when there is a ram based DAO implementation
+			Catalog catalog = loadCatalog(userContext, anotherCatalogId, emptyOptions());		
+			product.updateCatalog(catalog);		
+			product = saveProduct(userContext, product, emptyOptions());
+			
+			return present(userContext,product, allTokens());
+			
+		}
+
+ 	}
+ 	
+	 	
+ 	
+ 	
+	public CandidateCatalog requestCandidateCatalog(UxsUserContext userContext, String ownerClass, String id, String filterKey, int pageNo) throws Exception {
+
+		CandidateCatalog result = new CandidateCatalog();
+		result.setOwnerClass(ownerClass);
+		result.setOwnerId(id);
+		result.setFilterKey(filterKey==null?"":filterKey.trim());
+		result.setPageNo(pageNo);
+		result.setValueFieldName("id");
+		result.setDisplayFieldName("name");
+		
+		pageNo = Math.max(1, pageNo);
+		int pageSize = 20;
+		//requestCandidateProductForSkuAsOwner
+		SmartList<Catalog> candidateList = userContext.getDAOGroup().getCatalogDAO().requestCandidateCatalogForProduct(userContext,ownerClass, id, filterKey, pageNo, pageSize);
+		result.setCandidates(candidateList);
+		int totalCount = candidateList.getTotalCount();
+		result.setTotalPage(Math.max(1, (totalCount + pageSize -1)/pageSize ));
+		return result;
+	}
+ 	
+ 	protected void checkParamsForTransferingAnotherPlatform(UxsUserContext userContext, String productId, String anotherPlatformId) throws Exception
  	{
  		
  		userContext.getChecker().checkIdOfProduct(productId);
@@ -389,6 +577,36 @@ public class ProductManagerImpl extends CustomUxsCheckerManager implements Produ
 	}
  	
  //--------------------------------------------------------------
+	
+	 	
+ 	protected Catalog loadCatalog(UxsUserContext userContext, String newCatalogId, Map<String,Object> options) throws Exception
+ 	{
+		
+ 		return userContext.getDAOGroup().getCatalogDAO().load(newCatalogId, options);
+ 	}
+ 	
+ 	
+ 	
+	
+	 	
+ 	protected LevelNCategory loadLevelNCategory(UxsUserContext userContext, String newParentCategoryId, Map<String,Object> options) throws Exception
+ 	{
+		
+ 		return userContext.getDAOGroup().getLevelNCategoryDAO().load(newParentCategoryId, options);
+ 	}
+ 	
+ 	
+ 	
+	
+	 	
+ 	protected Brand loadBrand(UxsUserContext userContext, String newBrandId, Map<String,Object> options) throws Exception
+ 	{
+		
+ 		return userContext.getDAOGroup().getBrandDAO().load(newBrandId, options);
+ 	}
+ 	
+ 	
+ 	
 	
 	 	
  	protected Platform loadPlatform(UxsUserContext userContext, String newPlatformId, Map<String,Object> options) throws Exception
