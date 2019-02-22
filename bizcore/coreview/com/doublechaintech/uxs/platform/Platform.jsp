@@ -101,9 +101,17 @@
 	  <li class="active"><a data-toggle="tab" href="#summary" class="disabled"><i class="fa  fa-home"></i> ${userContext.localeMap['@summary']}</a></li>
 	 
 	<% Platform result = (Platform)request.getAttribute("result");  %>
+			<li><a data-toggle="tab" href="#siteList" class="disabled"> ${userContext.localeMap['site']}</a></li>
+			<li><a data-toggle="tab" href="#catalogList" class="disabled"> ${userContext.localeMap['catalog']}</a></li>
+			<li><a data-toggle="tab" href="#brandList" class="disabled"> ${userContext.localeMap['brand']}</a></li>
 			<li><a data-toggle="tab" href="#productList" class="disabled"> ${userContext.localeMap['product']}</a></li>
 			<li><a data-toggle="tab" href="#bannerList" class="disabled"> ${userContext.localeMap['banner']}</a></li>
 			<li><a data-toggle="tab" href="#profileList" class="disabled"> ${userContext.localeMap['profile']}</a></li>
+			<li><a data-toggle="tab" href="#userAlertList" class="disabled"> ${userContext.localeMap['user_alert']}</a></li>
+			<li><a data-toggle="tab" href="#newProductList" class="disabled"> ${userContext.localeMap['new_product']}</a></li>
+			<li><a data-toggle="tab" href="#editorPickProductList" class="disabled"> ${userContext.localeMap['editor_pick_product']}</a></li>
+			<li><a data-toggle="tab" href="#topRatedProductList" class="disabled"> ${userContext.localeMap['top_rated_product']}</a></li>
+			<li><a data-toggle="tab" href="#recommandProductList" class="disabled"> ${userContext.localeMap['recommand_product']}</a></li>
  
 	</ul>
 	</div>
@@ -147,7 +155,31 @@
 
 	
 
-		<c:if test='${not empty userContext.accessTokens["productList"] or ignoreListAccessControl}'>
+		<c:if test='${not empty userContext.accessTokens["siteList"] or ignoreListAccessControl}'>
+		<c:set var="siteList" value="${result.siteList}" scope="request"/>
+		<c:set var="siteListName" value="siteList" scope="request"/>
+		<div id="siteList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/site/Site$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["catalogList"] or ignoreListAccessControl}'>
+		<c:set var="catalogList" value="${result.catalogList}" scope="request"/>
+		<c:set var="catalogListName" value="catalogList" scope="request"/>
+		<div id="catalogList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/catalog/Catalog$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["brandList"] or ignoreListAccessControl}'>
+		<c:set var="brandList" value="${result.brandList}" scope="request"/>
+		<c:set var="brandListName" value="brandList" scope="request"/>
+		<div id="brandList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/brand/Brand$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["productList"] or ignoreListAccessControl}'>
 		<c:set var="productList" value="${result.productList}" scope="request"/>
 		<c:set var="productListName" value="productList" scope="request"/>
 		<div id="productList" class="tab-pane fade sublist" refer-name="platform">
@@ -168,6 +200,46 @@
 		<c:set var="profileListName" value="profileList" scope="request"/>
 		<div id="profileList" class="tab-pane fade sublist" refer-name="platform">
 			<sky:include page="com/doublechaintech/uxs/profile/Profile$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["userAlertList"] or ignoreListAccessControl}'>
+		<c:set var="userAlertList" value="${result.userAlertList}" scope="request"/>
+		<c:set var="userAlertListName" value="userAlertList" scope="request"/>
+		<div id="userAlertList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/useralert/UserAlert$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["newProductList"] or ignoreListAccessControl}'>
+		<c:set var="newProductList" value="${result.newProductList}" scope="request"/>
+		<c:set var="newProductListName" value="newProductList" scope="request"/>
+		<div id="newProductList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/newproduct/NewProduct$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["editorPickProductList"] or ignoreListAccessControl}'>
+		<c:set var="editorPickProductList" value="${result.editorPickProductList}" scope="request"/>
+		<c:set var="editorPickProductListName" value="editorPickProductList" scope="request"/>
+		<div id="editorPickProductList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/editorpickproduct/EditorPickProduct$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["topRatedProductList"] or ignoreListAccessControl}'>
+		<c:set var="topRatedProductList" value="${result.topRatedProductList}" scope="request"/>
+		<c:set var="topRatedProductListName" value="topRatedProductList" scope="request"/>
+		<div id="topRatedProductList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/topratedproduct/TopRatedProduct$List.jsp"
+					referName="platform"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["recommandProductList"] or ignoreListAccessControl}'>
+		<c:set var="recommandProductList" value="${result.recommandProductList}" scope="request"/>
+		<c:set var="recommandProductListName" value="recommandProductList" scope="request"/>
+		<div id="recommandProductList" class="tab-pane fade sublist" refer-name="platform">
+			<sky:include page="com/doublechaintech/uxs/recommandproduct/RecommandProduct$List.jsp"
 					referName="platform"/>
 		</div>
 	</c:if>

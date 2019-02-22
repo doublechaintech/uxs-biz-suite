@@ -117,6 +117,75 @@ export default {
 
 
 
+    *addUserAlert({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addUserAlert, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\UserAlertList/User Alert+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateUserAlert({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateUserAlert, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\UserAlertList/User Alert列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextUserAlertUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeUserAlertList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeUserAlertList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
     *addTarget({ payload }, { call, put }) {
       const userContext = null
       const {ProfileService} = GlobalComponents;
@@ -380,6 +449,489 @@ export default {
       const { id, role, parameters, continueNext } = payload
       console.log('get form parameters', parameters)
       const data = yield call(ProfileService.removeBlogList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addBrandFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addBrandFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\BrandFilterList/Brand Filter+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateBrandFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateBrandFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\BrandFilterList/Brand Filter列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextBrandFilterUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeBrandFilterList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeBrandFilterList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addPriceFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addPriceFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\PriceFilterList/Price Filter+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updatePriceFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updatePriceFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\PriceFilterList/Price Filter列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextPriceFilterUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removePriceFilterList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removePriceFilterList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addCategoryFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addCategoryFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\CategoryFilterList/Category Filter+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateCategoryFilter({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateCategoryFilter, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\CategoryFilterList/Category Filter列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextCategoryFilterUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeCategoryFilterList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeCategoryFilterList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addNewProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addNewProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\NewProductList/New Product+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateNewProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateNewProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\NewProductList/New Product列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextNewProductUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeNewProductList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeNewProductList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addEditorPickProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addEditorPickProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\EditorPickProductList/Editor Pick Product+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateEditorPickProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateEditorPickProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\EditorPickProductList/Editor Pick Product列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextEditorPickProductUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeEditorPickProductList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeEditorPickProductList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addTopRatedProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addTopRatedProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\TopRatedProductList/Top Rated Product+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateTopRatedProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateTopRatedProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\TopRatedProductList/Top Rated Product列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextTopRatedProductUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeTopRatedProductList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeTopRatedProductList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+    },
+
+
+
+
+    *addRecommandProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.addRecommandProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/profile/${id}/list/${role}CreateForm'))
+      notifySuccess(userContext)
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/profile/${id}/list/\RecommandProductList/Recommand Product+${appLocaleName(userContext,'List')}`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateRecommandProduct({ payload }, { call, put }) {
+      const userContext = null
+      const {ProfileService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.updateRecommandProduct, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notifySuccess(userContext)
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/profile/${id}/list/\RecommandProductList/Recommand Product列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextRecommandProductUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeRecommandProductList({ payload }, { call, put }) {
+     const userContext = null
+      const {ProfileService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(ProfileService.removeRecommandProductList, id, parameters)
       if (hasError(data)) {
         handleServerError(data)
         return

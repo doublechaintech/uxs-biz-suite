@@ -299,7 +299,7 @@ class ProfilePreference extends Component {
 
   render() {
     // eslint-disable-next-line max-len
-    const { id,displayName, targetCount, ratingCount, reviewCount, blogCount } = this.props.profile
+    const { id,displayName, userAlertCount, targetCount, ratingCount, reviewCount, blogCount, brandFilterCount, priceFilterCount, categoryFilterCount, newProductCount, editorPickProductCount, topRatedProductCount, recommandProductCount } = this.props.profile
     const cardsData = {cardsName:"Profile",cardsFor: "profile",cardsSource: this.props.profile,
   		subItems: [
     

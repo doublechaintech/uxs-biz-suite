@@ -39,7 +39,8 @@ const topColResponsiveProps = {
 const internalImageListOf = (product) =>{
   const userContext = null
   const imageList = [
-	 ]
+	   {"title":'Product Cover Image',"imageLocation":product.productCoverImage},
+]
   const filteredList = imageList.filter((item)=>item.imageLocation!=null)
   if(filteredList.length===0){
     return null
@@ -78,7 +79,10 @@ const internalSettingListOf = (product) =>{
 
 const internalLargeTextOf = (product) =>{
 
-	return null
+	return(<div> 
+   <Card title={`Remark`} ><pre>{product.remark}</pre></Card>
+</div>)
+
 	
 
 }
@@ -262,7 +266,26 @@ const internalSummaryOf = (product,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="Id">{product.id}</Description> 
 <Description term="Name">{product.name}</Description> 
-<Description term="Avarage Score">{product.avarageScore}</Description> 
+<Description term="Parent Category">{product.parentCategory==null?appLocaleName(userContext,"NotAssigned"):product.parentCategory.displayName}
+ <Icon type="swap" onClick={()=>
+  showTransferModel(targetComponent,"Parent Category","levelNCategory","requestCandidateParentCategory",
+	      "transferToAnotherParentCategory","anotherParentCategoryId",product.parentCategory?product.parentCategory.id:"")} 
+  style={{fontSize: 20,color:"red"}} />
+</Description>
+<Description term="Brand">{product.brand==null?appLocaleName(userContext,"NotAssigned"):product.brand.displayName}
+ <Icon type="swap" onClick={()=>
+  showTransferModel(targetComponent,"Brand","brand","requestCandidateBrand",
+	      "transferToAnotherBrand","anotherBrandId",product.brand?product.brand.id:"")} 
+  style={{fontSize: 20,color:"red"}} />
+</Description>
+<Description term="Origin">{product.origin}</Description> 
+<Description term="Catalog">{product.catalog==null?appLocaleName(userContext,"NotAssigned"):product.catalog.displayName}
+ <Icon type="swap" onClick={()=>
+  showTransferModel(targetComponent,"Catalog","catalog","requestCandidateCatalog",
+	      "transferToAnotherCatalog","anotherCatalogId",product.catalog?product.catalog.id:"")} 
+  style={{fontSize: 20,color:"red"}} />
+</Description>
+<Description term="Last Update Time">{ moment(product.lastUpdateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(product,targetComponent)}
       </DescriptionList>

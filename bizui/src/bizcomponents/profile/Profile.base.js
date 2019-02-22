@@ -8,10 +8,18 @@ import appLocaleName from '../../common/Locale.tool'
 
 const menuData = {menuName:"Profile", menuFor: "profile",
   		subItems: [
+  {name: 'userAlertList', displayName:'User Alert', icon:'user',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   {name: 'targetList', displayName:'Target', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   {name: 'ratingList', displayName:'Rating', icon:'at',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   {name: 'reviewList', displayName:'Review', icon:'rev',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   {name: 'blogList', displayName:'Blog', icon:'blogger',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'brandFilterList', displayName:'Brand Filter', icon:'filter',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'priceFilterList', displayName:'Price Filter', icon:'filter',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'categoryFilterList', displayName:'Category Filter', icon:'filter',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'newProductList', displayName:'New Product', icon:'hacker-news',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'editorPickProductList', displayName:'Editor Pick Product', icon:'edit',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'topRatedProductList', displayName:'Top Rated Product', icon:'at',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'recommandProductList', displayName:'Recommand Product', icon:'om',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }

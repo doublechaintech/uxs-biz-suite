@@ -3,13 +3,27 @@ package com.doublechaintech.uxs;
 import java.util.Map;
 
 import com.doublechaintech.uxs.platform.Platform;
+import com.doublechaintech.uxs.site.Site;
+import com.doublechaintech.uxs.catalog.Catalog;
+import com.doublechaintech.uxs.levelonecategory.LevelOneCategory;
+import com.doublechaintech.uxs.leveltwocategory.LevelTwoCategory;
+import com.doublechaintech.uxs.levelncategory.LevelNCategory;
+import com.doublechaintech.uxs.brand.Brand;
 import com.doublechaintech.uxs.product.Product;
 import com.doublechaintech.uxs.banner.Banner;
 import com.doublechaintech.uxs.profile.Profile;
+import com.doublechaintech.uxs.useralert.UserAlert;
 import com.doublechaintech.uxs.target.Target;
 import com.doublechaintech.uxs.rating.Rating;
 import com.doublechaintech.uxs.review.Review;
 import com.doublechaintech.uxs.blog.Blog;
+import com.doublechaintech.uxs.brandfilter.BrandFilter;
+import com.doublechaintech.uxs.pricefilter.PriceFilter;
+import com.doublechaintech.uxs.categoryfilter.CategoryFilter;
+import com.doublechaintech.uxs.newproduct.NewProduct;
+import com.doublechaintech.uxs.editorpickproduct.EditorPickProduct;
+import com.doublechaintech.uxs.topratedproduct.TopRatedProduct;
+import com.doublechaintech.uxs.recommandproduct.RecommandProduct;
 import com.doublechaintech.uxs.userdomain.UserDomain;
 import com.doublechaintech.uxs.userwhitelist.UserWhiteList;
 import com.doublechaintech.uxs.secuser.SecUser;
@@ -32,6 +46,36 @@ public class BeanFactoryImpl{
 	}
 
 
+	public Site createSite(Map<String,Object> options){
+		return new Site();
+	}
+
+
+	public Catalog createCatalog(Map<String,Object> options){
+		return new Catalog();
+	}
+
+
+	public LevelOneCategory createLevelOneCategory(Map<String,Object> options){
+		return new LevelOneCategory();
+	}
+
+
+	public LevelTwoCategory createLevelTwoCategory(Map<String,Object> options){
+		return new LevelTwoCategory();
+	}
+
+
+	public LevelNCategory createLevelNCategory(Map<String,Object> options){
+		return new LevelNCategory();
+	}
+
+
+	public Brand createBrand(Map<String,Object> options){
+		return new Brand();
+	}
+
+
 	public Product createProduct(Map<String,Object> options){
 		return new Product();
 	}
@@ -44,6 +88,11 @@ public class BeanFactoryImpl{
 
 	public Profile createProfile(Map<String,Object> options){
 		return new Profile();
+	}
+
+
+	public UserAlert createUserAlert(Map<String,Object> options){
+		return new UserAlert();
 	}
 
 
@@ -64,6 +113,41 @@ public class BeanFactoryImpl{
 
 	public Blog createBlog(Map<String,Object> options){
 		return new Blog();
+	}
+
+
+	public BrandFilter createBrandFilter(Map<String,Object> options){
+		return new BrandFilter();
+	}
+
+
+	public PriceFilter createPriceFilter(Map<String,Object> options){
+		return new PriceFilter();
+	}
+
+
+	public CategoryFilter createCategoryFilter(Map<String,Object> options){
+		return new CategoryFilter();
+	}
+
+
+	public NewProduct createNewProduct(Map<String,Object> options){
+		return new NewProduct();
+	}
+
+
+	public EditorPickProduct createEditorPickProduct(Map<String,Object> options){
+		return new EditorPickProduct();
+	}
+
+
+	public TopRatedProduct createTopRatedProduct(Map<String,Object> options){
+		return new TopRatedProduct();
+	}
+
+
+	public RecommandProduct createRecommandProduct(Map<String,Object> options){
+		return new RecommandProduct();
 	}
 
 

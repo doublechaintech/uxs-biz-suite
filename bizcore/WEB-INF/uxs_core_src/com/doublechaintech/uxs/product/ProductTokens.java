@@ -63,6 +63,9 @@ public class ProductTokens extends CommonTokens{
 	protected static ProductTokens allTokens(){
 		
 		return start()
+			.withParentCategory()
+			.withBrand()
+			.withCatalog()
 			.withPlatform()
 			.withRatingList()
 			.withReviewList()
@@ -72,6 +75,9 @@ public class ProductTokens extends CommonTokens{
 	public static ProductTokens withoutListsTokens(){
 		
 		return start()
+			.withParentCategory()
+			.withBrand()
+			.withCatalog()
 			.withPlatform();
 	
 	}
@@ -86,6 +92,36 @@ public class ProductTokens extends CommonTokens{
 		return start().done();
 	}
 
+	protected static final String PARENTCATEGORY = "parentCategory";
+	public String getParentCategory(){
+		return PARENTCATEGORY;
+	}
+	public ProductTokens withParentCategory(){		
+		addSimpleOptions(PARENTCATEGORY);
+		return this;
+	}
+	
+	
+	protected static final String BRAND = "brand";
+	public String getBrand(){
+		return BRAND;
+	}
+	public ProductTokens withBrand(){		
+		addSimpleOptions(BRAND);
+		return this;
+	}
+	
+	
+	protected static final String CATALOG = "catalog";
+	public String getCatalog(){
+		return CATALOG;
+	}
+	public ProductTokens withCatalog(){		
+		addSimpleOptions(CATALOG);
+		return this;
+	}
+	
+	
 	protected static final String PLATFORM = "platform";
 	public String getPlatform(){
 		return PLATFORM;

@@ -19,6 +19,7 @@ const { TextArea } = Input
 const imageURLPrefix = '//localhost:2090'
 
 const imageKeys = [
+  'productCoverImage',
 ]
 
 
@@ -59,6 +60,7 @@ class ProductUpdateForm extends Component {
     const convertiedValues = selectedRows.map((item) => {
       return {
         ...item,
+        lastUpdateTime: moment(item.lastUpdateTime),
 
       }
     })
@@ -280,12 +282,12 @@ class ProductUpdateForm extends Component {
               </Col>
 
               <Col lg={12} md={12} sm={24}>
-                <Form.Item label={fieldLabels.avarageScore} {...formItemLayout}>
-                  {getFieldDecorator('avarageScore', {
-                    initialValue: selectedRow.avarageScore,
+                <Form.Item label={fieldLabels.origin} {...formItemLayout}>
+                  {getFieldDecorator('origin', {
+                    initialValue: selectedRow.origin,
                     rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
                   })(
-                    <Input placeholder="请输入Avarage Score" />
+                    <Input placeholder="请输入Origin" />
                     
                   )}
                 </Form.Item>
@@ -299,6 +301,40 @@ class ProductUpdateForm extends Component {
         
         
 
+        <Card title="Remark" className={styles.card} bordered={false}>
+          <Form >
+            <Row gutter={16}>
+              <Col lg={24} md={24} sm={24}>
+                <Form.Item>
+                  {getFieldDecorator('remark', {
+                  	initialValue: selectedRow.remark,
+                    rules: [{  required: true, message: appLocaleName(userContext,"PleaseInput") }],
+                  })(
+                    <TextArea rows={4} placeholder={appLocaleName(userContext,"PleaseInput")} />
+                  )}
+                </Form.Item>
+              </Col>
+            </Row>
+          </Form>
+        </Card>
+
+
+        <Card title={<div>{appLocaleName(userContext,"Attachment")} <Popover title={appLocaleName(userContext,"ScanQRCodetoUploadfromSmartPhone")} content={<div><img src='./qrtest.png'/></div>}><Icon type="qrcode" ></Icon></Popover></div>} className={styles.card} bordered={false}>
+          <Form >
+            <Row gutter={16}>
+
+              <Col lg={6} md={12} sm={24}>
+                <ImageComponent
+                  buttonTitle="Product Cover Image"
+                  handlePreview={this.handlePreview}
+                  handleChange={event => this.handleChange(event, 'productCoverImage')}
+                  fileList={convertedImagesValues.productCoverImage}
+                />
+              </Col>
+
+            </Row>
+          </Form>
+        </Card>
 
         <FooterToolbar>
           {getErrorInfo()}

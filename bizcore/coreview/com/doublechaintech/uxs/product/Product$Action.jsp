@@ -19,7 +19,10 @@
 	
 	<li><span>${userContext.localeMap['product.id']}</span> ${product.id}</li>
 <li><span>${userContext.localeMap['product.name']}</span> ${product.name}</li>
-<li><span>${userContext.localeMap['product.avarage_score']}</span> ${product.avarageScore}</li>
+<li><span>${userContext.localeMap['product.product_cover_image']}</span> ${product.productCoverImage}</li>
+<li><span>${userContext.localeMap['product.origin']}</span> ${product.origin}</li>
+<li><span>${userContext.localeMap['product.remark']}</span> ${product.remark}</li>
+<li><span>${userContext.localeMap['product.last_update_time']}</span> <fmt:formatDate pattern="yyyy-MM-dd" value="${product.lastUpdateTime}" /></li>
 
 	
 	</ul>

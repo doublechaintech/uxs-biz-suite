@@ -35,7 +35,7 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 		List<Profile> imageList = this.loadProfileListFromDifferentServices(userContext, new String[] {"cms","ugc"}, profileId, tokens);
 		
 		
-		return mergeProfileFromMicroservice( userContext, imageList);
+		return mergeProfileFromMicroservices( userContext, imageList);
 		
 		
 		
@@ -56,13 +56,13 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 	protected List<Profile> loadProfileListFromDifferentServices(UxsUserContext userContext,String[] serviceList,String ProfileId, String[] tokensExpr)
 			throws ClientProtocolException, IOException{
 		
-		 List<Profile> ProfileList = new ArrayList<Profile>();
+		 List<Profile> profileList = new ArrayList<Profile>();
 
 		 Stream.of(serviceList).forEach(serviceName->{
 			
 			try {
-				Profile Profile = loadRemoteProfile(userContext,serviceName,ProfileId,tokensExpr);
-				ProfileList.add(Profile);
+				Profile profile = loadRemoteProfile(userContext,serviceName,ProfileId,tokensExpr);
+				profileList.add(profile);
 			} catch (ClientProtocolException e) {
 				
 			} catch (IOException e) {
@@ -72,9 +72,9 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 
 		 });
 		 
-		 userContext.log(ProfileList.stream().map(item->item.getId()).collect(Collectors.joining(";")));
+		 userContext.log(profileList.stream().map(item->item.getId()).collect(Collectors.joining(";")));
 		 
-		 return ProfileList;
+		 return profileList;
 		 
 	}
 	
@@ -109,7 +109,7 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 		
 		
 	}
-	protected Profile mergeProfileFromMicroservice(UxsUserContext userContext,List<Profile> ProfileList) {
+	protected Profile mergeProfileFromMicroservices(UxsUserContext userContext,List<Profile> ProfileList) {
 		Profile profile = new Profile();
 		
 		ProfileList.stream().forEach(srcProfile->{

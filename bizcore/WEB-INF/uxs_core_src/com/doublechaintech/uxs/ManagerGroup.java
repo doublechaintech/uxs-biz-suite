@@ -3,11 +3,25 @@ package com.doublechaintech.uxs;
 
 import com.doublechaintech.uxs.platform.PlatformManager;
 
+import com.doublechaintech.uxs.site.SiteManager;
+
+import com.doublechaintech.uxs.catalog.CatalogManager;
+
+import com.doublechaintech.uxs.levelonecategory.LevelOneCategoryManager;
+
+import com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryManager;
+
+import com.doublechaintech.uxs.levelncategory.LevelNCategoryManager;
+
+import com.doublechaintech.uxs.brand.BrandManager;
+
 import com.doublechaintech.uxs.product.ProductManager;
 
 import com.doublechaintech.uxs.banner.BannerManager;
 
 import com.doublechaintech.uxs.profile.ProfileManager;
+
+import com.doublechaintech.uxs.useralert.UserAlertManager;
 
 import com.doublechaintech.uxs.target.TargetManager;
 
@@ -16,6 +30,20 @@ import com.doublechaintech.uxs.rating.RatingManager;
 import com.doublechaintech.uxs.review.ReviewManager;
 
 import com.doublechaintech.uxs.blog.BlogManager;
+
+import com.doublechaintech.uxs.brandfilter.BrandFilterManager;
+
+import com.doublechaintech.uxs.pricefilter.PriceFilterManager;
+
+import com.doublechaintech.uxs.categoryfilter.CategoryFilterManager;
+
+import com.doublechaintech.uxs.newproduct.NewProductManager;
+
+import com.doublechaintech.uxs.editorpickproduct.EditorPickProductManager;
+
+import com.doublechaintech.uxs.topratedproduct.TopRatedProductManager;
+
+import com.doublechaintech.uxs.recommandproduct.RecommandProductManager;
 
 import com.doublechaintech.uxs.userdomain.UserDomainManager;
 
@@ -48,11 +76,25 @@ public class ManagerGroup {
 
 	protected PlatformManager platformManager;
 
+	protected SiteManager siteManager;
+
+	protected CatalogManager catalogManager;
+
+	protected LevelOneCategoryManager levelOneCategoryManager;
+
+	protected LevelTwoCategoryManager levelTwoCategoryManager;
+
+	protected LevelNCategoryManager levelNCategoryManager;
+
+	protected BrandManager brandManager;
+
 	protected ProductManager productManager;
 
 	protected BannerManager bannerManager;
 
 	protected ProfileManager profileManager;
+
+	protected UserAlertManager userAlertManager;
 
 	protected TargetManager targetManager;
 
@@ -61,6 +103,20 @@ public class ManagerGroup {
 	protected ReviewManager reviewManager;
 
 	protected BlogManager blogManager;
+
+	protected BrandFilterManager brandFilterManager;
+
+	protected PriceFilterManager priceFilterManager;
+
+	protected CategoryFilterManager categoryFilterManager;
+
+	protected NewProductManager newProductManager;
+
+	protected EditorPickProductManager editorPickProductManager;
+
+	protected TopRatedProductManager topRatedProductManager;
+
+	protected RecommandProductManager recommandProductManager;
 
 	protected UserDomainManager userDomainManager;
 
@@ -98,6 +154,54 @@ public class ManagerGroup {
 	}
 
 
+	public SiteManager getSiteManager(){
+		return this.siteManager;
+	}
+	public void setSiteManager(SiteManager manager){
+		this.siteManager = manager;
+	}
+
+
+	public CatalogManager getCatalogManager(){
+		return this.catalogManager;
+	}
+	public void setCatalogManager(CatalogManager manager){
+		this.catalogManager = manager;
+	}
+
+
+	public LevelOneCategoryManager getLevelOneCategoryManager(){
+		return this.levelOneCategoryManager;
+	}
+	public void setLevelOneCategoryManager(LevelOneCategoryManager manager){
+		this.levelOneCategoryManager = manager;
+	}
+
+
+	public LevelTwoCategoryManager getLevelTwoCategoryManager(){
+		return this.levelTwoCategoryManager;
+	}
+	public void setLevelTwoCategoryManager(LevelTwoCategoryManager manager){
+		this.levelTwoCategoryManager = manager;
+	}
+
+
+	public LevelNCategoryManager getLevelNCategoryManager(){
+		return this.levelNCategoryManager;
+	}
+	public void setLevelNCategoryManager(LevelNCategoryManager manager){
+		this.levelNCategoryManager = manager;
+	}
+
+
+	public BrandManager getBrandManager(){
+		return this.brandManager;
+	}
+	public void setBrandManager(BrandManager manager){
+		this.brandManager = manager;
+	}
+
+
 	public ProductManager getProductManager(){
 		return this.productManager;
 	}
@@ -119,6 +223,14 @@ public class ManagerGroup {
 	}
 	public void setProfileManager(ProfileManager manager){
 		this.profileManager = manager;
+	}
+
+
+	public UserAlertManager getUserAlertManager(){
+		return this.userAlertManager;
+	}
+	public void setUserAlertManager(UserAlertManager manager){
+		this.userAlertManager = manager;
 	}
 
 
@@ -151,6 +263,62 @@ public class ManagerGroup {
 	}
 	public void setBlogManager(BlogManager manager){
 		this.blogManager = manager;
+	}
+
+
+	public BrandFilterManager getBrandFilterManager(){
+		return this.brandFilterManager;
+	}
+	public void setBrandFilterManager(BrandFilterManager manager){
+		this.brandFilterManager = manager;
+	}
+
+
+	public PriceFilterManager getPriceFilterManager(){
+		return this.priceFilterManager;
+	}
+	public void setPriceFilterManager(PriceFilterManager manager){
+		this.priceFilterManager = manager;
+	}
+
+
+	public CategoryFilterManager getCategoryFilterManager(){
+		return this.categoryFilterManager;
+	}
+	public void setCategoryFilterManager(CategoryFilterManager manager){
+		this.categoryFilterManager = manager;
+	}
+
+
+	public NewProductManager getNewProductManager(){
+		return this.newProductManager;
+	}
+	public void setNewProductManager(NewProductManager manager){
+		this.newProductManager = manager;
+	}
+
+
+	public EditorPickProductManager getEditorPickProductManager(){
+		return this.editorPickProductManager;
+	}
+	public void setEditorPickProductManager(EditorPickProductManager manager){
+		this.editorPickProductManager = manager;
+	}
+
+
+	public TopRatedProductManager getTopRatedProductManager(){
+		return this.topRatedProductManager;
+	}
+	public void setTopRatedProductManager(TopRatedProductManager manager){
+		this.topRatedProductManager = manager;
+	}
+
+
+	public RecommandProductManager getRecommandProductManager(){
+		return this.recommandProductManager;
+	}
+	public void setRecommandProductManager(RecommandProductManager manager){
+		this.recommandProductManager = manager;
 	}
 
 

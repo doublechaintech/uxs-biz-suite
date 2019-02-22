@@ -3,11 +3,53 @@ Platform|Platform
 Id|Id
 Name|Name
 Version|Version
+Site|Site
+Id|Id
+Name|Name
+Introduction|Introduction
+Platform|Platform
+Last Update Time|Last Update Time
+Version|Version
+Catalog|Catalog
+Id|Id
+Name|Name
+Seller Id|Seller Id
+Site|Site
+Platform|Platform
+Version|Version
+Level One Category|Level One Category
+Id|Id
+Catalog|Catalog
+Name|Name
+Version|Version
+Level Two Category|Level Two Category
+Id|Id
+Parent Category|Parent Category
+Name|Name
+Version|Version
+Level N Category|Level N Category
+Id|Id
+Parent Category|Parent Category
+Name|Name
+Version|Version
+Brand|Brand
+Id|Id
+Brand Name|Brand Name
+Logo|Logo
+Remark|Remark
+Platform|Platform
+Version|Version
 Product|Product
 Id|Id
 Name|Name
+Parent Category|Parent Category
+Brand|Brand
+Product Cover Image|Product Cover Image
+Origin|Origin
+Catalog|Catalog
+Remark|Remark
+Last Update Time|Last Update Time
 Platform|Platform
-Avarage Score|Avarage Score
 Version|Version
 Banner|Banner
 Id|Id
@@ -19,6 +61,14 @@ Version|Version
 Profile|Profile
 Id|Id
 Name|Name
+Platform|Platform
+Version|Version
+User Alert|User Alert
+Id|Id
+Message|Message
+Profile|Profile
+Location|Location
+Last Update|Last Update
 Platform|Platform
 Version|Version
 Target|Target
@@ -51,6 +101,77 @@ Content|Content
 User|User
 Product|Product
 Update Time|Update Time
+Version|Version
+Brand Filter|Brand Filter
+Id|Id
+Name|Name
+Internal Id|Internal Id
+Profile|Profile
+Version|Version
+Price Filter|Price Filter
+Id|Id
+Name|Name
+Price Start|Price Start
+Price End|Price End
+Profile|Profile
+Version|Version
+Category Filter|Category Filter
+Id|Id
+Name|Name
+Internal Id|Internal Id
+Profile|Profile
+Version|Version
+New Product|New Product
+Id|Id
+Name|Name
+Parent Category|Parent Category
+Brand|Brand
+Product Cover Image|Product Cover Image
+Origin|Origin
+Catalog|Catalog
+Profile|Profile
+Remark|Remark
+Last Update Time|Last Update Time
+Platform|Platform
+Version|Version
+Editor Pick Product|Editor Pick Product
+Id|Id
+Name|Name
+Parent Category|Parent Category
+Brand|Brand
+Product Cover Image|Product Cover Image
+Origin|Origin
+Catalog|Catalog
+Profile|Profile
+Remark|Remark
+Last Update Time|Last Update Time
+Platform|Platform
+Version|Version
+Top Rated Product|Top Rated Product
+Id|Id
+Name|Name
+Parent Category|Parent Category
+Brand|Brand
+Product Cover Image|Product Cover Image
+Origin|Origin
+Catalog|Catalog
+Remark|Remark
+Last Update Time|Last Update Time
+Profile|Profile
+Platform|Platform
+Version|Version
+Recommand Product|Recommand Product
+Id|Id
+Name|Name
+Parent Category|Parent Category
+Brand|Brand
+Product Cover Image|Product Cover Image
+Origin|Origin
+Catalog|Catalog
+Remark|Remark
+Last Update Time|Last Update Time
+Profile|Profile
+Platform|Platform
 Version|Version
 User Domain|User Domain
 Id|Id
@@ -173,13 +294,27 @@ Url|Url
 Form|Form
 Version|Version
 Transfer to Another Platform|Transfer to Another Platform
+Transfer to Another Site|Transfer to Another Site
+Transfer to Another Catalog|Transfer to Another Catalog
+Transfer to Another Level One Category|Transfer to Another Level One Category
+Transfer to Another Level Two Category|Transfer to Another Level Two Category
+Transfer to Another Level N Category|Transfer to Another Level N Category
+Transfer to Another Brand|Transfer to Another Brand
 Transfer to Another Product|Transfer to Another Product
 Transfer to Another Banner|Transfer to Another Banner
 Transfer to Another Profile|Transfer to Another Profile
+Transfer to Another User Alert|Transfer to Another User Alert
 Transfer to Another Target|Transfer to Another Target
 Transfer to Another Rating|Transfer to Another Rating
 Transfer to Another Review|Transfer to Another Review
 Transfer to Another Blog|Transfer to Another Blog
+Transfer to Another Brand Filter|Transfer to Another Brand Filter
+Transfer to Another Price Filter|Transfer to Another Price Filter
+Transfer to Another Category Filter|Transfer to Another Category Filter
+Transfer to Another New Product|Transfer to Another New Product
+Transfer to Another Editor Pick Product|Transfer to Another Editor Pick Product
+Transfer to Another Top Rated Product|Transfer to Another Top Rated Product
+Transfer to Another Recommand Product|Transfer to Another Recommand Product
 Transfer to Another User Domain|Transfer to Another User Domain
 Transfer to Another User White List|Transfer to Another User White List
 Transfer to Another Sec User|Transfer to Another Sec User

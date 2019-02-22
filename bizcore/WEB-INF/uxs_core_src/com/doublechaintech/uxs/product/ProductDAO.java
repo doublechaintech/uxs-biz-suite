@@ -7,10 +7,13 @@ import com.doublechaintech.uxs.BaseEntity;
 import com.doublechaintech.uxs.SmartList;
 import com.doublechaintech.uxs.MultipleAccessKey;
 import com.doublechaintech.uxs.UxsUserContext;
+import com.doublechaintech.uxs.brand.BrandDAO;
 import com.doublechaintech.uxs.platform.PlatformDAO;
 import com.doublechaintech.uxs.blog.BlogDAO;
 import com.doublechaintech.uxs.review.ReviewDAO;
+import com.doublechaintech.uxs.catalog.CatalogDAO;
 import com.doublechaintech.uxs.rating.RatingDAO;
+import com.doublechaintech.uxs.levelncategory.LevelNCategoryDAO;
 
 
 public interface ProductDAO{
@@ -79,6 +82,30 @@ public interface ProductDAO{
 	
 	public SmartList<Product> queryList(String sql, Object ... parmeters);
  
+ 	public SmartList<Product> findProductByParentCategory(String levelNCategoryId, Map<String,Object> options);
+ 	public int countProductByParentCategory(String levelNCategoryId, Map<String,Object> options);
+ 	public Map<String, Integer> countProductByParentCategoryIds(String[] ids, Map<String,Object> options);
+ 	public SmartList<Product> findProductByParentCategory(String levelNCategoryId, int start, int count, Map<String,Object> options);
+ 	public void analyzeProductByParentCategory(SmartList<Product> resultList, String levelNCategoryId, Map<String,Object> options);
+
+ 
+  
+ 	public SmartList<Product> findProductByBrand(String brandId, Map<String,Object> options);
+ 	public int countProductByBrand(String brandId, Map<String,Object> options);
+ 	public Map<String, Integer> countProductByBrandIds(String[] ids, Map<String,Object> options);
+ 	public SmartList<Product> findProductByBrand(String brandId, int start, int count, Map<String,Object> options);
+ 	public void analyzeProductByBrand(SmartList<Product> resultList, String brandId, Map<String,Object> options);
+
+ 
+  
+ 	public SmartList<Product> findProductByCatalog(String catalogId, Map<String,Object> options);
+ 	public int countProductByCatalog(String catalogId, Map<String,Object> options);
+ 	public Map<String, Integer> countProductByCatalogIds(String[] ids, Map<String,Object> options);
+ 	public SmartList<Product> findProductByCatalog(String catalogId, int start, int count, Map<String,Object> options);
+ 	public void analyzeProductByCatalog(SmartList<Product> resultList, String catalogId, Map<String,Object> options);
+
+ 
+  
  	public SmartList<Product> findProductByPlatform(String platformId, Map<String,Object> options);
  	public int countProductByPlatform(String platformId, Map<String,Object> options);
  	public Map<String, Integer> countProductByPlatformIds(String[] ids, Map<String,Object> options);

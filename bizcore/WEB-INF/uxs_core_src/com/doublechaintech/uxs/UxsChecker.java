@@ -50,6 +50,267 @@ public class UxsChecker extends BaseChecker{
 		return this;
 	}	 			
 
+	public static final String  ID_OF_SITE ="site.id";
+	public UxsChecker checkIdOfSite(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_SITE ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_SITE ="site.name";
+	public UxsChecker checkNameOfSite(String name)
+	{
+		
+	 	checkStringLengthRange(name,6, 92,NAME_OF_SITE ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  INTRODUCTION_OF_SITE ="site.introduction";
+	public UxsChecker checkIntroductionOfSite(String introduction)
+	{
+		
+	 	checkStringLengthRange(introduction,10, 148,INTRODUCTION_OF_SITE ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_SITE ="site.platform";
+	public UxsChecker checkPlatformIdOfSite(String platformId)
+	{
+		
+	 	checkIdOfSite(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_SITE ="site.version";
+	public UxsChecker checkVersionOfSite(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_SITE ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_CATALOG ="catalog.id";
+	public UxsChecker checkIdOfCatalog(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_CATALOG ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_CATALOG ="catalog.name";
+	public UxsChecker checkNameOfCatalog(String name)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_CATALOG ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  SELLER_ID_OF_CATALOG ="catalog.seller_id";
+	public UxsChecker checkSellerIdOfCatalog(String sellerId)
+	{
+		
+	 	checkStringLengthRange(sellerId,3, 32,SELLER_ID_OF_CATALOG ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  SITE_OF_CATALOG ="catalog.site";
+	public UxsChecker checkSiteIdOfCatalog(String siteId)
+	{
+		
+	 	checkIdOfCatalog(siteId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_CATALOG ="catalog.platform";
+	public UxsChecker checkPlatformIdOfCatalog(String platformId)
+	{
+		
+	 	checkIdOfCatalog(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_CATALOG ="catalog.version";
+	public UxsChecker checkVersionOfCatalog(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_CATALOG ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_LEVEL_ONE_CATEGORY ="level_one_category.id";
+	public UxsChecker checkIdOfLevelOneCategory(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_ONE_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_LEVEL_ONE_CATEGORY ="level_one_category.catalog";
+	public UxsChecker checkCatalogIdOfLevelOneCategory(String catalogId)
+	{
+		
+	 	checkIdOfLevelOneCategory(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_LEVEL_ONE_CATEGORY ="level_one_category.name";
+	public UxsChecker checkNameOfLevelOneCategory(String name)
+	{
+		
+	 	checkStringLengthRange(name,4, 52,NAME_OF_LEVEL_ONE_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_LEVEL_ONE_CATEGORY ="level_one_category.version";
+	public UxsChecker checkVersionOfLevelOneCategory(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_ONE_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_LEVEL_TWO_CATEGORY ="level_two_category.id";
+	public UxsChecker checkIdOfLevelTwoCategory(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_TWO_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_LEVEL_TWO_CATEGORY ="level_two_category.parent_category";
+	public UxsChecker checkParentCategoryIdOfLevelTwoCategory(String parentCategoryId)
+	{
+		
+	 	checkIdOfLevelTwoCategory(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_LEVEL_TWO_CATEGORY ="level_two_category.name";
+	public UxsChecker checkNameOfLevelTwoCategory(String name)
+	{
+		
+	 	checkStringLengthRange(name,4, 52,NAME_OF_LEVEL_TWO_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_LEVEL_TWO_CATEGORY ="level_two_category.version";
+	public UxsChecker checkVersionOfLevelTwoCategory(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_TWO_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_LEVEL_N_CATEGORY ="level_n_category.id";
+	public UxsChecker checkIdOfLevelNCategory(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_LEVEL_N_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_LEVEL_N_CATEGORY ="level_n_category.parent_category";
+	public UxsChecker checkParentCategoryIdOfLevelNCategory(String parentCategoryId)
+	{
+		
+	 	checkIdOfLevelNCategory(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_LEVEL_N_CATEGORY ="level_n_category.name";
+	public UxsChecker checkNameOfLevelNCategory(String name)
+	{
+		
+	 	checkStringLengthRange(name,3, 44,NAME_OF_LEVEL_N_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_LEVEL_N_CATEGORY ="level_n_category.version";
+	public UxsChecker checkVersionOfLevelNCategory(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_LEVEL_N_CATEGORY ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_BRAND ="brand.id";
+	public UxsChecker checkIdOfBrand(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_BRAND ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_NAME_OF_BRAND ="brand.brand_name";
+	public UxsChecker checkBrandNameOfBrand(String brandName)
+	{
+		
+	 	checkStringLengthRange(brandName,3, 40,BRAND_NAME_OF_BRAND ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  LOGO_OF_BRAND ="brand.logo";
+	public UxsChecker checkLogoOfBrand(String logo)
+	{
+		
+	 	checkImage(logo,0, 512,LOGO_OF_BRAND ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_BRAND ="brand.remark";
+	public UxsChecker checkRemarkOfBrand(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_BRAND ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_BRAND ="brand.platform";
+	public UxsChecker checkPlatformIdOfBrand(String platformId)
+	{
+		
+	 	checkIdOfBrand(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_BRAND ="brand.version";
+	public UxsChecker checkVersionOfBrand(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BRAND ); 		
+		
+		return this;
+	}	 			
+
 	public static final String  ID_OF_PRODUCT ="product.id";
 	public UxsChecker checkIdOfProduct(String id)
 	{
@@ -63,7 +324,61 @@ public class UxsChecker extends BaseChecker{
 	public UxsChecker checkNameOfProduct(String name)
 	{
 		
-	 	checkStringLengthRange(name,5, 64,NAME_OF_PRODUCT ); 		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_PRODUCT ="product.parent_category";
+	public UxsChecker checkParentCategoryIdOfProduct(String parentCategoryId)
+	{
+		
+	 	checkIdOfProduct(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_OF_PRODUCT ="product.brand";
+	public UxsChecker checkBrandIdOfProduct(String brandId)
+	{
+		
+	 	checkIdOfProduct(brandId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRODUCT_COVER_IMAGE_OF_PRODUCT ="product.product_cover_image";
+	public UxsChecker checkProductCoverImageOfProduct(String productCoverImage)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ORIGIN_OF_PRODUCT ="product.origin";
+	public UxsChecker checkOriginOfProduct(String origin)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_PRODUCT ="product.catalog";
+	public UxsChecker checkCatalogIdOfProduct(String catalogId)
+	{
+		
+	 	checkIdOfProduct(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_PRODUCT ="product.remark";
+	public UxsChecker checkRemarkOfProduct(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_PRODUCT ); 		
 		
 		return this;
 	}	 			
@@ -73,15 +388,6 @@ public class UxsChecker extends BaseChecker{
 	{
 		
 	 	checkIdOfProduct(platformId ); 		
-		
-		return this;
-	}	 			
-
-	public static final String  AVARAGE_SCORE_OF_PRODUCT ="product.avarage_score";
-	public UxsChecker checkAvarageScoreOfProduct(BigDecimal avarageScore)
-	{
-		
-	 	checkBigDecimalRange(avarageScore,0, 4.5,AVARAGE_SCORE_OF_PRODUCT ); 		
 		
 		return this;
 	}	 			
@@ -172,6 +478,60 @@ public class UxsChecker extends BaseChecker{
 	{
 		
 	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_PROFILE ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_USER_ALERT ="user_alert.id";
+	public UxsChecker checkIdOfUserAlert(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_USER_ALERT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  MESSAGE_OF_USER_ALERT ="user_alert.message";
+	public UxsChecker checkMessageOfUserAlert(String message)
+	{
+		
+	 	checkStringLengthRange(message,26, 404,MESSAGE_OF_USER_ALERT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_USER_ALERT ="user_alert.profile";
+	public UxsChecker checkProfileIdOfUserAlert(String profileId)
+	{
+		
+	 	checkIdOfUserAlert(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  LOCATION_OF_USER_ALERT ="user_alert.location";
+	public UxsChecker checkLocationOfUserAlert(String location)
+	{
+		
+	 	checkStringLengthRange(location,2, 16,LOCATION_OF_USER_ALERT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_USER_ALERT ="user_alert.platform";
+	public UxsChecker checkPlatformIdOfUserAlert(String platformId)
+	{
+		
+	 	checkIdOfUserAlert(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_USER_ALERT ="user_alert.version";
+	public UxsChecker checkVersionOfUserAlert(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_USER_ALERT ); 		
 		
 		return this;
 	}	 			
@@ -379,6 +739,546 @@ public class UxsChecker extends BaseChecker{
 	{
 		
 	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BLOG ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_BRAND_FILTER ="brand_filter.id";
+	public UxsChecker checkIdOfBrandFilter(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_BRAND_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_BRAND_FILTER ="brand_filter.name";
+	public UxsChecker checkNameOfBrandFilter(String name)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_BRAND_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  INTERNAL_ID_OF_BRAND_FILTER ="brand_filter.internal_id";
+	public UxsChecker checkInternalIdOfBrandFilter(String internalId)
+	{
+		
+	 	checkStringLengthRange(internalId,2, 28,INTERNAL_ID_OF_BRAND_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_BRAND_FILTER ="brand_filter.profile";
+	public UxsChecker checkProfileIdOfBrandFilter(String profileId)
+	{
+		
+	 	checkIdOfBrandFilter(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_BRAND_FILTER ="brand_filter.version";
+	public UxsChecker checkVersionOfBrandFilter(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_BRAND_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_PRICE_FILTER ="price_filter.id";
+	public UxsChecker checkIdOfPriceFilter(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_PRICE_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_PRICE_FILTER ="price_filter.name";
+	public UxsChecker checkNameOfPriceFilter(String name)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_PRICE_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRICE_START_OF_PRICE_FILTER ="price_filter.price_start";
+	public UxsChecker checkPriceStartOfPriceFilter(BigDecimal priceStart)
+	{
+		
+	 	checkBigDecimalRange(priceStart,0, 1.99,PRICE_START_OF_PRICE_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRICE_END_OF_PRICE_FILTER ="price_filter.price_end";
+	public UxsChecker checkPriceEndOfPriceFilter(BigDecimal priceEnd)
+	{
+		
+	 	checkBigDecimalRange(priceEnd,0, 1000000.99,PRICE_END_OF_PRICE_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_PRICE_FILTER ="price_filter.profile";
+	public UxsChecker checkProfileIdOfPriceFilter(String profileId)
+	{
+		
+	 	checkIdOfPriceFilter(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_PRICE_FILTER ="price_filter.version";
+	public UxsChecker checkVersionOfPriceFilter(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_PRICE_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_CATEGORY_FILTER ="category_filter.id";
+	public UxsChecker checkIdOfCategoryFilter(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_CATEGORY_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_CATEGORY_FILTER ="category_filter.name";
+	public UxsChecker checkNameOfCategoryFilter(String name)
+	{
+		
+	 	checkStringLengthRange(name,6, 72,NAME_OF_CATEGORY_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  INTERNAL_ID_OF_CATEGORY_FILTER ="category_filter.internal_id";
+	public UxsChecker checkInternalIdOfCategoryFilter(String internalId)
+	{
+		
+	 	checkStringLengthRange(internalId,3, 32,INTERNAL_ID_OF_CATEGORY_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_CATEGORY_FILTER ="category_filter.profile";
+	public UxsChecker checkProfileIdOfCategoryFilter(String profileId)
+	{
+		
+	 	checkIdOfCategoryFilter(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_CATEGORY_FILTER ="category_filter.version";
+	public UxsChecker checkVersionOfCategoryFilter(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_CATEGORY_FILTER ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_NEW_PRODUCT ="new_product.id";
+	public UxsChecker checkIdOfNewProduct(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_NEW_PRODUCT ="new_product.name";
+	public UxsChecker checkNameOfNewProduct(String name)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_NEW_PRODUCT ="new_product.parent_category";
+	public UxsChecker checkParentCategoryIdOfNewProduct(String parentCategoryId)
+	{
+		
+	 	checkIdOfNewProduct(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_OF_NEW_PRODUCT ="new_product.brand";
+	public UxsChecker checkBrandIdOfNewProduct(String brandId)
+	{
+		
+	 	checkIdOfNewProduct(brandId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRODUCT_COVER_IMAGE_OF_NEW_PRODUCT ="new_product.product_cover_image";
+	public UxsChecker checkProductCoverImageOfNewProduct(String productCoverImage)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ORIGIN_OF_NEW_PRODUCT ="new_product.origin";
+	public UxsChecker checkOriginOfNewProduct(String origin)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_NEW_PRODUCT ="new_product.catalog";
+	public UxsChecker checkCatalogIdOfNewProduct(String catalogId)
+	{
+		
+	 	checkIdOfNewProduct(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_NEW_PRODUCT ="new_product.profile";
+	public UxsChecker checkProfileIdOfNewProduct(String profileId)
+	{
+		
+	 	checkIdOfNewProduct(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_NEW_PRODUCT ="new_product.remark";
+	public UxsChecker checkRemarkOfNewProduct(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_NEW_PRODUCT ="new_product.platform";
+	public UxsChecker checkPlatformIdOfNewProduct(String platformId)
+	{
+		
+	 	checkIdOfNewProduct(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_NEW_PRODUCT ="new_product.version";
+	public UxsChecker checkVersionOfNewProduct(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_NEW_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.id";
+	public UxsChecker checkIdOfEditorPickProduct(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.name";
+	public UxsChecker checkNameOfEditorPickProduct(String name)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.parent_category";
+	public UxsChecker checkParentCategoryIdOfEditorPickProduct(String parentCategoryId)
+	{
+		
+	 	checkIdOfEditorPickProduct(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.brand";
+	public UxsChecker checkBrandIdOfEditorPickProduct(String brandId)
+	{
+		
+	 	checkIdOfEditorPickProduct(brandId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRODUCT_COVER_IMAGE_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.product_cover_image";
+	public UxsChecker checkProductCoverImageOfEditorPickProduct(String productCoverImage)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ORIGIN_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.origin";
+	public UxsChecker checkOriginOfEditorPickProduct(String origin)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.catalog";
+	public UxsChecker checkCatalogIdOfEditorPickProduct(String catalogId)
+	{
+		
+	 	checkIdOfEditorPickProduct(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.profile";
+	public UxsChecker checkProfileIdOfEditorPickProduct(String profileId)
+	{
+		
+	 	checkIdOfEditorPickProduct(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.remark";
+	public UxsChecker checkRemarkOfEditorPickProduct(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.platform";
+	public UxsChecker checkPlatformIdOfEditorPickProduct(String platformId)
+	{
+		
+	 	checkIdOfEditorPickProduct(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_EDITOR_PICK_PRODUCT ="editor_pick_product.version";
+	public UxsChecker checkVersionOfEditorPickProduct(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_EDITOR_PICK_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_TOP_RATED_PRODUCT ="top_rated_product.id";
+	public UxsChecker checkIdOfTopRatedProduct(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_TOP_RATED_PRODUCT ="top_rated_product.name";
+	public UxsChecker checkNameOfTopRatedProduct(String name)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_TOP_RATED_PRODUCT ="top_rated_product.parent_category";
+	public UxsChecker checkParentCategoryIdOfTopRatedProduct(String parentCategoryId)
+	{
+		
+	 	checkIdOfTopRatedProduct(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_OF_TOP_RATED_PRODUCT ="top_rated_product.brand";
+	public UxsChecker checkBrandIdOfTopRatedProduct(String brandId)
+	{
+		
+	 	checkIdOfTopRatedProduct(brandId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRODUCT_COVER_IMAGE_OF_TOP_RATED_PRODUCT ="top_rated_product.product_cover_image";
+	public UxsChecker checkProductCoverImageOfTopRatedProduct(String productCoverImage)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ORIGIN_OF_TOP_RATED_PRODUCT ="top_rated_product.origin";
+	public UxsChecker checkOriginOfTopRatedProduct(String origin)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_TOP_RATED_PRODUCT ="top_rated_product.catalog";
+	public UxsChecker checkCatalogIdOfTopRatedProduct(String catalogId)
+	{
+		
+	 	checkIdOfTopRatedProduct(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_TOP_RATED_PRODUCT ="top_rated_product.remark";
+	public UxsChecker checkRemarkOfTopRatedProduct(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_TOP_RATED_PRODUCT ="top_rated_product.profile";
+	public UxsChecker checkProfileIdOfTopRatedProduct(String profileId)
+	{
+		
+	 	checkIdOfTopRatedProduct(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_TOP_RATED_PRODUCT ="top_rated_product.platform";
+	public UxsChecker checkPlatformIdOfTopRatedProduct(String platformId)
+	{
+		
+	 	checkIdOfTopRatedProduct(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_TOP_RATED_PRODUCT ="top_rated_product.version";
+	public UxsChecker checkVersionOfTopRatedProduct(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_TOP_RATED_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ID_OF_RECOMMAND_PRODUCT ="recommand_product.id";
+	public UxsChecker checkIdOfRecommandProduct(String id)
+	{
+		
+	 	checkStringLengthRange(id,5, 64,ID_OF_RECOMMAND_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  NAME_OF_RECOMMAND_PRODUCT ="recommand_product.name";
+	public UxsChecker checkNameOfRecommandProduct(String name)
+	{
+		
+	 	checkStringLengthRange(name,2, 20,NAME_OF_RECOMMAND_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PARENT_CATEGORY_OF_RECOMMAND_PRODUCT ="recommand_product.parent_category";
+	public UxsChecker checkParentCategoryIdOfRecommandProduct(String parentCategoryId)
+	{
+		
+	 	checkIdOfRecommandProduct(parentCategoryId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  BRAND_OF_RECOMMAND_PRODUCT ="recommand_product.brand";
+	public UxsChecker checkBrandIdOfRecommandProduct(String brandId)
+	{
+		
+	 	checkIdOfRecommandProduct(brandId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PRODUCT_COVER_IMAGE_OF_RECOMMAND_PRODUCT ="recommand_product.product_cover_image";
+	public UxsChecker checkProductCoverImageOfRecommandProduct(String productCoverImage)
+	{
+		
+	 	checkImage(productCoverImage,0, 512,PRODUCT_COVER_IMAGE_OF_RECOMMAND_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  ORIGIN_OF_RECOMMAND_PRODUCT ="recommand_product.origin";
+	public UxsChecker checkOriginOfRecommandProduct(String origin)
+	{
+		
+	 	checkStringLengthRange(origin,1, 24,ORIGIN_OF_RECOMMAND_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  CATALOG_OF_RECOMMAND_PRODUCT ="recommand_product.catalog";
+	public UxsChecker checkCatalogIdOfRecommandProduct(String catalogId)
+	{
+		
+	 	checkIdOfRecommandProduct(catalogId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  REMARK_OF_RECOMMAND_PRODUCT ="recommand_product.remark";
+	public UxsChecker checkRemarkOfRecommandProduct(String remark)
+	{
+		
+	 	checkStringLengthRange(remark,22, 336,REMARK_OF_RECOMMAND_PRODUCT ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PROFILE_OF_RECOMMAND_PRODUCT ="recommand_product.profile";
+	public UxsChecker checkProfileIdOfRecommandProduct(String profileId)
+	{
+		
+	 	checkIdOfRecommandProduct(profileId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  PLATFORM_OF_RECOMMAND_PRODUCT ="recommand_product.platform";
+	public UxsChecker checkPlatformIdOfRecommandProduct(String platformId)
+	{
+		
+	 	checkIdOfRecommandProduct(platformId ); 		
+		
+		return this;
+	}	 			
+
+	public static final String  VERSION_OF_RECOMMAND_PRODUCT ="recommand_product.version";
+	public UxsChecker checkVersionOfRecommandProduct(int version)
+	{
+		
+	 	checkIntegerRange(version,0, Integer.MAX_VALUE,VERSION_OF_RECOMMAND_PRODUCT ); 		
 		
 		return this;
 	}	 			

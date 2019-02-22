@@ -1,16 +1,93 @@
-@warning product.avarage_score: word 'avarage' seems not found in library
 @warning object definition: blog: word 'blog' seems not found in library
 
 
 
-=================Execute Report (Model Time 190215T1733) @Fri Feb 15 17:36:04 CST 2019, 21 objects and 151 fields===========================
+=================Execute Report (Model Time 190222T1524) @Fri Feb 22 15:24:23 CST 2019, 35 objects and 258 fields===========================
 
 
 
  processing: platform
 
 
+ processing: site
+
+
+ processing: site.platform.platform
+
+Info: Add virtual field [sites(es)] to <platform>
+	site.platform
+
+
+ processing: catalog
+
+
+ processing: catalog.site.site
+
+Info: Add virtual field [catalogs(es)] to <site>
+	catalog.site
+
+
+ processing: catalog.platform.platform
+
+Info: Add virtual field [catalogs(es)] to <platform>
+	catalog.platform
+
+
+ processing: level_one_category
+
+
+ processing: level_one_category.catalog.catalog
+
+Info: Add virtual field [level_one_categorys(es)] to <catalog>
+	level_one_category.catalog
+
+
+ processing: level_two_category
+
+
+ processing: level_two_category.level_one_category.parent_category
+
+Info: Add virtual field [level_two_categorys(es)] to <level_one_category>
+	level_two_category.parent_category
+
+
+ processing: level_n_category
+
+
+ processing: level_n_category.level_two_category.parent_category
+
+Info: Add virtual field [level_n_categorys(es)] to <level_two_category>
+	level_n_category.parent_category
+
+
+ processing: brand
+
+
+ processing: brand.platform.platform
+
+Info: Add virtual field [brands(es)] to <platform>
+	brand.platform
+
+
  processing: product
+
+
+ processing: product.level_n_category.parent_category
+
+Info: Add virtual field [products(es)] to <level_n_category>
+	product.parent_category
+
+
+ processing: product.brand.brand
+
+Info: Add virtual field [products(es)] to <brand>
+	product.brand
+
+
+ processing: product.catalog.catalog
+
+Info: Add virtual field [products(es)] to <catalog>
+	product.catalog
 
 
  processing: product.platform.platform
@@ -35,6 +112,21 @@ Info: Add virtual field [banners(es)] to <platform>
 
 Info: Add virtual field [profiles(es)] to <platform>
 	profile.platform
+
+
+ processing: user_alert
+
+
+ processing: user_alert.profile.profile
+
+Info: Add virtual field [user_alerts(es)] to <profile>
+	user_alert.profile
+
+
+ processing: user_alert.platform.platform
+
+Info: Add virtual field [user_alerts(es)] to <platform>
+	user_alert.platform
 
 
  processing: target
@@ -97,6 +189,165 @@ Info: Add virtual field [blogs(es)] to <product>
 	blog.product
 
 
+ processing: brand_filter
+
+
+ processing: brand_filter.profile.profile
+
+Info: Add virtual field [brand_filters(es)] to <profile>
+	brand_filter.profile
+
+
+ processing: price_filter
+
+
+ processing: price_filter.profile.profile
+
+Info: Add virtual field [price_filters(es)] to <profile>
+	price_filter.profile
+
+
+ processing: category_filter
+
+
+ processing: category_filter.profile.profile
+
+Info: Add virtual field [category_filters(es)] to <profile>
+	category_filter.profile
+
+
+ processing: new_product
+
+
+ processing: new_product.level_n_category.parent_category
+
+Info: Add virtual field [new_products(es)] to <level_n_category>
+	new_product.parent_category
+
+
+ processing: new_product.brand.brand
+
+Info: Add virtual field [new_products(es)] to <brand>
+	new_product.brand
+
+
+ processing: new_product.catalog.catalog
+
+Info: Add virtual field [new_products(es)] to <catalog>
+	new_product.catalog
+
+
+ processing: new_product.profile.profile
+
+Info: Add virtual field [new_products(es)] to <profile>
+	new_product.profile
+
+
+ processing: new_product.platform.platform
+
+Info: Add virtual field [new_products(es)] to <platform>
+	new_product.platform
+
+
+ processing: editor_pick_product
+
+
+ processing: editor_pick_product.level_n_category.parent_category
+
+Info: Add virtual field [editor_pick_products(es)] to <level_n_category>
+	editor_pick_product.parent_category
+
+
+ processing: editor_pick_product.brand.brand
+
+Info: Add virtual field [editor_pick_products(es)] to <brand>
+	editor_pick_product.brand
+
+
+ processing: editor_pick_product.catalog.catalog
+
+Info: Add virtual field [editor_pick_products(es)] to <catalog>
+	editor_pick_product.catalog
+
+
+ processing: editor_pick_product.profile.profile
+
+Info: Add virtual field [editor_pick_products(es)] to <profile>
+	editor_pick_product.profile
+
+
+ processing: editor_pick_product.platform.platform
+
+Info: Add virtual field [editor_pick_products(es)] to <platform>
+	editor_pick_product.platform
+
+
+ processing: top_rated_product
+
+
+ processing: top_rated_product.level_n_category.parent_category
+
+Info: Add virtual field [top_rated_products(es)] to <level_n_category>
+	top_rated_product.parent_category
+
+
+ processing: top_rated_product.brand.brand
+
+Info: Add virtual field [top_rated_products(es)] to <brand>
+	top_rated_product.brand
+
+
+ processing: top_rated_product.catalog.catalog
+
+Info: Add virtual field [top_rated_products(es)] to <catalog>
+	top_rated_product.catalog
+
+
+ processing: top_rated_product.profile.profile
+
+Info: Add virtual field [top_rated_products(es)] to <profile>
+	top_rated_product.profile
+
+
+ processing: top_rated_product.platform.platform
+
+Info: Add virtual field [top_rated_products(es)] to <platform>
+	top_rated_product.platform
+
+
+ processing: recommand_product
+
+
+ processing: recommand_product.level_n_category.parent_category
+
+Info: Add virtual field [recommand_products(es)] to <level_n_category>
+	recommand_product.parent_category
+
+
+ processing: recommand_product.brand.brand
+
+Info: Add virtual field [recommand_products(es)] to <brand>
+	recommand_product.brand
+
+
+ processing: recommand_product.catalog.catalog
+
+Info: Add virtual field [recommand_products(es)] to <catalog>
+	recommand_product.catalog
+
+
+ processing: recommand_product.profile.profile
+
+Info: Add virtual field [recommand_products(es)] to <profile>
+	recommand_product.profile
+
+
+ processing: recommand_product.platform.platform
+
+Info: Add virtual field [recommand_products(es)] to <platform>
+	recommand_product.platform
+
+
 **************************************************
 
 platform{
@@ -105,19 +356,124 @@ platform{
 		string	name('Chain eComerce Platform'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(3){
+	references field(11){
+		siteList	platform(基本信息)--platform;
+		catalogList	platform(基本信息)--platform;
+		brandList	platform(基本信息)--platform;
 		productList	platform(基本信息)--platform;
 		bannerList	platform(基本信息)--platform;
 		profileList	platform(基本信息)--platform;
+		userAlertList	platform(基本信息)--platform;
+		newProductList	platform(基本信息)--platform;
+		editorPickProductList	platform(基本信息)--platform;
+		topRatedProductList	platform(基本信息)--platform;
+		recommandProductList	platform(基本信息)--platform;
 	}
 } depth=0; isRoot = true
 
-product{
-	fields(5){
+site{
+	fields(6){
 		string	id('ABCDEFGIJK000001'), verb: false, required: true;
-		string	name('A beautiful jean'), verb: false, required: true;
+		string	name('The first customer site'), verb: false, required: true;
+		string	introduction('The primary site for show the concept'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: siteList;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		catalogList	site(基本信息)--site;
+	}
+} depth=1; isRoot = false
+
+catalog{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Cloth'), verb: false, required: true;
+		string	seller_id('SC000001'), verb: false, required: true;
+		site	site('$(object)'), verb: false, required: true, referenceBy: catalogList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: catalogList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(6){
+		levelOneCategoryList	catalog(基本信息)--catalog;
+		productList	catalog(基本信息)--catalog;
+		newProductList	catalog(基本信息)--catalog;
+		editorPickProductList	catalog(基本信息)--catalog;
+		topRatedProductList	catalog(基本信息)--catalog;
+		recommandProductList	catalog(基本信息)--catalog;
+	}
+} depth=2; isRoot = false
+
+level_one_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: levelOneCategoryList;
+		string	name('Level One Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		levelTwoCategoryList	parent_category(基本信息)--parent_category;
+	}
+} depth=3; isRoot = false
+
+level_two_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		level_one_category	parent_category('$(object)'), verb: false, required: true, referenceBy: levelTwoCategoryList;
+		string	name('Level Two Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		levelNCategoryList	parent_category(基本信息)--parent_category;
+	}
+} depth=4; isRoot = false
+
+level_n_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		level_two_category	parent_category('$(object)'), verb: false, required: true, referenceBy: levelNCategoryList;
+		string	name('Level N Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(5){
+		productList	parent_category(基本信息)--parent_category;
+		newProductList	parent_category(基本信息)--parent_category;
+		editorPickProductList	parent_category(基本信息)--parent_category;
+		topRatedProductList	parent_category(基本信息)--parent_category;
+		recommandProductList	parent_category(基本信息)--parent_category;
+	}
+} depth=5; isRoot = false
+
+brand{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	brand_name('Telsa Auto'), verb: false, required: true;
+		string_image	logo('logo.jpg'), verb: false, required: true;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: brandList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(5){
+		productList	brand(基本信息)--brand;
+		newProductList	brand(基本信息)--brand;
+		editorPickProductList	brand(基本信息)--brand;
+		topRatedProductList	brand(基本信息)--brand;
+		recommandProductList	brand(基本信息)--brand;
+	}
+} depth=1; isRoot = false
+
+product{
+	fields(11){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: productList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: productList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: productList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: productList;
-		double	avarage_score('4.5'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
 	references field(3){
@@ -125,7 +481,7 @@ product{
 		reviewList	product(基本信息)--product;
 		blogList	product(基本信息)--product;
 	}
-} depth=1; isRoot = false
+} depth=6; isRoot = false
 
 banner{
 	fields(6){
@@ -148,13 +504,35 @@ profile{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: profileList;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(4){
+	references field(12){
+		userAlertList	profile(基本信息)--profile;
 		targetList	profile(基本信息)--profile;
 		ratingList	user(基本信息)--user;
 		reviewList	user(基本信息)--user;
 		blogList	user(基本信息)--user;
+		brandFilterList	profile(基本信息)--profile;
+		priceFilterList	profile(基本信息)--profile;
+		categoryFilterList	profile(基本信息)--profile;
+		newProductList	profile(基本信息)--profile;
+		editorPickProductList	profile(基本信息)--profile;
+		topRatedProductList	profile(基本信息)--profile;
+		recommandProductList	profile(基本信息)--profile;
 	}
 } depth=1; isRoot = false
+
+user_alert{
+	fields(7){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	message('IT’S THE LAST DAY TO SHOP THE WEEKLY WOW—CURRENT DEALS EXPIRE TOMORROW! WHILE SUPPLIES LAST. SHOP NOW'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: userAlertList;
+		string	location('HOME'), verb: false, required: true;
+		date_time_update	last_update('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: userAlertList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
 
 target{
 	fields(7){
@@ -181,7 +559,7 @@ rating{
 	}
 	references field(0){
 	}
-} depth=2; isRoot = false
+} depth=7; isRoot = false
 
 review{
 	fields(7){
@@ -195,7 +573,7 @@ review{
 	}
 	references field(0){
 	}
-} depth=2; isRoot = false
+} depth=7; isRoot = false
 
 blog{
 	fields(7){
@@ -209,7 +587,120 @@ blog{
 	}
 	references field(0){
 	}
+} depth=7; isRoot = false
+
+brand_filter{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		string	internal_id('brandid'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: brandFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
 } depth=2; isRoot = false
+
+price_filter{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		double	price_start('1.99'), verb: false, required: true;
+		double	price_end('1000000.99'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: priceFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+category_filter{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		string	internal_id('category'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: categoryFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+new_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+editor_pick_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+top_rated_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+recommand_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
 
 platform{
 	fields(3){
@@ -217,19 +708,124 @@ platform{
 		string	name('Chain eComerce Platform'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(3){
+	references field(11){
+		siteList	platform(基本信息)--platform;
+		catalogList	platform(基本信息)--platform;
+		brandList	platform(基本信息)--platform;
 		productList	platform(基本信息)--platform;
 		bannerList	platform(基本信息)--platform;
 		profileList	platform(基本信息)--platform;
+		userAlertList	platform(基本信息)--platform;
+		newProductList	platform(基本信息)--platform;
+		editorPickProductList	platform(基本信息)--platform;
+		topRatedProductList	platform(基本信息)--platform;
+		recommandProductList	platform(基本信息)--platform;
 	}
 } depth=0; isRoot = true
 
-product{
-	fields(5){
+site{
+	fields(6){
 		string	id('ABCDEFGIJK000001'), verb: false, required: true;
-		string	name('A beautiful jean'), verb: false, required: true;
+		string	name('The first customer site'), verb: false, required: true;
+		string	introduction('The primary site for show the concept'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: siteList;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		catalogList	site(基本信息)--site;
+	}
+} depth=1; isRoot = false
+
+catalog{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Cloth'), verb: false, required: true;
+		string	seller_id('SC000001'), verb: false, required: true;
+		site	site('$(object)'), verb: false, required: true, referenceBy: catalogList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: catalogList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(6){
+		levelOneCategoryList	catalog(基本信息)--catalog;
+		productList	catalog(基本信息)--catalog;
+		newProductList	catalog(基本信息)--catalog;
+		editorPickProductList	catalog(基本信息)--catalog;
+		topRatedProductList	catalog(基本信息)--catalog;
+		recommandProductList	catalog(基本信息)--catalog;
+	}
+} depth=2; isRoot = false
+
+level_one_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: levelOneCategoryList;
+		string	name('Level One Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		levelTwoCategoryList	parent_category(基本信息)--parent_category;
+	}
+} depth=3; isRoot = false
+
+level_two_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		level_one_category	parent_category('$(object)'), verb: false, required: true, referenceBy: levelTwoCategoryList;
+		string	name('Level Two Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		levelNCategoryList	parent_category(基本信息)--parent_category;
+	}
+} depth=4; isRoot = false
+
+level_n_category{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		level_two_category	parent_category('$(object)'), verb: false, required: true, referenceBy: levelNCategoryList;
+		string	name('Level N Cat'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(5){
+		productList	parent_category(基本信息)--parent_category;
+		newProductList	parent_category(基本信息)--parent_category;
+		editorPickProductList	parent_category(基本信息)--parent_category;
+		topRatedProductList	parent_category(基本信息)--parent_category;
+		recommandProductList	parent_category(基本信息)--parent_category;
+	}
+} depth=5; isRoot = false
+
+brand{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	brand_name('Telsa Auto'), verb: false, required: true;
+		string_image	logo('logo.jpg'), verb: false, required: true;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: brandList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(5){
+		productList	brand(基本信息)--brand;
+		newProductList	brand(基本信息)--brand;
+		editorPickProductList	brand(基本信息)--brand;
+		topRatedProductList	brand(基本信息)--brand;
+		recommandProductList	brand(基本信息)--brand;
+	}
+} depth=1; isRoot = false
+
+product{
+	fields(11){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: productList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: productList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: productList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: productList;
-		double	avarage_score('4.5'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
 	references field(3){
@@ -237,7 +833,7 @@ product{
 		reviewList	product(基本信息)--product;
 		blogList	product(基本信息)--product;
 	}
-} depth=1; isRoot = false
+} depth=6; isRoot = false
 
 banner{
 	fields(6){
@@ -260,13 +856,35 @@ profile{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: profileList;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(4){
+	references field(12){
+		userAlertList	profile(基本信息)--profile;
 		targetList	profile(基本信息)--profile;
 		ratingList	user(基本信息)--user;
 		reviewList	user(基本信息)--user;
 		blogList	user(基本信息)--user;
+		brandFilterList	profile(基本信息)--profile;
+		priceFilterList	profile(基本信息)--profile;
+		categoryFilterList	profile(基本信息)--profile;
+		newProductList	profile(基本信息)--profile;
+		editorPickProductList	profile(基本信息)--profile;
+		topRatedProductList	profile(基本信息)--profile;
+		recommandProductList	profile(基本信息)--profile;
 	}
 } depth=1; isRoot = false
+
+user_alert{
+	fields(7){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	message('IT’S THE LAST DAY TO SHOP THE WEEKLY WOW—CURRENT DEALS EXPIRE TOMORROW! WHILE SUPPLIES LAST. SHOP NOW'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: userAlertList;
+		string	location('HOME'), verb: false, required: true;
+		date_time_update	last_update('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: userAlertList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
 
 target{
 	fields(7){
@@ -293,7 +911,7 @@ rating{
 	}
 	references field(0){
 	}
-} depth=2; isRoot = false
+} depth=7; isRoot = false
 
 review{
 	fields(7){
@@ -307,7 +925,7 @@ review{
 	}
 	references field(0){
 	}
-} depth=2; isRoot = false
+} depth=7; isRoot = false
 
 blog{
 	fields(7){
@@ -321,7 +939,120 @@ blog{
 	}
 	references field(0){
 	}
+} depth=7; isRoot = false
+
+brand_filter{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		string	internal_id('brandid'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: brandFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
 } depth=2; isRoot = false
+
+price_filter{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		double	price_start('1.99'), verb: false, required: true;
+		double	price_end('1000000.99'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: priceFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+category_filter{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Philip Zhang|Naveen Kumar R |VENKATESH GADUPUTI'), verb: false, required: true;
+		string	internal_id('category'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: categoryFilterList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+new_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: newProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+editor_pick_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: editorPickProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+top_rated_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: topRatedProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
+
+recommand_product{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('Jeans'), verb: false, required: true;
+		level_n_category	parent_category('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		brand	brand('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		string_image	product_cover_image('prod-800-600-blue.jpg'), verb: false, required: true;
+		string	origin('China|US|Japan|French'), verb: false, required: true;
+		catalog	catalog('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		string	remark('The brand a great that has Roadester, Model S and Model X, Model 3 is in development'), verb: false, required: true;
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true;
+		profile	profile('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: recommandProductList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=6; isRoot = false
 
 user_domain{
 	fields(3){

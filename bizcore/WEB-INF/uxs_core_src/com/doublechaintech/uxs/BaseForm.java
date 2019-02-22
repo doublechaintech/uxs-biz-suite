@@ -105,6 +105,318 @@ public class BaseForm extends GenericForm{
 		return field;
 	}
 
+	protected FormField idFromSite(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("site.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromSite(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("site.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField introductionFromSite(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Introduction");
+		field.setLocaleKey("site.introduction");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Introduction");
+		return field;
+	}
+
+	protected FormField platformIdFromSite(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("site.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromSite(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("site.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
+	protected FormField idFromCatalog(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("catalog.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromCatalog(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("catalog.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField sellerIdFromCatalog(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Seller Id");
+		field.setLocaleKey("catalog.seller_id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Seller Id");
+		return field;
+	}
+
+	protected FormField siteIdFromCatalog(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Site");
+		field.setLocaleKey("catalog.site");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Site");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Site");
+		return field;
+	}
+
+	protected FormField platformIdFromCatalog(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("catalog.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField idFromLevelOneCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("level_one_category.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField catalogIdFromLevelOneCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("level_one_category.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField nameFromLevelOneCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("level_one_category.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField idFromLevelTwoCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("level_two_category.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromLevelTwoCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("level_two_category.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelOneCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField nameFromLevelTwoCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("level_two_category.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField idFromLevelNCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("level_n_category.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromLevelNCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("level_n_category.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelTwoCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField nameFromLevelNCategory(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("level_n_category.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField idFromBrand(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("brand.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField brandNameFromBrand(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand Name");
+		field.setLocaleKey("brand.brand_name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand Name");
+		return field;
+	}
+
+	protected FormField logoFromBrand(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Logo");
+		field.setLocaleKey("brand.logo");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Logo");
+		return field;
+	}
+
+	protected FormField remarkFromBrand(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("brand.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField platformIdFromBrand(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("brand.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
 	protected FormField idFromProduct(String parameterName, String initValue){
 		FormField field = new FormField();
 		field.setLabel("Id");
@@ -131,6 +443,97 @@ public class BaseForm extends GenericForm{
 		return field;
 	}
 
+	protected FormField parentCategoryIdFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("product.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelNCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField brandIdFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand");
+		field.setLocaleKey("product.brand");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Brand");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand");
+		return field;
+	}
+
+	protected FormField productCoverImageFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Product Cover Image");
+		field.setLocaleKey("product.product_cover_image");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Product Cover Image");
+		return field;
+	}
+
+	protected FormField originFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Origin");
+		field.setLocaleKey("product.origin");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Origin");
+		return field;
+	}
+
+	protected FormField catalogIdFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("product.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField remarkFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("product.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("product.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
 	protected FormField platformIdFromProduct(String parameterName, String initValue){
 		FormField field = new FormField();
 		field.setLabel("Platform");
@@ -141,19 +544,6 @@ public class BaseForm extends GenericForm{
 		field.setType("Platform");
 		field.setRequired(true);
 		field.setPlaceholder("请填写Platform");
-		return field;
-	}
-
-	protected FormField avarageScoreFromProduct(String parameterName, String initValue){
-		FormField field = new FormField();
-		field.setLabel("Avarage Score");
-		field.setLocaleKey("product.avarage_score");
-		field.setParameterName(parameterName);
-		field.setDefaultValue(initValue);
-		field.setFieldGroup("基本信息");
-		field.setType("number");
-		field.setRequired(true);
-		field.setPlaceholder("请填写Avarage Score");
 		return field;
 	}
 
@@ -252,6 +642,84 @@ public class BaseForm extends GenericForm{
 		FormField field = new FormField();
 		field.setLabel("Platform");
 		field.setLocaleKey("profile.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField idFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("user_alert.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField messageFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Message");
+		field.setLocaleKey("user_alert.message");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Message");
+		return field;
+	}
+
+	protected FormField profileIdFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("user_alert.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField locationFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Location");
+		field.setLocaleKey("user_alert.location");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Location");
+		return field;
+	}
+
+	protected FormField lastUpdateFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update");
+		field.setLocaleKey("user_alert.last_update");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update");
+		return field;
+	}
+
+	protected FormField platformIdFromUserAlert(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("user_alert.platform");
 		field.setParameterName(parameterName);
 		field.setDefaultValue(initValue);
 		field.setFieldGroup("基本信息");
@@ -557,6 +1025,747 @@ public class BaseForm extends GenericForm{
 		field.setType("date_time");
 		field.setRequired(true);
 		field.setPlaceholder("请填写Update Time");
+		return field;
+	}
+
+	protected FormField idFromBrandFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("brand_filter.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromBrandFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("brand_filter.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField internalIdFromBrandFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Internal Id");
+		field.setLocaleKey("brand_filter.internal_id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Internal Id");
+		return field;
+	}
+
+	protected FormField profileIdFromBrandFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("brand_filter.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField idFromPriceFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("price_filter.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromPriceFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("price_filter.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField priceStartFromPriceFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Price Start");
+		field.setLocaleKey("price_filter.price_start");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("number");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Price Start");
+		return field;
+	}
+
+	protected FormField priceEndFromPriceFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Price End");
+		field.setLocaleKey("price_filter.price_end");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("number");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Price End");
+		return field;
+	}
+
+	protected FormField profileIdFromPriceFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("price_filter.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField idFromCategoryFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("category_filter.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromCategoryFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("category_filter.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField internalIdFromCategoryFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Internal Id");
+		field.setLocaleKey("category_filter.internal_id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Internal Id");
+		return field;
+	}
+
+	protected FormField profileIdFromCategoryFilter(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("category_filter.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField idFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("new_product.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("new_product.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("new_product.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelNCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField brandIdFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand");
+		field.setLocaleKey("new_product.brand");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Brand");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand");
+		return field;
+	}
+
+	protected FormField productCoverImageFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Product Cover Image");
+		field.setLocaleKey("new_product.product_cover_image");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Product Cover Image");
+		return field;
+	}
+
+	protected FormField originFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Origin");
+		field.setLocaleKey("new_product.origin");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Origin");
+		return field;
+	}
+
+	protected FormField catalogIdFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("new_product.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField profileIdFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("new_product.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField remarkFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("new_product.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("new_product.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
+	protected FormField platformIdFromNewProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("new_product.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField idFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("editor_pick_product.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("editor_pick_product.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("editor_pick_product.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelNCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField brandIdFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand");
+		field.setLocaleKey("editor_pick_product.brand");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Brand");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand");
+		return field;
+	}
+
+	protected FormField productCoverImageFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Product Cover Image");
+		field.setLocaleKey("editor_pick_product.product_cover_image");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Product Cover Image");
+		return field;
+	}
+
+	protected FormField originFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Origin");
+		field.setLocaleKey("editor_pick_product.origin");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Origin");
+		return field;
+	}
+
+	protected FormField catalogIdFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("editor_pick_product.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField profileIdFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("editor_pick_product.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField remarkFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("editor_pick_product.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("editor_pick_product.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
+	protected FormField platformIdFromEditorPickProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("editor_pick_product.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField idFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("top_rated_product.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("top_rated_product.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("top_rated_product.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelNCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField brandIdFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand");
+		field.setLocaleKey("top_rated_product.brand");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Brand");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand");
+		return field;
+	}
+
+	protected FormField productCoverImageFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Product Cover Image");
+		field.setLocaleKey("top_rated_product.product_cover_image");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Product Cover Image");
+		return field;
+	}
+
+	protected FormField originFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Origin");
+		field.setLocaleKey("top_rated_product.origin");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Origin");
+		return field;
+	}
+
+	protected FormField catalogIdFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("top_rated_product.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField remarkFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("top_rated_product.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("top_rated_product.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
+	protected FormField profileIdFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("top_rated_product.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField platformIdFromTopRatedProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("top_rated_product.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
+		return field;
+	}
+
+	protected FormField idFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Id");
+		field.setLocaleKey("recommand_product.id");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Id");
+		return field;
+	}
+
+	protected FormField nameFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Name");
+		field.setLocaleKey("recommand_product.name");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Name");
+		return field;
+	}
+
+	protected FormField parentCategoryIdFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Parent Category");
+		field.setLocaleKey("recommand_product.parent_category");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("LevelNCategory");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Parent Category");
+		return field;
+	}
+
+	protected FormField brandIdFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Brand");
+		field.setLocaleKey("recommand_product.brand");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Brand");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Brand");
+		return field;
+	}
+
+	protected FormField productCoverImageFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Product Cover Image");
+		field.setLocaleKey("recommand_product.product_cover_image");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("image");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Product Cover Image");
+		return field;
+	}
+
+	protected FormField originFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Origin");
+		field.setLocaleKey("recommand_product.origin");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Origin");
+		return field;
+	}
+
+	protected FormField catalogIdFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Catalog");
+		field.setLocaleKey("recommand_product.catalog");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Catalog");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Catalog");
+		return field;
+	}
+
+	protected FormField remarkFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Remark");
+		field.setLocaleKey("recommand_product.remark");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("text");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Remark");
+		return field;
+	}
+
+	protected FormField lastUpdateTimeFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Last Update Time");
+		field.setLocaleKey("recommand_product.last_update_time");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("date_time");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Last Update Time");
+		return field;
+	}
+
+	protected FormField profileIdFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Profile");
+		field.setLocaleKey("recommand_product.profile");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Profile");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Profile");
+		return field;
+	}
+
+	protected FormField platformIdFromRecommandProduct(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("Platform");
+		field.setLocaleKey("recommand_product.platform");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("Platform");
+		field.setRequired(true);
+		field.setPlaceholder("请填写Platform");
 		return field;
 	}
 

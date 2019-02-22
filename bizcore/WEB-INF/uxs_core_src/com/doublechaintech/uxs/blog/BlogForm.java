@@ -177,6 +177,104 @@ public class BlogForm extends BaseForm {
 	}
 
 
+	public BlogForm parentCategoryIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  parentCategoryIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm parentCategoryIdFieldOfProduct(String initValue){
+		return parentCategoryIdFieldOfProduct("parentCategoryId",initValue);
+	}
+	public BlogForm parentCategoryIdFieldOfProduct(){
+		return parentCategoryIdFieldOfProduct("parentCategoryId","");
+	}
+
+
+	public BlogForm brandIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  brandIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm brandIdFieldOfProduct(String initValue){
+		return brandIdFieldOfProduct("brandId",initValue);
+	}
+	public BlogForm brandIdFieldOfProduct(){
+		return brandIdFieldOfProduct("brandId","");
+	}
+
+
+	public BlogForm productCoverImageFieldOfProduct(String parameterName, String initValue){
+		FormField field =  productCoverImageFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm productCoverImageFieldOfProduct(String initValue){
+		return productCoverImageFieldOfProduct("productCoverImage",initValue);
+	}
+	public BlogForm productCoverImageFieldOfProduct(){
+		return productCoverImageFieldOfProduct("productCoverImage","");
+	}
+
+
+	public BlogForm originFieldOfProduct(String parameterName, String initValue){
+		FormField field =  originFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm originFieldOfProduct(String initValue){
+		return originFieldOfProduct("origin",initValue);
+	}
+	public BlogForm originFieldOfProduct(){
+		return originFieldOfProduct("origin","");
+	}
+
+
+	public BlogForm catalogIdFieldOfProduct(String parameterName, String initValue){
+		FormField field =  catalogIdFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm catalogIdFieldOfProduct(String initValue){
+		return catalogIdFieldOfProduct("catalogId",initValue);
+	}
+	public BlogForm catalogIdFieldOfProduct(){
+		return catalogIdFieldOfProduct("catalogId","");
+	}
+
+
+	public BlogForm remarkFieldOfProduct(String parameterName, String initValue){
+		FormField field =  remarkFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm remarkFieldOfProduct(String initValue){
+		return remarkFieldOfProduct("remark",initValue);
+	}
+	public BlogForm remarkFieldOfProduct(){
+		return remarkFieldOfProduct("remark","");
+	}
+
+
+	public BlogForm lastUpdateTimeFieldOfProduct(String parameterName, String initValue){
+		FormField field =  lastUpdateTimeFromProduct(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public BlogForm lastUpdateTimeFieldOfProduct(String initValue){
+		return lastUpdateTimeFieldOfProduct("lastUpdateTime",initValue);
+	}
+	public BlogForm lastUpdateTimeFieldOfProduct(){
+		return lastUpdateTimeFieldOfProduct("lastUpdateTime","");
+	}
+
+
 	public BlogForm platformIdFieldOfProduct(String parameterName, String initValue){
 		FormField field =  platformIdFromProduct(parameterName, initValue);
 		this.addFormField(field);	
@@ -188,20 +286,6 @@ public class BlogForm extends BaseForm {
 	}
 	public BlogForm platformIdFieldOfProduct(){
 		return platformIdFieldOfProduct("platformId","");
-	}
-
-
-	public BlogForm avarageScoreFieldOfProduct(String parameterName, String initValue){
-		FormField field =  avarageScoreFromProduct(parameterName, initValue);
-		this.addFormField(field);	
-		return this;
-	}
-	
-	public BlogForm avarageScoreFieldOfProduct(String initValue){
-		return avarageScoreFieldOfProduct("avarageScore",initValue);
-	}
-	public BlogForm avarageScoreFieldOfProduct(){
-		return avarageScoreFieldOfProduct("avarageScore","");
 	}
 
 	

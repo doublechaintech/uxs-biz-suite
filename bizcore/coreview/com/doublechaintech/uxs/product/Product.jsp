@@ -130,6 +130,15 @@
 	
 
 	<div class="row">
+<c:set var="levelNCategory" value="${ result.parentCategory}" scope="request" />
+<sky:include page="com/doublechaintech/uxs/levelncategory/LevelNCategory$Info.jsp" />
+
+<c:set var="brand" value="${ result.brand}" scope="request" />
+<sky:include page="com/doublechaintech/uxs/brand/Brand$Info.jsp" />
+
+<c:set var="catalog" value="${ result.catalog}" scope="request" />
+<sky:include page="com/doublechaintech/uxs/catalog/Catalog$Info.jsp" />
+
 <c:set var="platform" value="${ result.platform}" scope="request" />
 <sky:include page="com/doublechaintech/uxs/platform/Platform$Info.jsp" />
 

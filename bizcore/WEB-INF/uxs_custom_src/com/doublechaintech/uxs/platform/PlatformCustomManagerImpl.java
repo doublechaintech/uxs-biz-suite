@@ -18,6 +18,11 @@ import com.doublechaintech.uxs.UxsUserContext;
 public class PlatformCustomManagerImpl extends PlatformManagerImpl{
 
 
+	
+	
+	public String hello() {
+		return "hello";
+	}
 
 
 

@@ -61,6 +61,9 @@ const showAssociateDialog = (targetComponent) => {
   
   const {selectedRows} = targetComponent.state
   
+  const { LevelNCategoryAssociateForm } = GlobalComponents
+  const { BrandAssociateForm } = GlobalComponents
+  const { CatalogAssociateForm } = GlobalComponents
   const { PlatformAssociateForm } = GlobalComponents
 
 
@@ -69,7 +72,19 @@ const showAssociateDialog = (targetComponent) => {
   
    
   
-    <PlatformAssociateForm 
+    <LevelNCategoryAssociateForm 
+	visible={currentAssociateModal==='parentCategory'} 
+	data={{productList:selectedRows}} owner={owner}  
+	onCancel={()=>toggleAssociateModalVisible(targetComponent,'parentCategory')} 
+	onCreate={()=>toggleAssociateModalVisible(targetComponent,'parentCategory')}/> <BrandAssociateForm 
+	visible={currentAssociateModal==='brand'} 
+	data={{productList:selectedRows}} owner={owner}  
+	onCancel={()=>toggleAssociateModalVisible(targetComponent,'brand')} 
+	onCreate={()=>toggleAssociateModalVisible(targetComponent,'brand')}/> <CatalogAssociateForm 
+	visible={currentAssociateModal==='catalog'} 
+	data={{productList:selectedRows}} owner={owner}  
+	onCancel={()=>toggleAssociateModalVisible(targetComponent,'catalog')} 
+	onCreate={()=>toggleAssociateModalVisible(targetComponent,'catalog')}/> <PlatformAssociateForm 
 	visible={currentAssociateModal==='platform'} 
 	data={{productList:selectedRows}} owner={owner}  
 	onCancel={()=>toggleAssociateModalVisible(targetComponent,'platform')} 

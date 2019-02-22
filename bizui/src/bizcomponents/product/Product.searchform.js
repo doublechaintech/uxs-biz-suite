@@ -131,6 +131,11 @@ componentDidMount() {
      
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'id'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'name'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'parentCategory'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'brand'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'origin'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'catalog'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'remark'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'platform'))
 
      
@@ -254,6 +259,67 @@ componentDidMount() {
           <Col md={8} sm={24}>
             <FormItem label="Name">
               {getFieldDecorator('name')(
+                <Input placeholder={appLocaleName(userContext,"PleaseInput")} />
+              )}
+            </FormItem>
+          </Col>
+ <Col md={8} sm={24}>
+                    <Form.Item label="Parent Category">
+                  {getFieldDecorator('parentCategory', {
+                    initialValue: tryinit('parentCategory'),
+                   
+                  })(
+                  
+                  <SelectObject 
+                    disabled={!availableForEdit('parentCategory')}
+                    targetType={"parentCategory"} 
+                    requestFunction={ProductService.requestCandidateParentCategory}/>
+                  
+                 
+                  )}
+                </Form.Item></Col>
+ <Col md={8} sm={24}>
+                    <Form.Item label="Brand">
+                  {getFieldDecorator('brand', {
+                    initialValue: tryinit('brand'),
+                   
+                  })(
+                  
+                  <SelectObject 
+                    disabled={!availableForEdit('brand')}
+                    targetType={"brand"} 
+                    requestFunction={ProductService.requestCandidateBrand}/>
+                  
+                 
+                  )}
+                </Form.Item></Col>
+
+          <Col md={8} sm={24}>
+            <FormItem label="Origin">
+              {getFieldDecorator('origin')(
+                <Input placeholder={appLocaleName(userContext,"PleaseInput")} />
+              )}
+            </FormItem>
+          </Col>
+ <Col md={8} sm={24}>
+                    <Form.Item label="Catalog">
+                  {getFieldDecorator('catalog', {
+                    initialValue: tryinit('catalog'),
+                   
+                  })(
+                  
+                  <SelectObject 
+                    disabled={!availableForEdit('catalog')}
+                    targetType={"catalog"} 
+                    requestFunction={ProductService.requestCandidateCatalog}/>
+                  
+                 
+                  )}
+                </Form.Item></Col>
+
+          <Col md={8} sm={24}>
+            <FormItem label="Remark">
+              {getFieldDecorator('remark')(
                 <Input placeholder={appLocaleName(userContext,"PleaseInput")} />
               )}
             </FormItem>

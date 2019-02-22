@@ -18,14 +18,19 @@ const { TextArea } = Input
 const testValues = {};
 /*
 const testValues = {
-  name: 'A beautiful jean',
-  avarageScore: '3.16',
+  name: 'Jeans',
+  origin: 'China',
+  parentCategoryId: 'LNC000001',
+  brandId: 'B000001',
+  catalogId: 'C000001',
   platformId: 'P000001',
+  remark: 'The brand a great that has Roadester, Model S and Model X, Model 3 is in development',
 }
 */
 
 
 const imageKeys = [
+  'productCoverImage',
 ]
 
 
@@ -148,11 +153,11 @@ class ProductAssociateForm extends Component {
               </Col>
 
               <Col lg={12} md={12} sm={12}>
-                <Form.Item label={fieldLabels.avarageScore} {...formItemLayout}>
-                  {getFieldDecorator('avarageScore', {
+                <Form.Item label={fieldLabels.origin} {...formItemLayout}>
+                  {getFieldDecorator('origin', {
                     rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
                   })(
-                    <Input placeholder="请输入Avarage Score" />
+                    <Input placeholder="请输入Origin" />
                   )}
                 </Form.Item>
               </Col>
@@ -167,12 +172,86 @@ class ProductAssociateForm extends Component {
 
 
 
-
+       
+            <Row gutter={16}>
+              <Col lg={24} md={24} sm={24}>
+                <Form.Item>
+                  {getFieldDecorator('remark', {
+                    rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
+                  })(
+                    <TextArea rows={4} placeholder={appLocaleName(userContext,"PleaseInput")} />
+                  )}
+                </Form.Item>
+              </Col>
+      </Row>
+        
 
 
 
        
             <Row gutter={16}>
+
+              <Col lg={6} md={12} sm={24}>
+                <ImageComponent
+                  buttonTitle="Product Cover Image"
+                  handlePreview={this.handlePreview}
+                  handleChange={event => this.handleChange(event, 'productCoverImage')}
+                  fileList={convertedImagesValues.productCoverImage}
+                />
+              </Col>
+
+            </Row>
+         
+
+
+
+       
+            <Row gutter={16}>
+
+              <Col lg={12} md={12} sm={24}>
+                <Form.Item label={fieldLabels.parentCategory} {...formItemLayout}>
+                  {getFieldDecorator('parentCategoryId', {
+                  	initialValue: tryinit('parentCategory'),
+                    rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
+                  })(
+                <SelectObject 
+                    disabled={!availableForEdit('parentCategory')}
+                    targetType={"parentCategory"} 
+                    requestFunction={ProductService.requestCandidateParentCategory}/>
+  
+                  )}
+                </Form.Item>
+              </Col>
+
+              <Col lg={12} md={12} sm={24}>
+                <Form.Item label={fieldLabels.brand} {...formItemLayout}>
+                  {getFieldDecorator('brandId', {
+                  	initialValue: tryinit('brand'),
+                    rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
+                  })(
+                <SelectObject 
+                    disabled={!availableForEdit('brand')}
+                    targetType={"brand"} 
+                    requestFunction={ProductService.requestCandidateBrand}/>
+  
+                  )}
+                </Form.Item>
+              </Col>
+
+              <Col lg={12} md={12} sm={24}>
+                <Form.Item label={fieldLabels.catalog} {...formItemLayout}>
+                  {getFieldDecorator('catalogId', {
+                  	initialValue: tryinit('catalog'),
+                    rules: [{ required: true, message: appLocaleName(userContext,"PleaseInput") }],
+                  })(
+                <SelectObject 
+                    disabled={!availableForEdit('catalog')}
+                    targetType={"catalog"} 
+                    requestFunction={ProductService.requestCandidateCatalog}/>
+  
+                  )}
+                </Form.Item>
+              </Col>
 
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>

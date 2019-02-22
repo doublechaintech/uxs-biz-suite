@@ -18,21 +18,54 @@ import com.doublechaintech.uxs.MultipleAccessKey;
 import com.doublechaintech.uxs.UxsUserContext;
 
 
+import com.doublechaintech.uxs.brand.Brand;
+import com.doublechaintech.uxs.catalog.Catalog;
 import com.doublechaintech.uxs.rating.Rating;
 import com.doublechaintech.uxs.review.Review;
+import com.doublechaintech.uxs.levelncategory.LevelNCategory;
 import com.doublechaintech.uxs.platform.Platform;
 import com.doublechaintech.uxs.blog.Blog;
 
+import com.doublechaintech.uxs.brand.BrandDAO;
 import com.doublechaintech.uxs.platform.PlatformDAO;
 import com.doublechaintech.uxs.blog.BlogDAO;
 import com.doublechaintech.uxs.review.ReviewDAO;
+import com.doublechaintech.uxs.catalog.CatalogDAO;
 import com.doublechaintech.uxs.rating.RatingDAO;
+import com.doublechaintech.uxs.levelncategory.LevelNCategoryDAO;
 
 
 
 import org.springframework.dao.EmptyResultDataAccessException;
 
 public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements ProductDAO{
+ 
+ 	
+ 	private  CatalogDAO  catalogDAO;
+ 	public void setCatalogDAO(CatalogDAO catalogDAO){
+	 	this.catalogDAO = catalogDAO;
+ 	}
+ 	public CatalogDAO getCatalogDAO(){
+	 	return this.catalogDAO;
+ 	}
+ 
+ 	
+ 	private  LevelNCategoryDAO  levelNCategoryDAO;
+ 	public void setLevelNCategoryDAO(LevelNCategoryDAO levelNCategoryDAO){
+	 	this.levelNCategoryDAO = levelNCategoryDAO;
+ 	}
+ 	public LevelNCategoryDAO getLevelNCategoryDAO(){
+	 	return this.levelNCategoryDAO;
+ 	}
+ 
+ 	
+ 	private  BrandDAO  brandDAO;
+ 	public void setBrandDAO(BrandDAO brandDAO){
+	 	this.brandDAO = brandDAO;
+ 	}
+ 	public BrandDAO getBrandDAO(){
+	 	return this.brandDAO;
+ 	}
  
  	
  	private  PlatformDAO  platformDAO;
@@ -259,6 +292,48 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 
  
 
+ 	protected boolean isExtractParentCategoryEnabled(Map<String,Object> options){
+ 		
+	 	return checkOptions(options, ProductTokens.PARENTCATEGORY);
+ 	}
+
+ 	protected boolean isSaveParentCategoryEnabled(Map<String,Object> options){
+	 	
+ 		return checkOptions(options, ProductTokens.PARENTCATEGORY);
+ 	}
+ 	
+
+ 	
+  
+
+ 	protected boolean isExtractBrandEnabled(Map<String,Object> options){
+ 		
+	 	return checkOptions(options, ProductTokens.BRAND);
+ 	}
+
+ 	protected boolean isSaveBrandEnabled(Map<String,Object> options){
+	 	
+ 		return checkOptions(options, ProductTokens.BRAND);
+ 	}
+ 	
+
+ 	
+  
+
+ 	protected boolean isExtractCatalogEnabled(Map<String,Object> options){
+ 		
+	 	return checkOptions(options, ProductTokens.CATALOG);
+ 	}
+
+ 	protected boolean isSaveCatalogEnabled(Map<String,Object> options){
+	 	
+ 		return checkOptions(options, ProductTokens.CATALOG);
+ 	}
+ 	
+
+ 	
+  
+
  	protected boolean isExtractPlatformEnabled(Map<String,Object> options){
  		
 	 	return checkOptions(options, ProductTokens.PLATFORM);
@@ -344,6 +419,18 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 		
 		Product product = extractProduct(accessKey, loadOptions);
  	
+ 		if(isExtractParentCategoryEnabled(loadOptions)){
+	 		extractParentCategory(product, loadOptions);
+ 		}
+  	
+ 		if(isExtractBrandEnabled(loadOptions)){
+	 		extractBrand(product, loadOptions);
+ 		}
+  	
+ 		if(isExtractCatalogEnabled(loadOptions)){
+	 		extractCatalog(product, loadOptions);
+ 		}
+  	
  		if(isExtractPlatformEnabled(loadOptions)){
 	 		extractPlatform(product, loadOptions);
  		}
@@ -378,6 +465,66 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 	}
 
 	 
+
+ 	protected Product extractParentCategory(Product product, Map<String,Object> options) throws Exception{
+
+		if(product.getParentCategory() == null){
+			return product;
+		}
+		String parentCategoryId = product.getParentCategory().getId();
+		if( parentCategoryId == null){
+			return product;
+		}
+		LevelNCategory parentCategory = getLevelNCategoryDAO().load(parentCategoryId,options);
+		if(parentCategory != null){
+			product.setParentCategory(parentCategory);
+		}
+		
+ 		
+ 		return product;
+ 	}
+ 		
+  
+
+ 	protected Product extractBrand(Product product, Map<String,Object> options) throws Exception{
+
+		if(product.getBrand() == null){
+			return product;
+		}
+		String brandId = product.getBrand().getId();
+		if( brandId == null){
+			return product;
+		}
+		Brand brand = getBrandDAO().load(brandId,options);
+		if(brand != null){
+			product.setBrand(brand);
+		}
+		
+ 		
+ 		return product;
+ 	}
+ 		
+  
+
+ 	protected Product extractCatalog(Product product, Map<String,Object> options) throws Exception{
+
+		if(product.getCatalog() == null){
+			return product;
+		}
+		String catalogId = product.getCatalog().getId();
+		if( catalogId == null){
+			return product;
+		}
+		Catalog catalog = getCatalogDAO().load(catalogId,options);
+		if(catalog != null){
+			product.setCatalog(catalog);
+		}
+		
+ 		
+ 		return product;
+ 	}
+ 		
+  
 
  	protected Product extractPlatform(Product product, Map<String,Object> options) throws Exception{
 
@@ -551,6 +698,156 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 		
 		
   	
+ 	public SmartList<Product> findProductByParentCategory(String levelNCategoryId,Map<String,Object> options){
+ 	
+  		SmartList<Product> resultList = queryWith(ProductTable.COLUMN_PARENT_CATEGORY, levelNCategoryId, options, getProductMapper());
+		// analyzeProductByParentCategory(resultList, levelNCategoryId, options);
+		return resultList;
+ 	}
+ 	 
+ 
+ 	public SmartList<Product> findProductByParentCategory(String levelNCategoryId, int start, int count,Map<String,Object> options){
+ 		
+ 		SmartList<Product> resultList =  queryWithRange(ProductTable.COLUMN_PARENT_CATEGORY, levelNCategoryId, options, getProductMapper(), start, count);
+ 		//analyzeProductByParentCategory(resultList, levelNCategoryId, options);
+ 		return resultList;
+ 		
+ 	}
+ 	public void analyzeProductByParentCategory(SmartList<Product> resultList, String levelNCategoryId, Map<String,Object> options){
+		if(resultList==null){
+			return;//do nothing when the list is null.
+		}
+		
+ 		MultipleAccessKey filterKey = new MultipleAccessKey();
+ 		filterKey.put(Product.PARENT_CATEGORY_PROPERTY, levelNCategoryId);
+ 		Map<String,Object> emptyOptions = new HashMap<String,Object>();
+ 		
+ 		StatsInfo info = new StatsInfo();
+ 		
+ 
+		StatsItem lastUpdateTimeStatsItem = new StatsItem();
+		//Product.LAST_UPDATE_TIME_PROPERTY
+		lastUpdateTimeStatsItem.setDisplayName("Product");
+		lastUpdateTimeStatsItem.setInternalName(formatKeyForDateLine(Product.LAST_UPDATE_TIME_PROPERTY));
+		lastUpdateTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Product.LAST_UPDATE_TIME_PROPERTY),filterKey,emptyOptions));
+		info.addItem(lastUpdateTimeStatsItem);
+ 				
+ 		resultList.setStatsInfo(info);
+
+ 	
+ 		
+ 	}
+ 	@Override
+ 	public int countProductByParentCategory(String levelNCategoryId,Map<String,Object> options){
+
+ 		return countWith(ProductTable.COLUMN_PARENT_CATEGORY, levelNCategoryId, options);
+ 	}
+ 	@Override
+	public Map<String, Integer> countProductByParentCategoryIds(String[] ids, Map<String, Object> options) {
+		return countWithIds(ProductTable.COLUMN_PARENT_CATEGORY, ids, options);
+	}
+ 	
+  	
+ 	public SmartList<Product> findProductByBrand(String brandId,Map<String,Object> options){
+ 	
+  		SmartList<Product> resultList = queryWith(ProductTable.COLUMN_BRAND, brandId, options, getProductMapper());
+		// analyzeProductByBrand(resultList, brandId, options);
+		return resultList;
+ 	}
+ 	 
+ 
+ 	public SmartList<Product> findProductByBrand(String brandId, int start, int count,Map<String,Object> options){
+ 		
+ 		SmartList<Product> resultList =  queryWithRange(ProductTable.COLUMN_BRAND, brandId, options, getProductMapper(), start, count);
+ 		//analyzeProductByBrand(resultList, brandId, options);
+ 		return resultList;
+ 		
+ 	}
+ 	public void analyzeProductByBrand(SmartList<Product> resultList, String brandId, Map<String,Object> options){
+		if(resultList==null){
+			return;//do nothing when the list is null.
+		}
+		
+ 		MultipleAccessKey filterKey = new MultipleAccessKey();
+ 		filterKey.put(Product.BRAND_PROPERTY, brandId);
+ 		Map<String,Object> emptyOptions = new HashMap<String,Object>();
+ 		
+ 		StatsInfo info = new StatsInfo();
+ 		
+ 
+		StatsItem lastUpdateTimeStatsItem = new StatsItem();
+		//Product.LAST_UPDATE_TIME_PROPERTY
+		lastUpdateTimeStatsItem.setDisplayName("Product");
+		lastUpdateTimeStatsItem.setInternalName(formatKeyForDateLine(Product.LAST_UPDATE_TIME_PROPERTY));
+		lastUpdateTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Product.LAST_UPDATE_TIME_PROPERTY),filterKey,emptyOptions));
+		info.addItem(lastUpdateTimeStatsItem);
+ 				
+ 		resultList.setStatsInfo(info);
+
+ 	
+ 		
+ 	}
+ 	@Override
+ 	public int countProductByBrand(String brandId,Map<String,Object> options){
+
+ 		return countWith(ProductTable.COLUMN_BRAND, brandId, options);
+ 	}
+ 	@Override
+	public Map<String, Integer> countProductByBrandIds(String[] ids, Map<String, Object> options) {
+		return countWithIds(ProductTable.COLUMN_BRAND, ids, options);
+	}
+ 	
+  	
+ 	public SmartList<Product> findProductByCatalog(String catalogId,Map<String,Object> options){
+ 	
+  		SmartList<Product> resultList = queryWith(ProductTable.COLUMN_CATALOG, catalogId, options, getProductMapper());
+		// analyzeProductByCatalog(resultList, catalogId, options);
+		return resultList;
+ 	}
+ 	 
+ 
+ 	public SmartList<Product> findProductByCatalog(String catalogId, int start, int count,Map<String,Object> options){
+ 		
+ 		SmartList<Product> resultList =  queryWithRange(ProductTable.COLUMN_CATALOG, catalogId, options, getProductMapper(), start, count);
+ 		//analyzeProductByCatalog(resultList, catalogId, options);
+ 		return resultList;
+ 		
+ 	}
+ 	public void analyzeProductByCatalog(SmartList<Product> resultList, String catalogId, Map<String,Object> options){
+		if(resultList==null){
+			return;//do nothing when the list is null.
+		}
+		
+ 		MultipleAccessKey filterKey = new MultipleAccessKey();
+ 		filterKey.put(Product.CATALOG_PROPERTY, catalogId);
+ 		Map<String,Object> emptyOptions = new HashMap<String,Object>();
+ 		
+ 		StatsInfo info = new StatsInfo();
+ 		
+ 
+		StatsItem lastUpdateTimeStatsItem = new StatsItem();
+		//Product.LAST_UPDATE_TIME_PROPERTY
+		lastUpdateTimeStatsItem.setDisplayName("Product");
+		lastUpdateTimeStatsItem.setInternalName(formatKeyForDateLine(Product.LAST_UPDATE_TIME_PROPERTY));
+		lastUpdateTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Product.LAST_UPDATE_TIME_PROPERTY),filterKey,emptyOptions));
+		info.addItem(lastUpdateTimeStatsItem);
+ 				
+ 		resultList.setStatsInfo(info);
+
+ 	
+ 		
+ 	}
+ 	@Override
+ 	public int countProductByCatalog(String catalogId,Map<String,Object> options){
+
+ 		return countWith(ProductTable.COLUMN_CATALOG, catalogId, options);
+ 	}
+ 	@Override
+	public Map<String, Integer> countProductByCatalogIds(String[] ids, Map<String, Object> options) {
+		return countWithIds(ProductTable.COLUMN_CATALOG, ids, options);
+	}
+ 	
+  	
  	public SmartList<Product> findProductByPlatform(String platformId,Map<String,Object> options){
  	
   		SmartList<Product> resultList = queryWith(ProductTable.COLUMN_PLATFORM, platformId, options, getProductMapper());
@@ -570,6 +867,22 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 		if(resultList==null){
 			return;//do nothing when the list is null.
 		}
+		
+ 		MultipleAccessKey filterKey = new MultipleAccessKey();
+ 		filterKey.put(Product.PLATFORM_PROPERTY, platformId);
+ 		Map<String,Object> emptyOptions = new HashMap<String,Object>();
+ 		
+ 		StatsInfo info = new StatsInfo();
+ 		
+ 
+		StatsItem lastUpdateTimeStatsItem = new StatsItem();
+		//Product.LAST_UPDATE_TIME_PROPERTY
+		lastUpdateTimeStatsItem.setDisplayName("Product");
+		lastUpdateTimeStatsItem.setInternalName(formatKeyForDateLine(Product.LAST_UPDATE_TIME_PROPERTY));
+		lastUpdateTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Product.LAST_UPDATE_TIME_PROPERTY),filterKey,emptyOptions));
+		info.addItem(lastUpdateTimeStatsItem);
+ 				
+ 		resultList.setStatsInfo(info);
 
  	
  		
@@ -726,33 +1039,66 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
  		return prepareProductCreateParameters(product);
  	}
  	protected Object[] prepareProductUpdateParameters(Product product){
- 		Object[] parameters = new Object[6];
+ 		Object[] parameters = new Object[12];
  
  		parameters[0] = product.getName(); 	
- 		if(product.getPlatform() != null){
- 			parameters[1] = product.getPlatform().getId();
+ 		if(product.getParentCategory() != null){
+ 			parameters[1] = product.getParentCategory().getId();
+ 		}
+  	
+ 		if(product.getBrand() != null){
+ 			parameters[2] = product.getBrand().getId();
  		}
  
- 		parameters[2] = product.getAvarageScore();		
- 		parameters[3] = product.nextVersion();
- 		parameters[4] = product.getId();
- 		parameters[5] = product.getVersion();
+ 		parameters[3] = product.getProductCoverImage();
+ 		parameters[4] = product.getOrigin(); 	
+ 		if(product.getCatalog() != null){
+ 			parameters[5] = product.getCatalog().getId();
+ 		}
+ 
+ 		parameters[6] = product.getRemark();
+ 		parameters[7] = product.getLastUpdateTime(); 	
+ 		if(product.getPlatform() != null){
+ 			parameters[8] = product.getPlatform().getId();
+ 		}
+ 		
+ 		parameters[9] = product.nextVersion();
+ 		parameters[10] = product.getId();
+ 		parameters[11] = product.getVersion();
  				
  		return parameters;
  	}
  	protected Object[] prepareProductCreateParameters(Product product){
-		Object[] parameters = new Object[4];
+		Object[] parameters = new Object[10];
 		String newProductId=getNextId();
 		product.setId(newProductId);
 		parameters[0] =  product.getId();
  
  		parameters[1] = product.getName(); 	
- 		if(product.getPlatform() != null){
- 			parameters[2] = product.getPlatform().getId();
+ 		if(product.getParentCategory() != null){
+ 			parameters[2] = product.getParentCategory().getId();
+ 		
+ 		}
+ 		 	
+ 		if(product.getBrand() != null){
+ 			parameters[3] = product.getBrand().getId();
  		
  		}
  		
- 		parameters[3] = product.getAvarageScore();		
+ 		parameters[4] = product.getProductCoverImage();
+ 		parameters[5] = product.getOrigin(); 	
+ 		if(product.getCatalog() != null){
+ 			parameters[6] = product.getCatalog().getId();
+ 		
+ 		}
+ 		
+ 		parameters[7] = product.getRemark();
+ 		parameters[8] = product.getLastUpdateTime(); 	
+ 		if(product.getPlatform() != null){
+ 			parameters[9] = product.getPlatform().getId();
+ 		
+ 		}
+ 				
  				
  		return parameters;
  	}
@@ -761,6 +1107,18 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 		
 		saveProduct(product);
  	
+ 		if(isSaveParentCategoryEnabled(options)){
+	 		saveParentCategory(product, options);
+ 		}
+  	
+ 		if(isSaveBrandEnabled(options)){
+	 		saveBrand(product, options);
+ 		}
+  	
+ 		if(isSaveCatalogEnabled(options)){
+	 		saveCatalog(product, options);
+ 		}
+  	
  		if(isSavePlatformEnabled(options)){
 	 		savePlatform(product, options);
  		}
@@ -795,6 +1153,57 @@ public class ProductJDBCTemplateDAO extends UxsNamingServiceDAO implements Produ
 	
 	//======================================================================================
 	 
+ 
+ 	protected Product saveParentCategory(Product product, Map<String,Object> options){
+ 		//Call inject DAO to execute this method
+ 		if(product.getParentCategory() == null){
+ 			return product;//do nothing when it is null
+ 		}
+ 		
+ 		getLevelNCategoryDAO().save(product.getParentCategory(),options);
+ 		return product;
+ 		
+ 	}
+ 	
+ 	
+ 	
+ 	 
+	
+  
+ 
+ 	protected Product saveBrand(Product product, Map<String,Object> options){
+ 		//Call inject DAO to execute this method
+ 		if(product.getBrand() == null){
+ 			return product;//do nothing when it is null
+ 		}
+ 		
+ 		getBrandDAO().save(product.getBrand(),options);
+ 		return product;
+ 		
+ 	}
+ 	
+ 	
+ 	
+ 	 
+	
+  
+ 
+ 	protected Product saveCatalog(Product product, Map<String,Object> options){
+ 		//Call inject DAO to execute this method
+ 		if(product.getCatalog() == null){
+ 			return product;//do nothing when it is null
+ 		}
+ 		
+ 		getCatalogDAO().save(product.getCatalog(),options);
+ 		return product;
+ 		
+ 	}
+ 	
+ 	
+ 	
+ 	 
+	
+  
  
  	protected Product savePlatform(Product product, Map<String,Object> options){
  		//Call inject DAO to execute this method
