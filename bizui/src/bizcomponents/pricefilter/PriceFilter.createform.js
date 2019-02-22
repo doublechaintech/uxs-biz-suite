@@ -18,8 +18,8 @@ const testValues = {};
 /*
 const testValues = {
   name: 'Philip Zhang',
-  priceStart: '1.98',
-  priceEnd: '830474.84',
+  priceStart: '1.52',
+  priceEnd: '832051.52',
   profileId: 'P000001',
 }
 */

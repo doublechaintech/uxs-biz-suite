@@ -1,7 +1,7 @@
 
 export const SYSTEM_SHORT_NAME = "uxs" //Use for requssting different apps
 export const SYSTEM_LOCAL_NAME = "User Experience Service" 
-export const BUILD_TIIME="Fri Feb 22 15:24:24 CST 2019"
+export const BUILD_TIIME="Fri Feb 22 15:55:14 CST 2019"
 export const MEDIA_UPLOAD_URL="https://www.doublechaintech.com/mss/upload.html"
 export const MEDIA_PREFIX="https://www.doublechaintech.com/mss/"
 

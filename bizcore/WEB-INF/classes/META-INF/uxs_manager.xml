@@ -11,6 +11,24 @@
 	<bean id="platformManagerBase" class="com.doublechaintech.uxs.platform.PlatformManagerImpl"/>
 	<bean id="platformManager" class="com.doublechaintech.uxs.platform.PlatformCustomManagerImpl" parent="platformManagerBase" ></bean>
 	
+	<bean id="siteManagerBase" class="com.doublechaintech.uxs.site.SiteManagerImpl"/>
+	<bean id="siteManager" class="com.doublechaintech.uxs.site.SiteManagerImpl" parent="siteManagerBase" ></bean>
+	
+	<bean id="catalogManagerBase" class="com.doublechaintech.uxs.catalog.CatalogManagerImpl"/>
+	<bean id="catalogManager" class="com.doublechaintech.uxs.catalog.CatalogCustomManagerImpl" parent="catalogManagerBase" ></bean>
+	
+	<bean id="levelOneCategoryManagerBase" class="com.doublechaintech.uxs.levelonecategory.LevelOneCategoryManagerImpl"/>
+	<bean id="levelOneCategoryManager" class="com.doublechaintech.uxs.levelonecategory.LevelOneCategoryManagerImpl" parent="levelOneCategoryManagerBase" ></bean>
+	
+	<bean id="levelTwoCategoryManagerBase" class="com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryManagerImpl"/>
+	<bean id="levelTwoCategoryManager" class="com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryManagerImpl" parent="levelTwoCategoryManagerBase" ></bean>
+	
+	<bean id="levelNCategoryManagerBase" class="com.doublechaintech.uxs.levelncategory.LevelNCategoryManagerImpl"/>
+	<bean id="levelNCategoryManager" class="com.doublechaintech.uxs.levelncategory.LevelNCategoryCustomManagerImpl" parent="levelNCategoryManagerBase" ></bean>
+	
+	<bean id="brandManagerBase" class="com.doublechaintech.uxs.brand.BrandManagerImpl"/>
+	<bean id="brandManager" class="com.doublechaintech.uxs.brand.BrandCustomManagerImpl" parent="brandManagerBase" ></bean>
+	
 	<bean id="productManagerBase" class="com.doublechaintech.uxs.product.ProductManagerImpl"/>
 	<bean id="productManager" class="com.doublechaintech.uxs.product.ProductCustomManagerImpl" parent="productManagerBase" ></bean>
 	
@@ -19,6 +37,9 @@
 	
 	<bean id="profileManagerBase" class="com.doublechaintech.uxs.profile.ProfileManagerImpl"/>
 	<bean id="profileManager" class="com.doublechaintech.uxs.profile.ProfileCustomManagerImpl" parent="profileManagerBase" ></bean>
+	
+	<bean id="userAlertManagerBase" class="com.doublechaintech.uxs.useralert.UserAlertManagerImpl"/>
+	<bean id="userAlertManager" class="com.doublechaintech.uxs.useralert.UserAlertManagerImpl" parent="userAlertManagerBase" ></bean>
 	
 	<bean id="targetManagerBase" class="com.doublechaintech.uxs.target.TargetManagerImpl"/>
 	<bean id="targetManager" class="com.doublechaintech.uxs.target.TargetManagerImpl" parent="targetManagerBase" ></bean>
@@ -31,6 +52,27 @@
 	
 	<bean id="blogManagerBase" class="com.doublechaintech.uxs.blog.BlogManagerImpl"/>
 	<bean id="blogManager" class="com.doublechaintech.uxs.blog.BlogManagerImpl" parent="blogManagerBase" ></bean>
+	
+	<bean id="brandFilterManagerBase" class="com.doublechaintech.uxs.brandfilter.BrandFilterManagerImpl"/>
+	<bean id="brandFilterManager" class="com.doublechaintech.uxs.brandfilter.BrandFilterManagerImpl" parent="brandFilterManagerBase" ></bean>
+	
+	<bean id="priceFilterManagerBase" class="com.doublechaintech.uxs.pricefilter.PriceFilterManagerImpl"/>
+	<bean id="priceFilterManager" class="com.doublechaintech.uxs.pricefilter.PriceFilterManagerImpl" parent="priceFilterManagerBase" ></bean>
+	
+	<bean id="categoryFilterManagerBase" class="com.doublechaintech.uxs.categoryfilter.CategoryFilterManagerImpl"/>
+	<bean id="categoryFilterManager" class="com.doublechaintech.uxs.categoryfilter.CategoryFilterManagerImpl" parent="categoryFilterManagerBase" ></bean>
+	
+	<bean id="newProductManagerBase" class="com.doublechaintech.uxs.newproduct.NewProductManagerImpl"/>
+	<bean id="newProductManager" class="com.doublechaintech.uxs.newproduct.NewProductManagerImpl" parent="newProductManagerBase" ></bean>
+	
+	<bean id="editorPickProductManagerBase" class="com.doublechaintech.uxs.editorpickproduct.EditorPickProductManagerImpl"/>
+	<bean id="editorPickProductManager" class="com.doublechaintech.uxs.editorpickproduct.EditorPickProductManagerImpl" parent="editorPickProductManagerBase" ></bean>
+	
+	<bean id="topRatedProductManagerBase" class="com.doublechaintech.uxs.topratedproduct.TopRatedProductManagerImpl"/>
+	<bean id="topRatedProductManager" class="com.doublechaintech.uxs.topratedproduct.TopRatedProductManagerImpl" parent="topRatedProductManagerBase" ></bean>
+	
+	<bean id="recommandProductManagerBase" class="com.doublechaintech.uxs.recommandproduct.RecommandProductManagerImpl"/>
+	<bean id="recommandProductManager" class="com.doublechaintech.uxs.recommandproduct.RecommandProductManagerImpl" parent="recommandProductManagerBase" ></bean>
 	
 	<bean id="userDomainManagerBase" class="com.doublechaintech.uxs.userdomain.UserDomainManagerImpl"/>
 	<bean id="userDomainManager" class="com.doublechaintech.uxs.userdomain.UserDomainCustomManagerImpl" parent="userDomainManagerBase" ></bean>
@@ -74,13 +116,27 @@
 
 	<bean id="managerGroupBase" class="com.doublechaintech.uxs.ManagerGroup">
 		<property name="platformManager" ref="platformManager"/>
+		<property name="siteManager" ref="siteManager"/>
+		<property name="catalogManager" ref="catalogManager"/>
+		<property name="levelOneCategoryManager" ref="levelOneCategoryManager"/>
+		<property name="levelTwoCategoryManager" ref="levelTwoCategoryManager"/>
+		<property name="levelNCategoryManager" ref="levelNCategoryManager"/>
+		<property name="brandManager" ref="brandManager"/>
 		<property name="productManager" ref="productManager"/>
 		<property name="bannerManager" ref="bannerManager"/>
 		<property name="profileManager" ref="profileManager"/>
+		<property name="userAlertManager" ref="userAlertManager"/>
 		<property name="targetManager" ref="targetManager"/>
 		<property name="ratingManager" ref="ratingManager"/>
 		<property name="reviewManager" ref="reviewManager"/>
 		<property name="blogManager" ref="blogManager"/>
+		<property name="brandFilterManager" ref="brandFilterManager"/>
+		<property name="priceFilterManager" ref="priceFilterManager"/>
+		<property name="categoryFilterManager" ref="categoryFilterManager"/>
+		<property name="newProductManager" ref="newProductManager"/>
+		<property name="editorPickProductManager" ref="editorPickProductManager"/>
+		<property name="topRatedProductManager" ref="topRatedProductManager"/>
+		<property name="recommandProductManager" ref="recommandProductManager"/>
 		<property name="userDomainManager" ref="userDomainManager"/>
 		<property name="userWhiteListManager" ref="userWhiteListManager"/>
 		<property name="secUserManager" ref="secUserManager"/>

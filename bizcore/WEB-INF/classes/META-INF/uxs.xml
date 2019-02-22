@@ -34,18 +34,108 @@
 	
 	<bean id="platformDAOBase" class="com.doublechaintech.uxs.platform.PlatformJDBCTemplateDAO">
 		<property name="dataSource" ref="dataSource" />
+		<property name="siteDAO" ref="siteDAO" />
+		
+		<property name="catalogDAO" ref="catalogDAO" />
+		
+		<property name="brandDAO" ref="brandDAO" />
+		
 		<property name="productDAO" ref="productDAO" />
 		
 		<property name="bannerDAO" ref="bannerDAO" />
 		
 		<property name="profileDAO" ref="profileDAO" />
 		
+		<property name="userAlertDAO" ref="userAlertDAO" />
+		
+		<property name="newProductDAO" ref="newProductDAO" />
+		
+		<property name="editorPickProductDAO" ref="editorPickProductDAO" />
+		
+		<property name="topRatedProductDAO" ref="topRatedProductDAO" />
+		
+		<property name="recommandProductDAO" ref="recommandProductDAO" />
+		
 	</bean>
 	<bean id="platformDAO" parent="platformDAOBase"></bean>	
 	
 	
-	<bean id="productDAOBase" class="com.doublechaintech.uxs.product.ProductJDBCTemplateDAO">
+	<bean id="siteDAOBase" class="com.doublechaintech.uxs.site.SiteJDBCTemplateDAO">
 		<property name="dataSource" ref="dataSource" /><property name="platformDAO" ref="platformDAO" />
+		<property name="catalogDAO" ref="catalogDAO" />
+		
+	</bean>
+	<bean id="siteDAO" parent="siteDAOBase"></bean>	
+	
+	
+	<bean id="catalogDAOBase" class="com.doublechaintech.uxs.catalog.CatalogJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="siteDAO" ref="siteDAO" /><property name="platformDAO" ref="platformDAO" />
+		<property name="levelOneCategoryDAO" ref="levelOneCategoryDAO" />
+		
+		<property name="productDAO" ref="productDAO" />
+		
+		<property name="newProductDAO" ref="newProductDAO" />
+		
+		<property name="editorPickProductDAO" ref="editorPickProductDAO" />
+		
+		<property name="topRatedProductDAO" ref="topRatedProductDAO" />
+		
+		<property name="recommandProductDAO" ref="recommandProductDAO" />
+		
+	</bean>
+	<bean id="catalogDAO" parent="catalogDAOBase"></bean>	
+	
+	
+	<bean id="levelOneCategoryDAOBase" class="com.doublechaintech.uxs.levelonecategory.LevelOneCategoryJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" />
+		<property name="levelTwoCategoryDAO" ref="levelTwoCategoryDAO" />
+		
+	</bean>
+	<bean id="levelOneCategoryDAO" parent="levelOneCategoryDAOBase"></bean>	
+	
+	
+	<bean id="levelTwoCategoryDAOBase" class="com.doublechaintech.uxs.leveltwocategory.LevelTwoCategoryJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="levelOneCategoryDAO" ref="levelOneCategoryDAO" />
+		<property name="levelNCategoryDAO" ref="levelNCategoryDAO" />
+		
+	</bean>
+	<bean id="levelTwoCategoryDAO" parent="levelTwoCategoryDAOBase"></bean>	
+	
+	
+	<bean id="levelNCategoryDAOBase" class="com.doublechaintech.uxs.levelncategory.LevelNCategoryJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="levelTwoCategoryDAO" ref="levelTwoCategoryDAO" />
+		<property name="productDAO" ref="productDAO" />
+		
+		<property name="newProductDAO" ref="newProductDAO" />
+		
+		<property name="editorPickProductDAO" ref="editorPickProductDAO" />
+		
+		<property name="topRatedProductDAO" ref="topRatedProductDAO" />
+		
+		<property name="recommandProductDAO" ref="recommandProductDAO" />
+		
+	</bean>
+	<bean id="levelNCategoryDAO" parent="levelNCategoryDAOBase"></bean>	
+	
+	
+	<bean id="brandDAOBase" class="com.doublechaintech.uxs.brand.BrandJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="platformDAO" ref="platformDAO" />
+		<property name="productDAO" ref="productDAO" />
+		
+		<property name="newProductDAO" ref="newProductDAO" />
+		
+		<property name="editorPickProductDAO" ref="editorPickProductDAO" />
+		
+		<property name="topRatedProductDAO" ref="topRatedProductDAO" />
+		
+		<property name="recommandProductDAO" ref="recommandProductDAO" />
+		
+	</bean>
+	<bean id="brandDAO" parent="brandDAOBase"></bean>	
+	
+	
+	<bean id="productDAOBase" class="com.doublechaintech.uxs.product.ProductJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" /><property name="levelNCategoryDAO" ref="levelNCategoryDAO" /><property name="brandDAO" ref="brandDAO" /><property name="platformDAO" ref="platformDAO" />
 		<property name="ratingDAO" ref="ratingDAO" />
 		
 		<property name="reviewDAO" ref="reviewDAO" />
@@ -66,6 +156,8 @@
 	
 	<bean id="profileDAOBase" class="com.doublechaintech.uxs.profile.ProfileJDBCTemplateDAO">
 		<property name="dataSource" ref="dataSource" /><property name="platformDAO" ref="platformDAO" />
+		<property name="userAlertDAO" ref="userAlertDAO" />
+		
 		<property name="targetDAO" ref="targetDAO" />
 		
 		<property name="ratingDAO" ref="ratingDAO" />
@@ -74,8 +166,28 @@
 		
 		<property name="blogDAO" ref="blogDAO" />
 		
+		<property name="brandFilterDAO" ref="brandFilterDAO" />
+		
+		<property name="priceFilterDAO" ref="priceFilterDAO" />
+		
+		<property name="categoryFilterDAO" ref="categoryFilterDAO" />
+		
+		<property name="newProductDAO" ref="newProductDAO" />
+		
+		<property name="editorPickProductDAO" ref="editorPickProductDAO" />
+		
+		<property name="topRatedProductDAO" ref="topRatedProductDAO" />
+		
+		<property name="recommandProductDAO" ref="recommandProductDAO" />
+		
 	</bean>
 	<bean id="profileDAO" parent="profileDAOBase"></bean>	
+	
+	
+	<bean id="userAlertDAOBase" class="com.doublechaintech.uxs.useralert.UserAlertJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="profileDAO" ref="profileDAO" /><property name="platformDAO" ref="platformDAO" />
+	</bean>
+	<bean id="userAlertDAO" parent="userAlertDAOBase"></bean>	
 	
 	
 	<bean id="targetDAOBase" class="com.doublechaintech.uxs.target.TargetJDBCTemplateDAO">
@@ -100,6 +212,48 @@
 		<property name="dataSource" ref="dataSource" /><property name="productDAO" ref="productDAO" /><property name="profileDAO" ref="profileDAO" />
 	</bean>
 	<bean id="blogDAO" parent="blogDAOBase"></bean>	
+	
+	
+	<bean id="brandFilterDAOBase" class="com.doublechaintech.uxs.brandfilter.BrandFilterJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="profileDAO" ref="profileDAO" />
+	</bean>
+	<bean id="brandFilterDAO" parent="brandFilterDAOBase"></bean>	
+	
+	
+	<bean id="priceFilterDAOBase" class="com.doublechaintech.uxs.pricefilter.PriceFilterJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="profileDAO" ref="profileDAO" />
+	</bean>
+	<bean id="priceFilterDAO" parent="priceFilterDAOBase"></bean>	
+	
+	
+	<bean id="categoryFilterDAOBase" class="com.doublechaintech.uxs.categoryfilter.CategoryFilterJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="profileDAO" ref="profileDAO" />
+	</bean>
+	<bean id="categoryFilterDAO" parent="categoryFilterDAOBase"></bean>	
+	
+	
+	<bean id="newProductDAOBase" class="com.doublechaintech.uxs.newproduct.NewProductJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" /><property name="levelNCategoryDAO" ref="levelNCategoryDAO" /><property name="profileDAO" ref="profileDAO" /><property name="brandDAO" ref="brandDAO" /><property name="platformDAO" ref="platformDAO" />
+	</bean>
+	<bean id="newProductDAO" parent="newProductDAOBase"></bean>	
+	
+	
+	<bean id="editorPickProductDAOBase" class="com.doublechaintech.uxs.editorpickproduct.EditorPickProductJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" /><property name="levelNCategoryDAO" ref="levelNCategoryDAO" /><property name="profileDAO" ref="profileDAO" /><property name="brandDAO" ref="brandDAO" /><property name="platformDAO" ref="platformDAO" />
+	</bean>
+	<bean id="editorPickProductDAO" parent="editorPickProductDAOBase"></bean>	
+	
+	
+	<bean id="topRatedProductDAOBase" class="com.doublechaintech.uxs.topratedproduct.TopRatedProductJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" /><property name="levelNCategoryDAO" ref="levelNCategoryDAO" /><property name="profileDAO" ref="profileDAO" /><property name="brandDAO" ref="brandDAO" /><property name="platformDAO" ref="platformDAO" />
+	</bean>
+	<bean id="topRatedProductDAO" parent="topRatedProductDAOBase"></bean>	
+	
+	
+	<bean id="recommandProductDAOBase" class="com.doublechaintech.uxs.recommandproduct.RecommandProductJDBCTemplateDAO">
+		<property name="dataSource" ref="dataSource" /><property name="catalogDAO" ref="catalogDAO" /><property name="levelNCategoryDAO" ref="levelNCategoryDAO" /><property name="profileDAO" ref="profileDAO" /><property name="brandDAO" ref="brandDAO" /><property name="platformDAO" ref="platformDAO" />
+	</bean>
+	<bean id="recommandProductDAO" parent="recommandProductDAOBase"></bean>	
 	
 	
 	<bean id="userDomainDAOBase" class="com.doublechaintech.uxs.userdomain.UserDomainJDBCTemplateDAO">
@@ -205,13 +359,27 @@
 
 	<bean id="DAOGroupBase" class="com.doublechaintech.uxs.DAOGroup">
 		<property name="platformDAO" ref="platformDAO"/>
+		<property name="siteDAO" ref="siteDAO"/>
+		<property name="catalogDAO" ref="catalogDAO"/>
+		<property name="levelOneCategoryDAO" ref="levelOneCategoryDAO"/>
+		<property name="levelTwoCategoryDAO" ref="levelTwoCategoryDAO"/>
+		<property name="levelNCategoryDAO" ref="levelNCategoryDAO"/>
+		<property name="brandDAO" ref="brandDAO"/>
 		<property name="productDAO" ref="productDAO"/>
 		<property name="bannerDAO" ref="bannerDAO"/>
 		<property name="profileDAO" ref="profileDAO"/>
+		<property name="userAlertDAO" ref="userAlertDAO"/>
 		<property name="targetDAO" ref="targetDAO"/>
 		<property name="ratingDAO" ref="ratingDAO"/>
 		<property name="reviewDAO" ref="reviewDAO"/>
 		<property name="blogDAO" ref="blogDAO"/>
+		<property name="brandFilterDAO" ref="brandFilterDAO"/>
+		<property name="priceFilterDAO" ref="priceFilterDAO"/>
+		<property name="categoryFilterDAO" ref="categoryFilterDAO"/>
+		<property name="newProductDAO" ref="newProductDAO"/>
+		<property name="editorPickProductDAO" ref="editorPickProductDAO"/>
+		<property name="topRatedProductDAO" ref="topRatedProductDAO"/>
+		<property name="recommandProductDAO" ref="recommandProductDAO"/>
 		<property name="userDomainDAO" ref="userDomainDAO"/>
 		<property name="userWhiteListDAO" ref="userWhiteListDAO"/>
 		<property name="secUserDAO" ref="secUserDAO"/>

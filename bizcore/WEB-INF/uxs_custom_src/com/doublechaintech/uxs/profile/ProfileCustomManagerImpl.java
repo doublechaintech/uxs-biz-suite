@@ -32,10 +32,10 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 		
 		String tokens[]=this.tokens().withBlogList().withRatingList().withReviewList().withTargetList().toArray();
 		
-		List<Profile> imageList = this.loadProfileListFromDifferentServices(userContext, new String[] {"cms","ugc"}, profileId, tokens);
+		List<Profile> profileList = this.loadProfileListFromDifferentServices(userContext, new String[] {"cms","ugc"}, profileId, tokens);
 		
 		
-		return mergeProfileFromMicroservices( userContext, imageList);
+		return mergeProfileFromMicroservices( userContext, profileList);
 		
 		
 		
@@ -45,10 +45,13 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 	protected String packTokens(String[] tokensExpr) {
 		return String.join(";", tokensExpr);
 	}
-	protected<T> T loadRemoteObject(String tokenId, String serviceName,String ProfileId, String[] tokensExpr, Class<?>clazz) throws ClientProtocolException, IOException {
+	protected<T> T loadRemoteObject(UxsUserContext userContext, String serviceName,String ProfileId, String[] tokensExpr, Class<?>clazz) throws ClientProtocolException, IOException {
 		String url = "https://demo.doublechaintech.com/"+serviceName+"/profileManager/loadProfile/"+ProfileId+"/"+packTokens(tokensExpr)+"/";
 		
-		Object object= RestUtil.remoteGetObject(tokenId, url, clazz);
+		
+		userContext.log("load data from :"+ url);
+		
+		Object object= RestUtil.remoteGetObject(userContext.tokenId(), url, clazz);
 		T Profile =(T)object ;
 		return Profile;
 	}
@@ -62,6 +65,10 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 			
 			try {
 				Profile profile = loadRemoteProfile(userContext,serviceName,ProfileId,tokensExpr);
+				
+				userContext.log("load profile "+ profile);
+				
+				
 				profileList.add(profile);
 			} catch (ClientProtocolException e) {
 				
@@ -122,7 +129,7 @@ public class ProfileCustomManagerImpl extends ProfileManagerImpl{
 		
 	}
 	protected Profile loadRemoteProfile(UxsUserContext userContext, String serviceName,String ProfileId, String[] tokensExpr) throws ClientProtocolException, IOException {
-		return this.loadRemoteObject(userContext.tokenId(), serviceName, ProfileId, tokensExpr, Profile.class);
+		return this.loadRemoteObject(userContext, serviceName, ProfileId, tokensExpr, Profile.class);
 	}
 
 
