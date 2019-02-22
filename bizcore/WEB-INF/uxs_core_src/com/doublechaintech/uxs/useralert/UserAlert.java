@@ -157,6 +157,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setMessage(String message){
@@ -170,6 +173,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeMessage(String message){
+		if(message != null) { setMessage(message);}
+	}
 	
 	
 	public void setProfile(Profile profile){
@@ -182,6 +188,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.mProfile = profile;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeProfile(Profile profile){
+		if(profile != null) { setProfile(profile);}
 	}
 	
 	
@@ -201,6 +210,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeLocation(String location){
+		if(location != null) { setLocation(location);}
+	}
 	
 	
 	public void setLastUpdate(DateTime lastUpdate){
@@ -214,6 +226,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeLastUpdate(DateTime lastUpdate){
+		setLastUpdate(lastUpdate);
+	}
 	
 	
 	public void setPlatform(Platform platform){
@@ -226,6 +241,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.mPlatform = platform;;
 		this.changed = true;
 		return this;
+	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
 	}
 	
 	
@@ -244,6 +262,9 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -303,6 +324,26 @@ public class UserAlert extends BaseEntity implements  java.io.Serializable{
 			dest.setLastUpdate(getLastUpdate());
 			dest.setPlatform(getPlatform());
 			dest.setVersion(getVersion());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof UserAlert){
+		
+			
+			UserAlert dest =(UserAlert)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeMessage(getMessage());
+			dest.mergeProfile(getProfile());
+			dest.mergeLocation(getLocation());
+			dest.mergeLastUpdate(getLastUpdate());
+			dest.mergePlatform(getPlatform());
+			dest.mergeVersion(getVersion());
 
 		}
 		super.copyTo(baseDest);

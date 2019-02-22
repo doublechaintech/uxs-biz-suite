@@ -157,6 +157,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setTitle(String title){
@@ -169,6 +172,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.mTitle = trimString(title);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeTitle(String title){
+		if(title != null) { setTitle(title);}
 	}
 	
 	
@@ -183,6 +189,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeContent(String content){
+		if(content != null) { setContent(content);}
+	}
 	
 	
 	public void setUser(Profile user){
@@ -195,6 +204,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.mUser = user;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeUser(Profile user){
+		if(user != null) { setUser(user);}
 	}
 	
 	
@@ -214,6 +226,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeProduct(Product product){
+		if(product != null) { setProduct(product);}
+	}
 	
 	
 	public void clearProduct(){
@@ -232,6 +247,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeUpdateTime(DateTime updateTime){
+		setUpdateTime(updateTime);
+	}
 	
 	
 	public void setVersion(int version){
@@ -244,6 +262,9 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -303,6 +324,26 @@ public class Blog extends BaseEntity implements  java.io.Serializable{
 			dest.setProduct(getProduct());
 			dest.setUpdateTime(getUpdateTime());
 			dest.setVersion(getVersion());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Blog){
+		
+			
+			Blog dest =(Blog)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeTitle(getTitle());
+			dest.mergeContent(getContent());
+			dest.mergeUser(getUser());
+			dest.mergeProduct(getProduct());
+			dest.mergeUpdateTime(getUpdateTime());
+			dest.mergeVersion(getVersion());
 
 		}
 		super.copyTo(baseDest);

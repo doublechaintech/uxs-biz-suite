@@ -131,6 +131,9 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -144,6 +147,9 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setInternalId(String internalId){
@@ -156,6 +162,9 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 		this.mInternalId = trimString(internalId);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeInternalId(String internalId){
+		if(internalId != null) { setInternalId(internalId);}
 	}
 	
 	
@@ -175,6 +184,9 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeProfile(Profile profile){
+		if(profile != null) { setProfile(profile);}
+	}
 	
 	
 	public void clearProfile(){
@@ -192,6 +204,9 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -246,6 +261,24 @@ public class CategoryFilter extends BaseEntity implements  java.io.Serializable{
 			dest.setInternalId(getInternalId());
 			dest.setProfile(getProfile());
 			dest.setVersion(getVersion());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof CategoryFilter){
+		
+			
+			CategoryFilter dest =(CategoryFilter)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeInternalId(getInternalId());
+			dest.mergeProfile(getProfile());
+			dest.mergeVersion(getVersion());
 
 		}
 		super.copyTo(baseDest);

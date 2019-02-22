@@ -152,6 +152,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -164,6 +167,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.mName = trimString(name);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
 	}
 	
 	
@@ -178,6 +184,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergePriceStart(BigDecimal priceStart){
+		setPriceStart(priceStart);
+	}
 	
 	
 	public void setPriceEnd(BigDecimal priceEnd){
@@ -191,6 +200,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergePriceEnd(BigDecimal priceEnd){
+		setPriceEnd(priceEnd);
+	}
 	
 	
 	public void setProfile(Profile profile){
@@ -203,6 +215,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.mProfile = profile;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeProfile(Profile profile){
+		if(profile != null) { setProfile(profile);}
 	}
 	
 	
@@ -221,6 +236,9 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -277,6 +295,25 @@ public class PriceFilter extends BaseEntity implements  java.io.Serializable{
 			dest.setPriceEnd(getPriceEnd());
 			dest.setProfile(getProfile());
 			dest.setVersion(getVersion());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof PriceFilter){
+		
+			
+			PriceFilter dest =(PriceFilter)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergePriceStart(getPriceStart());
+			dest.mergePriceEnd(getPriceEnd());
+			dest.mergeProfile(getProfile());
+			dest.mergeVersion(getVersion());
 
 		}
 		super.copyTo(baseDest);

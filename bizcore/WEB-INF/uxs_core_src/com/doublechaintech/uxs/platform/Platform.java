@@ -149,6 +149,9 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -162,6 +165,9 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setVersion(int version){
@@ -174,6 +180,9 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -207,7 +216,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getSiteList().addAll(siteList);
 	}
-	
+	public  void mergeSiteList(SmartList<Site> siteList){
+		if(siteList==null){
+			return;
+		}
+		if(siteList.isEmpty()){
+			return;
+		}
+		addSiteList( siteList );
+		
+	}
 	public  Site removeSite(Site siteIndex){
 		
 		int index = getSiteList().indexOf(siteIndex);
@@ -305,7 +323,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getCatalogList().addAll(catalogList);
 	}
-	
+	public  void mergeCatalogList(SmartList<Catalog> catalogList){
+		if(catalogList==null){
+			return;
+		}
+		if(catalogList.isEmpty()){
+			return;
+		}
+		addCatalogList( catalogList );
+		
+	}
 	public  Catalog removeCatalog(Catalog catalogIndex){
 		
 		int index = getCatalogList().indexOf(catalogIndex);
@@ -403,7 +430,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getBrandList().addAll(brandList);
 	}
-	
+	public  void mergeBrandList(SmartList<Brand> brandList){
+		if(brandList==null){
+			return;
+		}
+		if(brandList.isEmpty()){
+			return;
+		}
+		addBrandList( brandList );
+		
+	}
 	public  Brand removeBrand(Brand brandIndex){
 		
 		int index = getBrandList().indexOf(brandIndex);
@@ -501,7 +537,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getProductList().addAll(productList);
 	}
-	
+	public  void mergeProductList(SmartList<Product> productList){
+		if(productList==null){
+			return;
+		}
+		if(productList.isEmpty()){
+			return;
+		}
+		addProductList( productList );
+		
+	}
 	public  Product removeProduct(Product productIndex){
 		
 		int index = getProductList().indexOf(productIndex);
@@ -599,7 +644,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getBannerList().addAll(bannerList);
 	}
-	
+	public  void mergeBannerList(SmartList<Banner> bannerList){
+		if(bannerList==null){
+			return;
+		}
+		if(bannerList.isEmpty()){
+			return;
+		}
+		addBannerList( bannerList );
+		
+	}
 	public  Banner removeBanner(Banner bannerIndex){
 		
 		int index = getBannerList().indexOf(bannerIndex);
@@ -697,7 +751,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getProfileList().addAll(profileList);
 	}
-	
+	public  void mergeProfileList(SmartList<Profile> profileList){
+		if(profileList==null){
+			return;
+		}
+		if(profileList.isEmpty()){
+			return;
+		}
+		addProfileList( profileList );
+		
+	}
 	public  Profile removeProfile(Profile profileIndex){
 		
 		int index = getProfileList().indexOf(profileIndex);
@@ -795,7 +858,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getUserAlertList().addAll(userAlertList);
 	}
-	
+	public  void mergeUserAlertList(SmartList<UserAlert> userAlertList){
+		if(userAlertList==null){
+			return;
+		}
+		if(userAlertList.isEmpty()){
+			return;
+		}
+		addUserAlertList( userAlertList );
+		
+	}
 	public  UserAlert removeUserAlert(UserAlert userAlertIndex){
 		
 		int index = getUserAlertList().indexOf(userAlertIndex);
@@ -893,7 +965,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getNewProductList().addAll(newProductList);
 	}
-	
+	public  void mergeNewProductList(SmartList<NewProduct> newProductList){
+		if(newProductList==null){
+			return;
+		}
+		if(newProductList.isEmpty()){
+			return;
+		}
+		addNewProductList( newProductList );
+		
+	}
 	public  NewProduct removeNewProduct(NewProduct newProductIndex){
 		
 		int index = getNewProductList().indexOf(newProductIndex);
@@ -991,7 +1072,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getEditorPickProductList().addAll(editorPickProductList);
 	}
-	
+	public  void mergeEditorPickProductList(SmartList<EditorPickProduct> editorPickProductList){
+		if(editorPickProductList==null){
+			return;
+		}
+		if(editorPickProductList.isEmpty()){
+			return;
+		}
+		addEditorPickProductList( editorPickProductList );
+		
+	}
 	public  EditorPickProduct removeEditorPickProduct(EditorPickProduct editorPickProductIndex){
 		
 		int index = getEditorPickProductList().indexOf(editorPickProductIndex);
@@ -1089,7 +1179,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getTopRatedProductList().addAll(topRatedProductList);
 	}
-	
+	public  void mergeTopRatedProductList(SmartList<TopRatedProduct> topRatedProductList){
+		if(topRatedProductList==null){
+			return;
+		}
+		if(topRatedProductList.isEmpty()){
+			return;
+		}
+		addTopRatedProductList( topRatedProductList );
+		
+	}
 	public  TopRatedProduct removeTopRatedProduct(TopRatedProduct topRatedProductIndex){
 		
 		int index = getTopRatedProductList().indexOf(topRatedProductIndex);
@@ -1187,7 +1286,16 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 		}
 		getRecommandProductList().addAll(recommandProductList);
 	}
-	
+	public  void mergeRecommandProductList(SmartList<RecommandProduct> recommandProductList){
+		if(recommandProductList==null){
+			return;
+		}
+		if(recommandProductList.isEmpty()){
+			return;
+		}
+		addRecommandProductList( recommandProductList );
+		
+	}
 	public  RecommandProduct removeRecommandProduct(RecommandProduct recommandProductIndex){
 		
 		int index = getRecommandProductList().indexOf(recommandProductIndex);
@@ -1389,6 +1497,33 @@ public class Platform extends BaseEntity implements  java.io.Serializable{
 			dest.setEditorPickProductList(getEditorPickProductList());
 			dest.setTopRatedProductList(getTopRatedProductList());
 			dest.setRecommandProductList(getRecommandProductList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Platform){
+		
+			
+			Platform dest =(Platform)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeVersion(getVersion());
+			dest.mergeSiteList(getSiteList());
+			dest.mergeCatalogList(getCatalogList());
+			dest.mergeBrandList(getBrandList());
+			dest.mergeProductList(getProductList());
+			dest.mergeBannerList(getBannerList());
+			dest.mergeProfileList(getProfileList());
+			dest.mergeUserAlertList(getUserAlertList());
+			dest.mergeNewProductList(getNewProductList());
+			dest.mergeEditorPickProductList(getEditorPickProductList());
+			dest.mergeTopRatedProductList(getTopRatedProductList());
+			dest.mergeRecommandProductList(getRecommandProductList());
 
 		}
 		super.copyTo(baseDest);

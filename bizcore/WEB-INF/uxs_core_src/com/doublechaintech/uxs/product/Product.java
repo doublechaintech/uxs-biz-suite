@@ -221,6 +221,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -234,6 +237,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setParentCategory(LevelNCategory parentCategory){
@@ -246,6 +252,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.mParentCategory = parentCategory;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeParentCategory(LevelNCategory parentCategory){
+		if(parentCategory != null) { setParentCategory(parentCategory);}
 	}
 	
 	
@@ -265,6 +274,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeBrand(Brand brand){
+		if(brand != null) { setBrand(brand);}
+	}
 	
 	
 	public void clearBrand(){
@@ -283,6 +295,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeProductCoverImage(String productCoverImage){
+		if(productCoverImage != null) { setProductCoverImage(productCoverImage);}
+	}
 	
 	
 	public void setOrigin(String origin){
@@ -296,6 +311,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeOrigin(String origin){
+		if(origin != null) { setOrigin(origin);}
+	}
 	
 	
 	public void setCatalog(Catalog catalog){
@@ -308,6 +326,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.mCatalog = catalog;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeCatalog(Catalog catalog){
+		if(catalog != null) { setCatalog(catalog);}
 	}
 	
 	
@@ -327,6 +348,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeRemark(String remark){
+		if(remark != null) { setRemark(remark);}
+	}
 	
 	
 	public void setLastUpdateTime(DateTime lastUpdateTime){
@@ -340,6 +364,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeLastUpdateTime(DateTime lastUpdateTime){
+		setLastUpdateTime(lastUpdateTime);
+	}
 	
 	
 	public void setPlatform(Platform platform){
@@ -352,6 +379,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.mPlatform = platform;;
 		this.changed = true;
 		return this;
+	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
 	}
 	
 	
@@ -370,6 +400,9 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -403,7 +436,16 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		}
 		getRatingList().addAll(ratingList);
 	}
-	
+	public  void mergeRatingList(SmartList<Rating> ratingList){
+		if(ratingList==null){
+			return;
+		}
+		if(ratingList.isEmpty()){
+			return;
+		}
+		addRatingList( ratingList );
+		
+	}
 	public  Rating removeRating(Rating ratingIndex){
 		
 		int index = getRatingList().indexOf(ratingIndex);
@@ -501,7 +543,16 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		}
 		getReviewList().addAll(reviewList);
 	}
-	
+	public  void mergeReviewList(SmartList<Review> reviewList){
+		if(reviewList==null){
+			return;
+		}
+		if(reviewList.isEmpty()){
+			return;
+		}
+		addReviewList( reviewList );
+		
+	}
 	public  Review removeReview(Review reviewIndex){
 		
 		int index = getReviewList().indexOf(reviewIndex);
@@ -599,7 +650,16 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 		}
 		getBlogList().addAll(blogList);
 	}
-	
+	public  void mergeBlogList(SmartList<Blog> blogList){
+		if(blogList==null){
+			return;
+		}
+		if(blogList.isEmpty()){
+			return;
+		}
+		addBlogList( blogList );
+		
+	}
 	public  Blog removeBlog(Blog blogIndex){
 		
 		int index = getBlogList().indexOf(blogIndex);
@@ -757,6 +817,33 @@ public class Product extends BaseEntity implements  java.io.Serializable{
 			dest.setRatingList(getRatingList());
 			dest.setReviewList(getReviewList());
 			dest.setBlogList(getBlogList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Product){
+		
+			
+			Product dest =(Product)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeParentCategory(getParentCategory());
+			dest.mergeBrand(getBrand());
+			dest.mergeProductCoverImage(getProductCoverImage());
+			dest.mergeOrigin(getOrigin());
+			dest.mergeCatalog(getCatalog());
+			dest.mergeRemark(getRemark());
+			dest.mergeLastUpdateTime(getLastUpdateTime());
+			dest.mergePlatform(getPlatform());
+			dest.mergeVersion(getVersion());
+			dest.mergeRatingList(getRatingList());
+			dest.mergeReviewList(getReviewList());
+			dest.mergeBlogList(getBlogList());
 
 		}
 		super.copyTo(baseDest);

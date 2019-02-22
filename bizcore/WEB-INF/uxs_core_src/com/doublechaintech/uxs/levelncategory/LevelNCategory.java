@@ -130,6 +130,9 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setParentCategory(LevelTwoCategory parentCategory){
@@ -142,6 +145,9 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		this.mParentCategory = parentCategory;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeParentCategory(LevelTwoCategory parentCategory){
+		if(parentCategory != null) { setParentCategory(parentCategory);}
 	}
 	
 	
@@ -161,6 +167,9 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setVersion(int version){
@@ -173,6 +182,9 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -206,7 +218,16 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		}
 		getProductList().addAll(productList);
 	}
-	
+	public  void mergeProductList(SmartList<Product> productList){
+		if(productList==null){
+			return;
+		}
+		if(productList.isEmpty()){
+			return;
+		}
+		addProductList( productList );
+		
+	}
 	public  Product removeProduct(Product productIndex){
 		
 		int index = getProductList().indexOf(productIndex);
@@ -304,7 +325,16 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		}
 		getNewProductList().addAll(newProductList);
 	}
-	
+	public  void mergeNewProductList(SmartList<NewProduct> newProductList){
+		if(newProductList==null){
+			return;
+		}
+		if(newProductList.isEmpty()){
+			return;
+		}
+		addNewProductList( newProductList );
+		
+	}
 	public  NewProduct removeNewProduct(NewProduct newProductIndex){
 		
 		int index = getNewProductList().indexOf(newProductIndex);
@@ -402,7 +432,16 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		}
 		getEditorPickProductList().addAll(editorPickProductList);
 	}
-	
+	public  void mergeEditorPickProductList(SmartList<EditorPickProduct> editorPickProductList){
+		if(editorPickProductList==null){
+			return;
+		}
+		if(editorPickProductList.isEmpty()){
+			return;
+		}
+		addEditorPickProductList( editorPickProductList );
+		
+	}
 	public  EditorPickProduct removeEditorPickProduct(EditorPickProduct editorPickProductIndex){
 		
 		int index = getEditorPickProductList().indexOf(editorPickProductIndex);
@@ -500,7 +539,16 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		}
 		getTopRatedProductList().addAll(topRatedProductList);
 	}
-	
+	public  void mergeTopRatedProductList(SmartList<TopRatedProduct> topRatedProductList){
+		if(topRatedProductList==null){
+			return;
+		}
+		if(topRatedProductList.isEmpty()){
+			return;
+		}
+		addTopRatedProductList( topRatedProductList );
+		
+	}
 	public  TopRatedProduct removeTopRatedProduct(TopRatedProduct topRatedProductIndex){
 		
 		int index = getTopRatedProductList().indexOf(topRatedProductIndex);
@@ -598,7 +646,16 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 		}
 		getRecommandProductList().addAll(recommandProductList);
 	}
-	
+	public  void mergeRecommandProductList(SmartList<RecommandProduct> recommandProductList){
+		if(recommandProductList==null){
+			return;
+		}
+		if(recommandProductList.isEmpty()){
+			return;
+		}
+		addRecommandProductList( recommandProductList );
+		
+	}
 	public  RecommandProduct removeRecommandProduct(RecommandProduct recommandProductIndex){
 		
 		int index = getRecommandProductList().indexOf(recommandProductIndex);
@@ -755,6 +812,28 @@ public class LevelNCategory extends BaseEntity implements  java.io.Serializable{
 			dest.setEditorPickProductList(getEditorPickProductList());
 			dest.setTopRatedProductList(getTopRatedProductList());
 			dest.setRecommandProductList(getRecommandProductList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof LevelNCategory){
+		
+			
+			LevelNCategory dest =(LevelNCategory)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeParentCategory(getParentCategory());
+			dest.mergeName(getName());
+			dest.mergeVersion(getVersion());
+			dest.mergeProductList(getProductList());
+			dest.mergeNewProductList(getNewProductList());
+			dest.mergeEditorPickProductList(getEditorPickProductList());
+			dest.mergeTopRatedProductList(getTopRatedProductList());
+			dest.mergeRecommandProductList(getRecommandProductList());
 
 		}
 		super.copyTo(baseDest);

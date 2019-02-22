@@ -160,6 +160,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeId(String id){
+		if(id != null) { setId(id);}
+	}
 	
 	
 	public void setName(String name){
@@ -173,6 +176,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeName(String name){
+		if(name != null) { setName(name);}
+	}
 	
 	
 	public void setSellerId(String sellerId){
@@ -185,6 +191,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.mSellerId = trimString(sellerId);;
 		this.changed = true;
 		return this;
+	}
+	public void mergeSellerId(String sellerId){
+		if(sellerId != null) { setSellerId(sellerId);}
 	}
 	
 	
@@ -204,6 +213,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergeSite(Site site){
+		if(site != null) { setSite(site);}
+	}
 	
 	
 	public void clearSite(){
@@ -222,6 +234,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 		return this;
 	}
+	public void mergePlatform(Platform platform){
+		if(platform != null) { setPlatform(platform);}
+	}
 	
 	
 	public void clearPlatform(){
@@ -239,6 +254,9 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		this.mVersion = version;;
 		this.changed = true;
 		return this;
+	}
+	public void mergeVersion(int version){
+		setVersion(version);
 	}
 	
 	
@@ -272,7 +290,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getLevelOneCategoryList().addAll(levelOneCategoryList);
 	}
-	
+	public  void mergeLevelOneCategoryList(SmartList<LevelOneCategory> levelOneCategoryList){
+		if(levelOneCategoryList==null){
+			return;
+		}
+		if(levelOneCategoryList.isEmpty()){
+			return;
+		}
+		addLevelOneCategoryList( levelOneCategoryList );
+		
+	}
 	public  LevelOneCategory removeLevelOneCategory(LevelOneCategory levelOneCategoryIndex){
 		
 		int index = getLevelOneCategoryList().indexOf(levelOneCategoryIndex);
@@ -370,7 +397,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getProductList().addAll(productList);
 	}
-	
+	public  void mergeProductList(SmartList<Product> productList){
+		if(productList==null){
+			return;
+		}
+		if(productList.isEmpty()){
+			return;
+		}
+		addProductList( productList );
+		
+	}
 	public  Product removeProduct(Product productIndex){
 		
 		int index = getProductList().indexOf(productIndex);
@@ -468,7 +504,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getNewProductList().addAll(newProductList);
 	}
-	
+	public  void mergeNewProductList(SmartList<NewProduct> newProductList){
+		if(newProductList==null){
+			return;
+		}
+		if(newProductList.isEmpty()){
+			return;
+		}
+		addNewProductList( newProductList );
+		
+	}
 	public  NewProduct removeNewProduct(NewProduct newProductIndex){
 		
 		int index = getNewProductList().indexOf(newProductIndex);
@@ -566,7 +611,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getEditorPickProductList().addAll(editorPickProductList);
 	}
-	
+	public  void mergeEditorPickProductList(SmartList<EditorPickProduct> editorPickProductList){
+		if(editorPickProductList==null){
+			return;
+		}
+		if(editorPickProductList.isEmpty()){
+			return;
+		}
+		addEditorPickProductList( editorPickProductList );
+		
+	}
 	public  EditorPickProduct removeEditorPickProduct(EditorPickProduct editorPickProductIndex){
 		
 		int index = getEditorPickProductList().indexOf(editorPickProductIndex);
@@ -664,7 +718,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getTopRatedProductList().addAll(topRatedProductList);
 	}
-	
+	public  void mergeTopRatedProductList(SmartList<TopRatedProduct> topRatedProductList){
+		if(topRatedProductList==null){
+			return;
+		}
+		if(topRatedProductList.isEmpty()){
+			return;
+		}
+		addTopRatedProductList( topRatedProductList );
+		
+	}
 	public  TopRatedProduct removeTopRatedProduct(TopRatedProduct topRatedProductIndex){
 		
 		int index = getTopRatedProductList().indexOf(topRatedProductIndex);
@@ -762,7 +825,16 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 		}
 		getRecommandProductList().addAll(recommandProductList);
 	}
-	
+	public  void mergeRecommandProductList(SmartList<RecommandProduct> recommandProductList){
+		if(recommandProductList==null){
+			return;
+		}
+		if(recommandProductList.isEmpty()){
+			return;
+		}
+		addRecommandProductList( recommandProductList );
+		
+	}
 	public  RecommandProduct removeRecommandProduct(RecommandProduct recommandProductIndex){
 		
 		int index = getRecommandProductList().indexOf(recommandProductIndex);
@@ -932,6 +1004,31 @@ public class Catalog extends BaseEntity implements  java.io.Serializable{
 			dest.setEditorPickProductList(getEditorPickProductList());
 			dest.setTopRatedProductList(getTopRatedProductList());
 			dest.setRecommandProductList(getRecommandProductList());
+
+		}
+		super.copyTo(baseDest);
+		return baseDest;
+	}
+	public BaseEntity mergeDataTo(BaseEntity baseDest){
+		
+		
+		if(baseDest instanceof Catalog){
+		
+			
+			Catalog dest =(Catalog)baseDest;
+		
+			dest.mergeId(getId());
+			dest.mergeName(getName());
+			dest.mergeSellerId(getSellerId());
+			dest.mergeSite(getSite());
+			dest.mergePlatform(getPlatform());
+			dest.mergeVersion(getVersion());
+			dest.mergeLevelOneCategoryList(getLevelOneCategoryList());
+			dest.mergeProductList(getProductList());
+			dest.mergeNewProductList(getNewProductList());
+			dest.mergeEditorPickProductList(getEditorPickProductList());
+			dest.mergeTopRatedProductList(getTopRatedProductList());
+			dest.mergeRecommandProductList(getRecommandProductList());
 
 		}
 		super.copyTo(baseDest);
